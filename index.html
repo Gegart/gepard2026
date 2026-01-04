@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СКАЧАТЬ ТРЕК: 2026: Эпицентр Будущего | Гегард Про</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Teko:wght@300;400;600&family=Chakra+Petch:wght@300;400;700&display=swap');
+        
+        body {
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Chakra Petch', sans-serif;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 255, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 0, 0.1) 0%, transparent 20%);
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(5, 0, 15, 0.95);
+            backdrop-filter: blur(25px);
+            border-radius: 35px;
+            padding: 45px;
+            border: 4px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            box-shadow: 
+                0 0 80px rgba(255, 0, 255, 0.3),
+                0 0 150px rgba(0, 255, 255, 0.15),
+                inset 0 0 50px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out, glow 6s infinite alternate;
+            margin: 20px;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            border-radius: 39px;
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+            opacity: 0.7;
+            filter: blur(15px);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 80px rgba(255, 0, 255, 0.4), 0 0 150px rgba(0, 255, 255, 0.2); }
+            50% { box-shadow: 0 0 100px rgba(0, 255, 255, 0.4), 0 0 180px rgba(255, 0, 255, 0.3); }
+            100% { box-shadow: 0 0 80px rgba(255, 255, 0, 0.4), 0 0 150px rgba(255, 0, 255, 0.2); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .header {
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header h1 {
+            font-size: 3.8rem;
+            margin-bottom: 12px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, 
+                #ff00ff 0%, 
+                #ff0080 15%, 
+                #ff0000 30%, 
+                #ffff00 45%, 
+                #00ff00 60%, 
+                #00ffff 75%, 
+                #0080ff 90%,
+                #ff00ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 400% 100%;
+            animation: rainbowText 5s linear infinite;
+            text-shadow: 
+                0 0 25px rgba(255, 255, 255, 0.4),
+                0 0 50px rgba(255, 0, 255, 0.3);
+            line-height: 1.1;
+        }
+        
+        @keyframes rainbowText {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 400% 50%; }
+        }
+        
+        .artist {
+            font-size: 2.5rem;
+            color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: 5px;
+            font-family: 'Teko', sans-serif;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #00ffff, #ff00ff, #ffff00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 4s infinite, float 6s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+        
+        @keyframes shine {
+            0%, 100% { filter: brightness(1) hue-rotate(0deg); }
+            50% { filter: brightness(1.4) hue-rotate(20deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            color: #aaddff;
+            margin-bottom: 40px;
+            font-style: italic;
+            text-shadow: 0 0 15px rgba(170, 221, 255, 0.5);
+            animation: pulseText 3s infinite;
+        }
+        
+        @keyframes pulseText {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+        
+        .cover-container {
+            width: 340px;
+            height: 340px;
+            margin: 40px auto;
+            border-radius: 25px;
+            overflow: hidden;
+            border: 5px solid;
+            border-image: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00) 1;
+            box-shadow: 
+                0 0 60px rgba(255, 0, 255, 0.6),
+                0 0 100px rgba(0, 255, 255, 0.4),
+                inset 0 0 50px rgba(0, 0, 0, 0.7);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cover-container:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 
+                0 0 80px rgba(0, 255, 255, 0.8),
+                0 0 140px rgba(255, 0, 255, 0.6),
+                inset 0 0 60px rgba(0, 0, 0, 0.8);
+        }
+        
+        .cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s;
+        }
+        
+        .cover-container:hover .cover-image {
+            transform: scale(1.1);
+        }
+        
+        .badge {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: linear-gradient(45deg, #ff0080, #ff00ff, #00ffff);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            animation: pulse 1.5s infinite, badgeFloat 4s ease-in-out infinite;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            border: 2px solid white;
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.7);
+            z-index: 3;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        
+        .download-section {
+            margin: 50px 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, 
+                #ff00ff 0%, 
+                #ff0080 25%, 
+                #00ffff 50%, 
+                #0080ff 75%, 
+                #ff00ff 100%);
+            background-size: 400% 100%;
+            color: white;
+            font-size: 1.9rem;
+            font-weight: bold;
+            padding: 25px 75px;
+            border-radius: 75px;
+            text-decoration: none;
+            margin: 30px 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 3px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            animation: gradientMove 4s infinite linear;
+            box-shadow: 
+                0 20px 60px rgba(255, 0, 255, 0.6),
+                0 0 50px rgba(0, 255, 255, 0.4),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            z-index: 2;
+        }
+        
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(90deg, 
+                rgba(255, 0, 255, 0.3), 
+                rgba(0, 255, 255, 0.3), 
+                rgba(255, 255, 0, 0.3));
+            border-radius: 85px;
+            z-index: -1;
+            filter: blur(30px);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .download-btn:hover::before {
+            opacity: 1;
+        }
+        
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 400% 50%; }
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 
+                0 30px 80px rgba(255, 0, 255, 0.8),
+                0 0 80px rgba(0, 255, 255, 0.6),
+                inset 0 0 40px rgba(255, 255, 255, 0.3);
+            letter-spacing: 5px;
+        }
+        
+        .download-btn:active {
+            transform: translateY(-5px) scale(1.05);
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 0, 0.15);
+            border: 3px solid;
+            border-image: linear-gradient(45deg, #ffff00, #00ffff, #ffff00) 1;
+            border-radius: 25px;
+            padding: 25px;
+            margin: 40px auto;
+            max-width: 650px;
+            text-align: center;
+            animation: borderGlow 3s infinite alternate;
+            backdrop-filter: blur(10px);
+        }
+        
+        @keyframes borderGlow {
+            0% { border-image-source: linear-gradient(45deg, #ffff00, #00ffff, #ffff00); }
+            100% { border-image-source: linear-gradient(45deg, #00ffff, #ffff00, #00ffff); }
+        }
+        
+        .instructions h4 {
+            color: #ffff00;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-family: 'Teko', sans-serif;
+            text-shadow: 0 0 20px #ffff00;
+            letter-spacing: 2px;
+        }
+        
+        .file-info {
+            background: rgba(0, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            text-align: left;
+        }
+        
+        .file-info strong {
+            color: #00ffff;
+        }
+        
+        .info-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 25px;
+            margin: 40px 0;
+            text-align: left;
+            border-left: 6px solid #00ffff;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00);
+        }
+        
+        .info-box h3 {
+            color: #00ffff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .info-box ul {
+            padding-left: 25px;
+            margin: 20px 0;
+        }
+        
+        .info-box li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: 1.15rem;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .info-box li::before {
+            content: '▶';
+            color: #ff00ff;
+            position: absolute;
+            left: -20px;
+            animation: sparkle 2s infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .social-link {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 18px 50px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, 
+                rgba(255, 0, 0, 0.25), 
+                rgba(200, 0, 0, 0.35));
+            border: 3px solid #ff0000;
+            transition: all 0.4s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.4rem;
+            font-family: 'Chakra Petch', sans-serif;
+            font-weight: bold;
+            min-width: 300px;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 30px rgba(255, 0, 0, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+        
+        .social-link:hover::before {
+            left: 100%;
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(45deg, 
+                rgba(255, 0, 0, 0.4), 
+                rgba(255, 50, 50, 0.5));
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 
+                0 20px 50px rgba(255, 0, 0, 0.5),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+            border-color: #ff4444;
+        }
+        
+        footer {
+            margin-top: 50px;
+            color: #888;
+            font-size: 1.1rem;
+            text-align: center;
+            width: 100%;
+            padding: 25px;
+            border-top: 2px solid rgba(255, 255, 255, 0.15);
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            max-width: 900px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .copyright {
+            color: #aaa;
+            margin-top: 20px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .neon-text {
+            color: #ff00ff;
+            text-shadow: 0 0 15px #ff00ff;
+            animation: neonPulse 2s infinite;
+        }
+        
+        @keyframes neonPulse {
+            0%, 100% { text-shadow: 0 0 15px #ff00ff; }
+            50% { text-shadow: 0 0 25px #00ffff, 0 0 15px #ff00ff; }
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 0, 255, 0.1), transparent);
+            border-radius: 50%;
+            animation: floatElement 20s infinite linear;
+        }
+        
+        @keyframes floatElement {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(100px, 100px) rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+                margin: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .artist {
+                font-size: 2rem;
+            }
+            
+            .cover-container {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .badge {
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+            
+            .download-btn {
+                font-size: 1.5rem;
+                padding: 22px 55px;
+            }
+            
+            .social-link {
+                min-width: 250px;
+                padding: 15px 35px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .artist {
+                font-size: 1.6rem;
+            }
+            
+            .cover-container {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .badge {
+                top: 15px;
+                right: 15px;
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .download-btn {
+                font-size: 1.3rem;
+                padding: 20px 45px;
+            }
+            
+            .social-link {
+                min-width: 220px;
+                padding: 12px 25px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://i.postimg.cc/pXxpyDTj/IMG-20260105-032954-283.jpg">
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element" style="width: 100px; height: 100px; top: 10%; left: 5%;"></div>
+        <div class="floating-element" style="width: 150px; height: 150px; top: 60%; right: 10%;"></div>
+        <div class="floating-element" style="width: 80px; height: 80px; bottom: 20%; left: 15%;"></div>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>2026: ЭПИЦЕНТР БУДУЩЕГО</h1>
+            <div class="artist">ГЕГАРД ПРО</div>
+            <div class="tagline">Футуристичный новогодний гипнотик</div>
+        </div>
+        
+        <div class="cover-container">
+            <!-- ОБЛОЖКА С POSTIMG -->
+            <img src="https://i.postimg.cc/pXxpyDTj/IMG-20260105-032954-283.jpg" 
+                 alt="Обложка трека 2026: Эпицентр Будущего" 
+                 class="cover-image">
+            <div class="badge">ПРЕМЬЕРА 2026</div>
+        </div>
+        
+        <div class="download-section">
+            <!-- КНОПКА СКАЧИВАНИЯ С MEDIAFIRE (СРАЗУ КАЧАЕТ!) -->
+            <a href="https://www.mediafire.com/file/bw88qtxuhc83v8c/cfe750a3-1961-4c82-a02b-89f2bd6d5787.mp3/file" 
+               class="download-btn" 
+               download="2026_Эпицентр_Будущего_ГегардПро.mp3"
+               onclick="trackDownload()">
+               <i class="fas fa-download"></i> СКАЧАТЬ ТРЕК БЕСПЛАТНО
+            </a>
+            
+            <div class="instructions">
+                <h4><i class="fas fa-bolt"></i> КАК СКАЧАТЬ:</h4>
+                <p>Нажмите кнопку выше → Файл начнет скачиваться <strong>МГНОВЕННО</strong></p>
+                <div class="file-info">
+                    <strong>Имя файла:</strong> 2026_Эпицентр_Будущего_ГегардПро.mp3<br>
+                    <strong>Размер:</strong> ~8 МБ | <strong>Формат:</strong> MP3 320 кбит/с<br>
+                    <strong>Качество:</strong> Высокое | <strong>Длительность:</strong> 3:45
+                </div>
+                <p><i class="fas fa-check-circle" style="color:#00ff00;"></i> MediaFire — прямое скачивание без ожидания</p>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <h3><i class="fas fa-music"></i> О ТРЕКЕ</h3>
+            <p>Футуристичный новогодний гипнотик, создающий атмосферу эпицентра будущего. 
+               Идеально для видеоконтента, стримов, заставок и встречи 2026 года.</p>
+            
+            <h3 style="margin-top: 25px;"><i class="fas fa-microchip"></i> ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</h3>
+            <ul>
+                <li><strong>Формат:</strong> MP3 (High Quality 320 kbps)</li>
+                <li><strong>Жанр:</strong> Electronic / Futuristic / Cyberpunk</li>
+                <li><strong>Темп:</strong> 128 BPM</li>
+                <li><strong>Ключ:</strong> C# Minor</li>
+                <li><strong>Лицензия:</strong> Бесплатно для некоммерческого использования</li>
+            </ul>
+        </div>
+        
+        <div class="info-box">
+            <h3><i class="fas fa-rocket"></i> ДЛЯ КОНТЕНТ-МЕЙКЕРОВ</h3>
+            <p>Этот трек идеально подходит для:</p>
+            <ul>
+                <li>YouTube-видео и обзоров</li>
+                <li>TikTok и Instagram Reels</li>
+                <li>Стримов на Twitch и YouTube Gaming</li>
+                <li>Подкастов и презентаций</li>
+                <li>Футуристичных проектов и заставок</li>
+            </ul>
+            <p style="margin-top: 20px; color: #ffff00; padding: 15px; background: rgba(255, 255, 0, 0.1); border-radius: 10px;">
+                <strong><i class="fas fa-exclamation-circle"></i> ВАЖНО:</strong> При использовании укажите автора: 
+                <span class="neon-text">Гегард Про</span>
+            </p>
+        </div>
+        
+        <!-- ТОЛЬКО YOUTUBE КНОПКА -->
+        <div class="social-links">
+            <a href="https://youtube.com/channel/UCdUPvyLSlBt1EkFMQsGSAJQ?si=5gddUteDxzHmuXBi" 
+               class="social-link" target="_blank">
+               <i class="fab fa-youtube"></i> YouTube Канал
+            </a>
+        </div>
+        
+        <div class="info-box">
+            <h3><i class="fas fa-heart"></i> ПОДДЕРЖАТЬ АВТОРА</h3>
+            <p>Если трек вам понравился:</p>
+            <ul>
+                <li>Подпишитесь на <a href="https://youtube.com/channel/UCdUPvyLSlBt1EkFMQsGSAJQ?si=5gddUteDxzHmuXBi" 
+                   style="color:#ff00ff; text-decoration: none; font-weight: bold;">YouTube-канал</a></li>
+                <li>Поставьте лайк и напишите комментарий</li>
+                <li>Поделитесь треком с друзьями</li>
+                <li>Используйте в своих видео с указанием автора</li>
+            </ul>
+            <p style="margin-top: 25px; font-size: 1.3rem; color: #00ffff; text-align: center;">
+                <i class="fas fa-star"></i> Ваша поддержка вдохновляет на создание новой музыки! <i class="fas fa-star"></i>
+            </p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2026 <span class="neon-text">ГЕГАРД ПРО</span>. Все права на композицию защищены.</p>
+        <div class="copyright">
+            Трек предоставляется бесплатно для некоммерческого использования.<br>
+            При использовании в коммерческих проектах — свяжитесь с автором.<br>
+            <span style="color: #ff00ff; display: block; margin-top: 15px; font-size: 1.2rem;">
+                <i class="fas fa-fire"></i> С новым 2026 годом! <i class="fas fa-fire"></i>
+            </span>
+        </div>
+    </footer>
+
+    <script>
+        // Счетчик скачиваний
+        function trackDownload() {
+            console.log('Начато скачивание: 2026_Эпицентр_Будущего_ГегардПро.mp3');
+            
+            // Счетчик в localStorage
+            let downloads = localStorage.getItem('gegard_downloads') || 0;
+            downloads = parseInt(downloads) + 1;
+            localStorage.setItem('gegard_downloads', downloads);
+            
+            // Показать уведомление
+            setTimeout(() => {
+                const messages = [
+                    '🎵 Спасибо за скачивание! Трек загружается...',
+                    '🚀 Файл скачивается! Не забудьте подписаться на канал!',
+                    '🎆 С новым 2026 годом! Спасибо за поддержку!'
+                ];
+                const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+                alert(randomMsg);
+            }, 300);
+            
+            // Анимация кнопки
+            const btn = event.target.closest('.download-btn');
+            if (btn) {
+                btn.style.animation = 'none';
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    btn.style.animation = 'gradientMove 4s infinite linear';
+                    btn.style.transform = '';
+                }, 300);
+            }
+        }
+        
+        // Анимация при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Сайт трека "2026: Эпицентр Будущего" загружен');
+            
+            // Показ количества скачиваний
+            const downloads = localStorage.getItem('gegard_downloads') || 0;
+            if (downloads > 0) {
+                console.log(`Трек уже скачан ${downloads} раз`);
+            }
+            
+            // Добавить эффект частиц
+            createParticles();
+        });
+        
+        // Создание частиц
+        function createParticles() {
+            const container = document.querySelector('.floating-elements');
+            for (let i = 0; i < 8; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'floating-element';
+                particle.style.width = Math.random() * 100 + 50 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.background = `radial-gradient(circle, 
+                    rgba(${Math.random() * 255}, ${Math.random() * 255}, 255, 0.1), 
+                    transparent)`;
+                particle.style.animationDuration = Math.random() * 30 + 20 + 's';
+                container.appendChild(particle);
+            }
+        }
+    </script>
+</body>
+</html>
