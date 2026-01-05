@@ -3,139 +3,503 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>СКАЧАТЬ ТРЕК: 2026: Эпицентр Будущего | Гепард Про</title>
+    <title>2026: ЭПИЦЕНТР БУДУЩЕГО | Гепард Про</title>
     <style>
+        /* ==================== СБРОС И БАЗОВЫЕ СТИЛИ ==================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Teko:wght@300;400;600&family=Chakra+Petch:wght@300;400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Teko:wght@300;400;600&family=Chakra+Petch:wght@300;400;700&family=Exo+2:wght@300;400;600;800&display=swap');
+        
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-cyan: #00ffff;
+            --neon-yellow: #ffff00;
+            --neon-green: #00ff00;
+            --neon-purple: #9d00ff;
+            --neon-red: #ff0055;
+            --dark-bg: #0a0514;
+            --darker-bg: #05020a;
+            --glass-bg: rgba(10, 5, 20, 0.7);
+        }
         
         body {
-            background: #000000;
+            background: var(--darker-bg);
             color: #ffffff;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-            font-family: 'Chakra Petch', sans-serif;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(255, 0, 255, 0.15) 0%, transparent 25%),
-                radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.15) 0%, transparent 25%);
-            background-attachment: fixed;
+            font-family: 'Exo 2', sans-serif;
+            overflow-x: hidden;
+            position: relative;
         }
         
-        .container {
-            max-width: 900px;
+        /* ==================== НЕОНОВЫЙ ФОН ==================== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(10, 5, 20, 0.95);
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, var(--neon-pink) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, var(--neon-cyan) 0%, transparent 25%),
+                radial-gradient(circle at 40% 80%, var(--neon-purple) 0%, transparent 20%),
+                radial-gradient(circle at 60% 20%, var(--neon-red) 0%, transparent 20%);
+            opacity: 0.15;
+            z-index: -2;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(255, 0, 255, 0.05) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(0, 255, 255, 0.05) 50%, transparent 70%);
+            animation: scanlines 20s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes scanlines {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 1000px; }
+        }
+        
+        /* ==================== КОНТЕЙНЕР ==================== */
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 40px auto;
+            padding: 40px;
+            background: var(--glass-bg);
             backdrop-filter: blur(20px);
             border-radius: 30px;
-            padding: 40px;
-            border: 3px solid transparent;
-            border-image: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00) 1;
-            box-shadow: 
-                0 0 60px rgba(255, 0, 255, 0.4),
-                0 0 120px rgba(0, 255, 255, 0.2),
-                inset 0 0 40px rgba(255, 255, 255, 0.05);
-            animation: fadeIn 1s ease-out;
-            margin: 20px;
+            border: 2px solid transparent;
             position: relative;
-            overflow: hidden;
+            box-shadow: 
+                0 0 100px rgba(255, 0, 255, 0.3),
+                0 0 200px rgba(0, 255, 255, 0.2),
+                inset 0 0 50px rgba(255, 255, 255, 0.05);
+            animation: containerGlow 4s ease-in-out infinite alternate;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes containerGlow {
+            0% {
+                box-shadow: 
+                    0 0 80px rgba(255, 0, 255, 0.3),
+                    0 0 160px rgba(0, 255, 255, 0.2),
+                    inset 0 0 50px rgba(255, 255, 255, 0.05);
+                border-image: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan)) 1;
+            }
+            100% {
+                box-shadow: 
+                    0 0 120px rgba(255, 0, 255, 0.4),
+                    0 0 240px rgba(0, 255, 255, 0.3),
+                    inset 0 0 50px rgba(255, 255, 255, 0.1);
+                border-image: linear-gradient(45deg, var(--neon-cyan), var(--neon-pink)) 1;
+            }
         }
         
+        /* ==================== ЗАГОЛОВОК ==================== */
         .header {
-            margin-bottom: 30px;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
         }
         
-        .header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            font-family: 'Orbitron', sans-serif;
+        .glitch-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .glitch-text {
+            font-size: 5rem;
             font-weight: 900;
-            letter-spacing: 2px;
+            font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
-            background: linear-gradient(90deg, 
-                #ff00ff 0%, 
-                #ff0080 15%, 
-                #ff0000 30%, 
-                #ffff00 45%, 
-                #00ff00 60%, 
-                #00ffff 75%, 
-                #0080ff 90%);
+            letter-spacing: 4px;
+            position: relative;
+            background: linear-gradient(
+                90deg,
+                var(--neon-red),
+                var(--neon-pink),
+                var(--neon-purple),
+                var(--neon-cyan),
+                var(--neon-green),
+                var(--neon-yellow)
+            );
+            background-size: 400% 100%;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            background-size: 300% 100%;
-            animation: rainbowText 4s linear infinite;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            line-height: 1.1;
+            animation: rainbowText 6s linear infinite;
+            text-shadow: 
+                0 0 20px rgba(255, 255, 255, 0.5),
+                0 0 40px currentColor;
+        }
+        
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .glitch-text::before {
+            animation: glitch 3s infinite linear alternate-reverse;
+            left: 2px;
+            text-shadow: 
+                2px 0 var(--neon-cyan),
+                -2px 0 var(--neon-pink);
+            opacity: 0.8;
+        }
+        
+        .glitch-text::after {
+            animation: glitch 2s infinite linear alternate-reverse;
+            left: -2px;
+            text-shadow: 
+                -2px 0 var(--neon-yellow),
+                2px 0 var(--neon-purple);
+            opacity: 0.8;
         }
         
         @keyframes rainbowText {
             0% { background-position: 0% 50%; }
-            100% { background-position: 300% 50%; }
+            100% { background-position: 400% 50%; }
         }
         
-        .artist {
-            font-size: 2.2rem;
-            color: #88ddff;
-            margin-bottom: 5px;
-            letter-spacing: 4px;
-            font-family: 'Teko', sans-serif;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, #00ffff, #ff00ff);
+        @keyframes glitch {
+            0%, 100% { clip-path: inset(0 0 0 0); }
+            10% { clip-path: inset(20% 0 30% 0); }
+            20% { clip-path: inset(60% 0 10% 0); }
+            30% { clip-path: inset(40% 0 20% 0); }
+            40% { clip-path: inset(80% 0 5% 0); }
+            50% { clip-path: inset(10% 0 60% 0); }
+            60% { clip-path: inset(70% 0 15% 0); }
+            70% { clip-path: inset(30% 0 40% 0); }
+            80% { clip-path: inset(90% 0 2% 0); }
+            90% { clip-path: inset(5% 0 80% 0); }
+        }
+        
+        .artist-name {
+            font-size: 3.5rem;
+            color: transparent;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
-            animation: shine 3s infinite;
+            font-family: 'Teko', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin: 20px 0;
+            animation: shine 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
         }
         
         @keyframes shine {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.3); }
+            0% { 
+                filter: brightness(1) drop-shadow(0 0 10px var(--neon-cyan));
+                letter-spacing: 6px;
+            }
+            100% { 
+                filter: brightness(1.5) drop-shadow(0 0 30px var(--neon-pink));
+                letter-spacing: 8px;
+            }
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            color: #aaa;
+            font-family: 'Chakra Petch', sans-serif;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+        
+        /* ==================== ОБЛОЖКА ==================== */
+        .cover-section {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 40px auto;
+            perspective: 1000px;
+        }
+        
+        .cover-3d {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+            transition: transform 0.5s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateX(5deg) rotateY(5deg); }
+            50% { transform: translateY(-20px) rotateX(-5deg) rotateY(-5deg); }
+        }
+        
+        .cover-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 4px solid transparent;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan), var(--neon-purple)) border-box;
+            box-shadow: 
+                0 0 60px rgba(255, 0, 255, 0.5),
+                0 0 120px rgba(0, 255, 255, 0.3),
+                inset 0 0 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cover-glow {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
+            border-radius: 30px;
+            filter: blur(40px);
+            opacity: 0.5;
+            z-index: 1;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+        
+        .badge-premium {
+            position: absolute;
+            top: 30px;
+            right: -20px;
+            background: linear-gradient(45deg, var(--neon-red), var(--neon-pink));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 3;
+            transform: rotate(15deg);
+            animation: badgeGlow 2s ease-in-out infinite alternate;
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.5);
+        }
+        
+        @keyframes badgeGlow {
+            0% { 
+                box-shadow: 0 10px 30px rgba(255, 0, 85, 0.5);
+                transform: rotate(15deg) scale(1);
+            }
+            100% { 
+                box-shadow: 0 15px 50px rgba(255, 0, 85, 0.8);
+                transform: rotate(15deg) scale(1.1);
+            }
+        }
+        
+        /* ==================== КНОПКА СКАЧИВАНИЯ ==================== */
+        .download-section {
+            text-align: center;
+            margin: 60px 0;
+            position: relative;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(
+                90deg,
+                var(--neon-red),
+                var(--neon-pink),
+                var(--neon-purple),
+                var(--neon-cyan),
+                var(--neon-green)
+            );
+            background-size: 400% 100%;
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            padding: 25px 70px;
+            border-radius: 70px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 3px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            animation: gradientShift 4s linear infinite;
+            box-shadow: 
+                0 20px 60px rgba(255, 0, 255, 0.4),
+                0 0 40px rgba(0, 255, 255, 0.3);
+        }
+        
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: shineOverlay 3s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 400% 50%; }
+        }
+        
+        @keyframes shineOverlay {
+            0% { left: -100%; }
+            20%, 100% { left: 100%; }
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-10px) scale(1.05);
+            letter-spacing: 5px;
+            box-shadow: 
+                0 30px 80px rgba(255, 0, 255, 0.6),
+                0 0 60px rgba(0, 255, 255, 0.5),
+                0 0 100px rgba(255, 255, 0, 0.3);
+        }
+        
+        .download-btn i {
+            margin-right: 15px;
+            animation: bounce 1s ease-in-out infinite alternate;
+        }
+        
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-5px); }
+        }
+        
+        /* ==================== ИНФО-БЛОКИ ==================== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .info-card {
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.05),
+                rgba(0, 0, 0, 0.3)
+            );
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+        }
+        
+        .info-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-cyan);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(0, 255, 255, 0.2);
+        }
+        
+        .info-card h3 {
+            color: var(--neon-cyan);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .info-card h3 i {
+            font-size: 1.5rem;
+            color: var(--neon-pink);
+        }
+        
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .info-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .info-card li::before {
+            content: '▸';
+            color: var(--neon-pink);
+            position: absolute;
+            left: 0;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
         
         /* ==================== ШЕСТЕРЁНКА НАСТРОЕК ==================== */
         .settings-gear {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            top: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 32px;
             cursor: pointer;
             z-index: 10000;
             box-shadow: 
-                0 0 20px rgba(255, 0, 255, 0.5),
-                0 0 40px rgba(0, 255, 255, 0.3);
-            animation: rotateGear 10s linear infinite;
-            transition: all 0.3s ease;
-            user-select: none;
-        }
-        
-        .settings-gear:hover {
-            transform: scale(1.1) rotate(90deg);
-            box-shadow: 
-                0 0 30px rgba(255, 0, 255, 0.7),
-                0 0 60px rgba(0, 255, 255, 0.5);
-            animation: rotateGear 3s linear infinite;
+                0 0 30px rgba(255, 0, 255, 0.6),
+                0 0 60px rgba(0, 255, 255, 0.4);
+            animation: 
+                rotateGear 10s linear infinite,
+                pulseGear 2s ease-in-out infinite alternate;
+            transition: all 0.3s;
+            border: 3px solid white;
         }
         
         @keyframes rotateGear {
@@ -143,28 +507,52 @@
             to { transform: rotate(360deg); }
         }
         
-        .settings-panel {
-            position: fixed;
-            top: 90px;
-            right: 20px;
-            width: 320px;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 20px;
-            border: 2px solid #00ffff;
-            box-shadow: 
-                0 10px 40px rgba(0, 0, 0, 0.8),
-                0 0 30px rgba(0, 255, 255, 0.3);
-            z-index: 9999;
-            display: none;
-            animation: slideIn 0.3s ease-out;
+        @keyframes pulseGear {
+            from { 
+                box-shadow: 
+                    0 0 30px rgba(255, 0, 255, 0.6),
+                    0 0 60px rgba(0, 255, 255, 0.4);
+            }
+            to { 
+                box-shadow: 
+                    0 0 50px rgba(255, 0, 255, 0.8),
+                    0 0 100px rgba(0, 255, 255, 0.6);
+            }
         }
         
-        @keyframes slideIn {
+        .settings-gear:hover {
+            animation: 
+                rotateGear 3s linear infinite,
+                pulseGear 0.5s ease-in-out infinite alternate;
+            transform: scale(1.1);
+        }
+        
+        .settings-panel {
+            position: fixed;
+            top: 120px;
+            right: 30px;
+            width: 350px;
+            background: linear-gradient(
+                145deg,
+                rgba(10, 5, 20, 0.95),
+                rgba(5, 2, 10, 0.98)
+            );
+            backdrop-filter: blur(30px);
+            border-radius: 25px;
+            padding: 25px;
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.8),
+                0 0 50px rgba(0, 255, 255, 0.3);
+            z-index: 9999;
+            display: none;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        @keyframes slideDown {
             from { 
                 opacity: 0; 
-                transform: translateY(-20px) scale(0.95); 
+                transform: translateY(-30px) scale(0.95); 
             }
             to { 
                 opacity: 1; 
@@ -176,28 +564,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
         
         .settings-header h4 {
-            color: #00ffff;
+            color: var(--neon-cyan);
             margin: 0;
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .close-settings {
             background: none;
             border: none;
-            color: #ff00ff;
-            font-size: 1.8rem;
+            color: var(--neon-pink);
+            font-size: 2rem;
             cursor: pointer;
-            line-height: 1;
-            padding: 0;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -211,448 +599,446 @@
         }
         
         .settings-section {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
         
         .settings-section h5 {
-            color: #ffff00;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
+            color: var(--neon-yellow);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
             font-family: 'Chakra Petch', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .settings-buttons {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
         
         .settings-btn {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             color: #ddd;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 12px 15px;
-            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: 15px;
             cursor: pointer;
-            font-family: 'Chakra Petch', sans-serif;
-            font-size: 0.9rem;
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1rem;
             transition: all 0.3s;
             text-align: left;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .settings-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transition: left 0.5s;
         }
         
         .settings-btn:hover {
-            background: rgba(0, 255, 255, 0.2);
+            background: rgba(0, 255, 255, 0.1);
             color: white;
-            border-color: #00ffff;
-            transform: translateX(5px);
+            border-color: var(--neon-cyan);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+        }
+        
+        .settings-btn:hover::before {
+            left: 100%;
         }
         
         .settings-btn.active {
-            background: linear-gradient(90deg, rgba(255, 0, 255, 0.3), rgba(0, 255, 255, 0.3));
+            background: linear-gradient(
+                90deg,
+                rgba(255, 0, 255, 0.2),
+                rgba(0, 255, 255, 0.2)
+            );
             color: white;
-            border-color: #00ffff;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            border-color: var(--neon-cyan);
+            box-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
         }
         
         .stats-display {
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 12px;
-            padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .stat-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s;
         }
         
-        .stat-item:last-child {
-            margin-bottom: 0;
+        .stat-item:hover {
+            background: rgba(0, 255, 255, 0.1);
+            transform: translateX(5px);
         }
         
         .stat-label {
             color: #aaa;
+            font-size: 0.95rem;
         }
         
         .stat-value {
-            color: #00ff00;
+            color: var(--neon-green);
             font-weight: bold;
             font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px currentColor;
         }
         
         .admin-links {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
         
         .admin-btn {
-            background: linear-gradient(90deg, rgba(255, 0, 0, 0.3), rgba(255, 165, 0, 0.3));
+            background: linear-gradient(
+                90deg,
+                rgba(255, 0, 85, 0.3),
+                rgba(255, 165, 0, 0.3)
+            );
             color: white;
-            border: 1px solid rgba(255, 0, 0, 0.5);
-            padding: 12px 15px;
-            border-radius: 12px;
+            border: 2px solid rgba(255, 0, 85, 0.5);
+            padding: 15px 20px;
+            border-radius: 15px;
             cursor: pointer;
-            font-family: 'Chakra Petch', sans-serif;
-            font-size: 0.9rem;
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1rem;
             transition: all 0.3s;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .admin-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: left 0.5s;
         }
         
         .admin-btn:hover {
-            background: linear-gradient(90deg, rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5));
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+            background: linear-gradient(
+                90deg,
+                rgba(255, 0, 85, 0.5),
+                rgba(255, 165, 0, 0.5)
+            );
+            transform: translateY(-5px);
+            box-shadow: 
+                0 15px 40px rgba(255, 0, 85, 0.4),
+                0 0 30px rgba(255, 165, 0, 0.3);
+        }
+        
+        .admin-btn:hover::before {
+            left: 100%;
         }
         
         .settings-footer {
-            margin-top: 20px;
-            padding-top: 15px;
+            margin-top: 25px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             color: #888;
-            font-size: 0.8rem;
-        }
-        
-        .cover-container {
-            width: 320px;
-            height: 320px;
-            margin: 30px auto;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 4px solid #00ffff;
-            box-shadow: 
-                0 0 40px rgba(0, 255, 255, 0.5),
-                inset 0 0 30px rgba(0, 0, 0, 0.5);
-        }
-        
-        .cover-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .badge {
-            position: absolute;
-            margin-top: -340px;
-            margin-left: 220px;
-            background: linear-gradient(45deg, #ff0080, #ff00ff);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-family: 'Orbitron', sans-serif;
-            animation: pulse 2s infinite;
-            text-transform: uppercase;
             font-size: 0.9rem;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
-            background-size: 300% 100%;
-            color: white;
-            font-size: 1.7rem;
-            font-weight: bold;
-            padding: 22px 65px;
-            border-radius: 65px;
-            text-decoration: none;
-            margin: 25px 0;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            letter-spacing: 2px;
-            font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            animation: gradientMove 3s infinite linear;
-            box-shadow: 
-                0 15px 40px rgba(255, 0, 255, 0.5),
-                0 0 30px rgba(0, 255, 255, 0.3);
-            /* ФИКС для мобильной клавиатуры */
-            inputmode: none;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-        
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 300% 50%; }
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 
-                0 20px 50px rgba(255, 0, 255, 0.7),
-                0 0 40px rgba(0, 255, 255, 0.5);
-            letter-spacing: 3px;
-        }
-        
-        .instructions {
-            background: rgba(255, 255, 0, 0.1);
-            border: 2px solid #ffff00;
-            border-radius: 20px;
-            padding: 20px;
-            margin: 30px auto;
-            max-width: 600px;
-            text-align: center;
-            animation: borderPulse 2s infinite;
-        }
-        
-        @keyframes borderPulse {
-            0%, 100% { border-color: #ffff00; }
-            50% { border-color: #00ffff; }
-        }
-        
-        .instructions h4 {
-            color: #ffff00;
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-            font-family: 'Teko', sans-serif;
-        }
-        
-        .info-box {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 25px;
-            border-radius: 20px;
-            margin: 30px 0;
-            text-align: left;
-            border-left: 5px solid #00ffff;
-        }
-        
-        .info-box h3 {
-            color: #00ffff;
-            margin-bottom: 15px;
-            font-size: 1.6rem;
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .info-box ul {
-            padding-left: 20px;
-            margin: 15px 0;
-        }
-        
-        .info-box li {
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin: 30px 0;
-        }
-        
-        .social-link {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 15px 40px;
-            border-radius: 15px;
-            background: linear-gradient(45deg, rgba(255, 0, 0, 0.2), rgba(200, 0, 0, 0.3));
-            border: 2px solid #ff0000;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.3rem;
-            font-family: 'Chakra Petch', sans-serif;
-            font-weight: bold;
-            min-width: 250px;
-            justify-content: center;
-        }
-        
-        .social-link:hover {
-            background: linear-gradient(45deg, rgba(255, 0, 0, 0.3), rgba(255, 50, 50, 0.4));
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
-        }
-        
-        footer {
-            margin-top: 40px;
-            color: #888;
-            font-size: 1rem;
-            text-align: center;
-            width: 100%;
-            padding: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .copyright {
-            color: #aaa;
-            margin-top: 15px;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-        
-        .file-info {
-            background: rgba(0, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 15px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-        }
-        
-        body.light-version .header h1 {
-            animation: none;
-            background: linear-gradient(90deg, #00ffff, #ff00ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-        }
-        
-        body.light-version .container {
-            animation: none;
-            border-image: none;
-            border: 2px solid #00ffff;
-        }
-        
-        body.light-version .download-btn {
-            animation: none;
-            background: linear-gradient(90deg, #00ffff, #ff00ff);
-        }
-        
-        body.light-version .badge,
-        body.light-version .instructions,
-        body.light-version .social-link:hover {
-            animation: none;
         }
         
         /* ==================== АДМИН ПАНЕЛЬ ==================== */
         .admin-counter {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: #00ffff;
-            padding: 10px 15px;
-            border-radius: 10px;
-            border: 2px solid #ff00ff;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(
+                145deg,
+                rgba(0, 0, 0, 0.9),
+                rgba(20, 0, 40, 0.9)
+            );
+            color: var(--neon-cyan);
+            padding: 15px 25px;
+            border-radius: 15px;
+            border: 2px solid var(--neon-pink);
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
+            font-size: 1rem;
             z-index: 9999;
             display: none;
             cursor: move;
             user-select: none;
+            backdrop-filter: blur(10px);
+            animation: panelGlow 2s ease-in-out infinite alternate;
+            box-shadow: 
+                0 10px 40px rgba(255, 0, 255, 0.4),
+                0 0 30px rgba(0, 255, 255, 0.3);
+        }
+        
+        @keyframes panelGlow {
+            0% { 
+                border-color: var(--neon-pink);
+                box-shadow: 
+                    0 10px 40px rgba(255, 0, 255, 0.4),
+                    0 0 30px rgba(0, 255, 255, 0.3);
+            }
+            100% { 
+                border-color: var(--neon-cyan);
+                box-shadow: 
+                    0 15px 50px rgba(0, 255, 255, 0.5),
+                    0 0 40px rgba(255, 0, 255, 0.4);
+            }
         }
         
         .admin-counter:hover {
-            background: rgba(0, 0, 0, 0.9);
-            border-color: #00ffff;
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+            animation: none;
+            border-color: var(--neon-yellow);
+            box-shadow: 
+                0 20px 60px rgba(255, 255, 0, 0.5),
+                0 0 50px rgba(255, 0, 255, 0.5);
         }
         
+        /* ==================== УВЕДОМЛЕНИЯ ==================== */
         .quick-notification {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.9);
-            padding: 15px 25px;
-            border-radius: 15px;
+            background: linear-gradient(
+                145deg,
+                rgba(10, 5, 20, 0.95),
+                rgba(5, 2, 10, 0.98)
+            );
+            padding: 25px 40px;
+            border-radius: 20px;
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
             z-index: 10001;
-            backdrop-filter: blur(10px);
-            animation: fadeInOut 2s forwards;
-            border: 2px solid #00ffff;
+            backdrop-filter: blur(30px);
+            animation: notificationPop 2s forwards;
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.8),
+                0 0 50px rgba(0, 255, 255, 0.4);
+            text-align: center;
         }
         
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-            15% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            85% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+        @keyframes notificationPop {
+            0% { 
+                opacity: 0; 
+                transform: translate(-50%, -50%) scale(0.7) rotate(-10deg); 
+            }
+            15% { 
+                opacity: 1; 
+                transform: translate(-50%, -50%) scale(1.05) rotate(5deg); 
+            }
+            30% { 
+                transform: translate(-50%, -50%) scale(0.95) rotate(-2deg); 
+            }
+            45% { 
+                transform: translate(-50%, -50%) scale(1) rotate(0); 
+            }
+            85% { 
+                opacity: 1; 
+                transform: translate(-50%, -50%) scale(1) rotate(0); 
+            }
+            100% { 
+                opacity: 0; 
+                transform: translate(-50%, -50%) scale(0.8) rotate(10deg); 
+            }
         }
         
-        /* Для мобильных устройств */
+        /* ==================== ФУТЕР ==================== */
+        footer {
+            margin-top: 80px;
+            padding: 40px;
+            text-align: center;
+            background: linear-gradient(
+                to top,
+                rgba(0, 0, 0, 0.8),
+                transparent
+            );
+            border-top: 2px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent,
+                var(--neon-cyan),
+                var(--neon-pink),
+                var(--neon-purple),
+                transparent
+            );
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+        
+        .copyright a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .copyright a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px currentColor;
+        }
+        
+        .new-year {
+            color: var(--neon-yellow);
+            font-size: 1.5rem;
+            margin-top: 30px;
+            display: inline-block;
+            padding: 15px 40px;
+            background: rgba(255, 255, 0, 0.1);
+            border-radius: 50px;
+            border: 2px solid var(--neon-yellow);
+            animation: newYearPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes newYearPulse {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(255, 255, 0, 0.6);
+                transform: scale(1.05);
+            }
+        }
+        
+        /* ==================== МЕДИА ЗАПРОСЫ ==================== */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 95%;
+                padding: 30px;
+                margin: 20px auto;
+            }
+            
+            .glitch-text {
+                font-size: 4rem;
+            }
+            
+            .artist-name {
+                font-size: 3rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: 25px;
-                margin: 10px;
+                margin: 15px auto;
             }
             
-            .header h1 {
+            .glitch-text {
+                font-size: 3rem;
+                letter-spacing: 2px;
+            }
+            
+            .artist-name {
                 font-size: 2.5rem;
+                letter-spacing: 4px;
             }
             
-            .artist {
-                font-size: 1.8rem;
-            }
-            
-            .cover-container {
-                width: 280px;
-                height: 280px;
-            }
-            
-            .badge {
-                margin-top: -300px;
-                margin-left: 180px;
+            .cover-section {
+                width: 300px;
+                height: 300px;
             }
             
             .download-btn {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
                 padding: 20px 50px;
             }
             
-            .social-link {
-                min-width: 200px;
-                padding: 12px 30px;
-            }
-            
             .settings-gear {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-                top: 10px;
-                right: 10px;
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+                top: 20px;
+                right: 20px;
             }
             
             .settings-panel {
-                top: 70px;
-                right: 10px;
-                left: 10px;
+                top: 100px;
+                right: 20px;
+                left: 20px;
                 width: auto;
-                max-width: 320px;
-                margin: 0 auto;
+                max-width: 350px;
             }
             
             .admin-counter {
-                bottom: 10px;
-                right: 10px;
-                font-size: 0.8rem;
-                padding: 8px 12px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 0.9rem;
+                padding: 12px 20px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
             }
         }
         
         @media (max-width: 480px) {
-            .header h1 {
+            .glitch-text {
+                font-size: 2.5rem;
+            }
+            
+            .artist-name {
                 font-size: 2rem;
             }
             
-            .artist {
-                font-size: 1.5rem;
-            }
-            
-            .cover-container {
+            .cover-section {
                 width: 250px;
                 height: 250px;
-            }
-            
-            .badge {
-                margin-top: -270px;
-                margin-left: 160px;
-                padding: 6px 15px;
-                font-size: 0.8rem;
             }
             
             .download-btn {
@@ -660,16 +1046,10 @@
                 padding: 18px 40px;
             }
             
-            .social-link {
-                min-width: 180px;
-                padding: 10px 20px;
-                font-size: 1.1rem;
-            }
-            
             .settings-gear {
-                width: 45px;
-                height: 45px;
-                font-size: 22px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
             }
         }
         
@@ -678,18 +1058,46 @@
             .settings-btn,
             .admin-btn,
             .download-btn {
-                padding: 15px;
-                min-height: 44px; /* Минимальный размер для iOS */
+                padding: 18px;
+                min-height: 44px;
             }
             
             .settings-gear {
-                width: 50px;
-                height: 50px;
+                width: 60px;
+                height: 60px;
                 min-height: 44px;
             }
             
             .download-btn {
                 -webkit-tap-highlight-color: transparent;
+            }
+        }
+        
+        /* Специальные эффекты для всех кнопок */
+        .particles {
+            position: absolute;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--neon-cyan);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 1s ease-out forwards;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0);
             }
         }
     </style>
@@ -734,7 +1142,7 @@
         </div>
         
         <div class="settings-section stats-section" id="statsSection" style="display: none;">
-            <h5 id="statsTitle">👁 Статистика</h5>
+            <h5 id="statsTitle">📊 Статистика</h5>
             <div class="stats-display">
                 <div class="stat-item">
                     <span class="stat-label" id="statVisitorsLabel">Посетители:</span>
@@ -748,13 +1156,16 @@
         </div>
         
         <div class="settings-section admin-section" id="adminSection" style="display: none;">
-            <h5 id="adminTitle">🔗 Админ-доступ</h5>
+            <h5 id="adminTitle">🔐 Админ-доступ</h5>
             <div class="admin-links">
                 <button class="admin-btn" onclick="copyAdminLink()" id="btnCopyLink">
-                    📋 Копировать ссылку
+                    🔗 Копировать ссылку
                 </button>
                 <button class="admin-btn" onclick="toggleAdminPanel()" id="btnAdminPanel">
-                    👑 Панель администратора
+                    👑 Админ-панель
+                </button>
+                <button class="admin-btn" onclick="showDetailedStats()" id="btnStats">
+                    📈 Детальная статистика
                 </button>
             </div>
         </div>
@@ -771,123 +1182,284 @@
     
     <!-- ОСНОВНОЙ КОНТЕНТ -->
     <div class="container">
+        <!-- ЗАГОЛОВОК -->
         <div class="header">
-            <h1 id="title">2026: ЭПИЦЕНТР БУДУЩЕГО</h1>
-            <div class="artist" id="artist">ГЕПАРД ПРО</div>
+            <div class="glitch-container">
+                <h1 class="glitch-text" data-text="2026: ЭПИЦЕНТР БУДУЩЕГО" id="title">
+                    2026: ЭПИЦЕНТР БУДУЩЕГО
+                </h1>
+            </div>
+            
+            <div class="artist-name" id="artist">ГЕПАРД ПРО</div>
             <div class="tagline" id="tagline">Футуристичный новогодний гипнотик</div>
         </div>
         
-        <div class="cover-container">
-            <img src="https://i.postimg.cc/pXxpyDTj/IMG-20260105-032954-283.jpg" alt="Обложка трека" class="cover-image">
-            <div class="badge" id="badge">ПРЕМЬЕРА 2026</div>
+        <!-- ОБЛОЖКА -->
+        <div class="cover-section">
+            <div class="cover-3d">
+                <img src="https://i.postimg.cc/pXxpyDTj/IMG-20260105-032954-283.jpg" 
+                     alt="Обложка трека 2026" 
+                     class="cover-image">
+                <div class="cover-glow"></div>
+                <div class="badge-premium" id="badge">ПРЕМЬЕРА 2026</div>
+            </div>
         </div>
         
+        <!-- КНОПКА СКАЧИВАНИЯ -->
         <div class="download-section">
             <a href="https://www.mediafire.com/file/bw88qtxuhc83v8c/cfe750a3-1961-4c82-a02b-89f2bd6d5787.mp3/file" 
                class="download-btn" 
                download="2026_Epicenter_of_Future_GepardPro.mp3"
                onclick="trackDownload()"
                id="downloadLink">
-               <i class="fas fa-download"></i> <span id="downloadBtnText">СКАЧАТЬ ТРЕК БЕСПЛАТНО</span>
+               <i class="fas fa-bolt"></i> <span id="downloadBtnText">СКАЧАТЬ ТРЕК</span>
             </a>
             
-            <div class="instructions">
-                <h4 id="howToDownload"><i class="fas fa-bolt"></i> КАК СКАЧАТЬ:</h4>
-                <p id="downloadDesc">Нажмите кнопку выше → Файл начнет скачиваться МГНОВЕННО</p>
-                <div class="file-info">
-                    <strong id="filenameLabel">Имя файла:</strong> 2026_Epicenter_of_Future_GepardPro.mp3<br>
-                    <strong id="filesizeLabel">Размер:</strong> ~8 МБ | <strong id="formatLabel">Формат:</strong> MP3 320 кбит/с<br>
-                    <strong id="qualityLabel">Качество:</strong> Высокое | <strong id="durationLabel">Длительность:</strong> 3:13
+            <div class="file-info" style="margin-top: 30px; padding: 20px; background: rgba(0,255,255,0.1); border-radius: 15px;">
+                <p style="color: var(--neon-yellow); margin-bottom: 15px;">
+                    <i class="fas fa-info-circle"></i> 
+                    <span id="howToDownload">Нажмите кнопку → Скачивание начнётся мгновенно</span>
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div><strong id="filenameLabel">Файл:</strong> 2026_Epicenter_of_Future_GepardPro.mp3</div>
+                    <div><strong id="filesizeLabel">Размер:</strong> ~8 МБ</div>
+                    <div><strong id="formatLabel">Формат:</strong> MP3 320 кбит/с</div>
+                    <div><strong id="durationLabel">Длительность:</strong> 3:13</div>
                 </div>
-                <p><i class="fas fa-check-circle" style="color:#00ff00;"></i> MediaFire — прямое скачивание без ожидания</p>
             </div>
         </div>
         
-        <div class="info-box">
-            <h3 id="aboutTrack"><i class="fas fa-music"></i> О ТРЕКЕ</h3>
-            <p id="aboutText">Футуристичный новогодний гипнотик, создающий атмосферу эпицентра будущего. Идеально для видеоконтента, стримов, заставок и встречи 2026 года.</p>
+        <!-- ИНФОРМАЦИОННЫЕ КАРТОЧКИ -->
+        <div class="info-grid">
+            <div class="info-card">
+                <h3><i class="fas fa-music"></i> <span id="aboutTrack">О ТРЕКЕ</span></h3>
+                <p id="aboutText" style="line-height: 1.6;">
+                    Футуристичный новогодний гипнотик, создающий атмосферу эпицентра будущего. 
+                    Идеально для видеоконтента, стримов, заставок и встречи 2026 года.
+                </p>
+                <div style="margin-top: 20px;">
+                    <h4><i class="fas fa-microchip"></i> <span id="specs">ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</span></h4>
+                    <ul style="margin-top: 10px;">
+                        <li><strong id="formatLabel2">Формат:</strong> MP3 (320 kbps)</li>
+                        <li><strong>Жанр:</strong> Electronic / Futuristic</li>
+                        <li><strong>Темп:</strong> 128 BPM</li>
+                        <li><strong>Ключ:</strong> C# Minor</li>
+                        <li><strong id="licenseLabel">Лицензия:</strong> Бесплатно для некоммерческого использования</li>
+                    </ul>
+                </div>
+            </div>
             
-            <h3 id="specs" style="margin-top: 25px;"><i class="fas fa-microchip"></i> ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</h3>
-            <ul>
-                <li><strong id="formatLabel2">Формат:</strong> MP3 (High Quality 320 kbps)</li>
-                <li><strong>Жанр:</strong> Electronic / Futuristic / Cyberpunk</li>
-                <li><strong>Темп:</strong> 128 BPM</li>
-                <li><strong>Ключ:</strong> C# Minor</li>
-                <li><strong id="licenseLabel">Лицензия:</strong> Бесплатно для некоммерческого использования</li>
-            </ul>
-        </div>
-        
-        <div class="info-box">
-            <h3 id="forCreators"><i class="fas fa-rocket"></i> ДЛЯ КОНТЕНТ-МЕЙКЕРОВ</h3>
-            <p id="forCreatorsText">Этот трек идеально подходит для:</p>
-            <ul>
-                <li>YouTube-видео и обзоров</li>
-                <li>TikTok и Instagram Reels</li>
-                <li>Стримов на Twitch и YouTube Gaming</li>
-                <li>Подкастов и презентаций</li>
-                <li>Футуристичных проектов и заставок</li>
-            </ul>
-            <p style="margin-top: 20px; color: #ffff00; padding: 15px; background: rgba(255, 255, 0, 0.1); border-radius: 10px;">
-                <strong><i class="fas fa-exclamation-circle"></i> <span id="importantLabel">ВАЖНО:</span></strong> 
-                <span id="importantText">При использовании укажите автора: </span>
-                <span style="color:#ff00ff; font-weight:bold;" id="authorName">Гепард Про</span>
-            </p>
-        </div>
-        
-        <div class="social-links">
-            <a href="https://youtube.com/channel/UCdUPvyLSlBt1EkFMQsGSAJQ?si=5gddUteDxzHmuXBi" class="social-link" target="_blank" id="youtubeLink">
-               <i class="fab fa-youtube"></i> <span id="youtubeBtn">YouTube Канал</span>
-            </a>
-        </div>
-        
-        <div class="info-box">
-            <h3 id="support"><i class="fas fa-heart"></i> ПОДДЕРЖАТЬ АВТОРА</h3>
-            <p id="supportText">Если трек вам понравился:</p>
-            <ul>
-                <li id="supportItem1">Подпишитесь на <a href="https://youtube.com/channel/UCdUPvyLSlBt1EkFMQsGSAJQ?si=5gddUteDxzHmuXBi" 
-                   style="color:#ff00ff; text-decoration: none; font-weight: bold;">YouTube-канал</a></li>
-                <li id="supportItem2">Поставьте лайк и напишите комментарий</li>
-                <li id="supportItem3">Поделитесь треком с друзьями</li>
-                <li id="supportItem4">Используйте в своих видео с указанием автора</li>
-            </ul>
-            <p style="margin-top: 25px; font-size: 1.3rem; color: #00ffff; text-align: center;">
-                <i class="fas fa-star"></i> <span id="inspirationText">Ваша поддержка вдохновляет на создание новой музыки!</span> <i class="fas fa-star"></i>
-            </p>
+            <div class="info-card">
+                <h3><i class="fas fa-rocket"></i> <span id="forCreators">ДЛЯ КОНТЕНТ-МЕЙКЕРОВ</span></h3>
+                <p id="forCreatorsText" style="margin-bottom: 15px;">
+                    Этот трек идеально подходит для:
+                </p>
+                <ul>
+                    <li>YouTube-видео и обзоров</li>
+                    <li>TikTok и Instagram Reels</li>
+                    <li>Стримов на Twitch/YouTube</li>
+                    <li>Подкастов и презентаций</li>
+                    <li>Футуристичных проектов</li>
+                </ul>
+                
+                <div style="margin-top: 25px; padding: 15px; background: rgba(255,255,0,0.1); border-radius: 10px;">
+                    <p style="color: var(--neon-yellow); margin: 0;">
+                        <i class="fas fa-exclamation-circle"></i> 
+                        <strong id="importantLabel">ВАЖНО:</strong> 
+                        <span id="importantText">При использовании укажите автора: </span>
+                        <span style="color:var(--neon-pink); font-weight: bold;" id="authorName">Гепард Про</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h3><i class="fas fa-heart"></i> <span id="support">ПОДДЕРЖАТЬ АВТОРА</span></h3>
+                <p id="supportText" style="margin-bottom: 15px;">
+                    Если трек вам понравился:
+                </p>
+                <ul>
+                    <li id="supportItem1">
+                        Подпишитесь на 
+                        <a href="https://youtube.com/channel/UCdUPvyLSlBt1EkFMQsGSAJQ?si=5gddUteDxzHmuXBi" 
+                           style="color:var(--neon-cyan); text-decoration: none;">
+                           YouTube-канал
+                        </a>
+                    </li>
+                    <li id="supportItem2">Поставьте лайк и напишите комментарий</li>
+                    <li id="supportItem3">Поделитесь треком с друзьями</li>
+                    <li id="supportItem4">Используйте в своих видео с указанием автора</li>
+                </ul>
+                
+                <div style="margin-top: 30px; text-align: center;">
+                    <a href="https://youtube.com/channel/UCdUPvyLSlBt1EkFMQsGSAJQ?si=5gddUteDxzHmuXBi" 
+                       class="admin-btn" 
+                       target="_blank"
+                       style="text-decoration: none;">
+                       <i class="fab fa-youtube"></i> <span id="youtubeBtn">YouTube Канал</span>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 25px; text-align: center; color: var(--neon-green);">
+                    <i class="fas fa-star"></i> 
+                    <span id="inspirationText">Ваша поддержка вдохновляет на создание новой музыки!</span> 
+                    <i class="fas fa-star"></i>
+                </p>
+            </div>
         </div>
     </div>
     
+    <!-- ФУТЕР -->
     <footer>
-        <p id="copyright">© 2026 <span style="color:#00ffff; font-weight:bold;">ГЕПАРД ПРО</span>. Все права на композицию защищены.</p>
         <div class="copyright">
-            <span id="licenseText">Трек предоставляется бесплатно для некоммерческого использования.</span><br>
-            <span id="contactText">При использовании в коммерческих проектах — свяжитесь с автором.</span><br>
-            <span style="color: #ff00ff; display: block; margin-top: 15px; font-size: 1.2rem;">
-                <i class="fas fa-fire"></i> <span id="newYearText">С новым 2026 годом!</span> <i class="fas fa-fire"></i>
-            </span>
+            <p id="copyright">
+                © 2026 <span style="color:var(--neon-cyan); font-weight: bold;">ГЕПАРД ПРО</span>. 
+                Все права на композицию защищены.
+            </p>
+            <p id="licenseText" style="margin-top: 10px;">
+                Трек предоставляется бесплатно для некоммерческого использования.
+            </p>
+            <p id="contactText">
+                При использовании в коммерческих проектах — свяжитесь с автором.
+            </p>
+        </div>
+        
+        <div class="new-year" id="newYearText">
+            <i class="fas fa-fire"></i> С новым 2026 годом! <i class="fas fa-fire"></i>
         </div>
     </footer>
 
     <script>
+        // ==================== КЛАСС УМНОГО СЧЁТЧИКА ====================
+        class SmartCounter {
+            constructor() {
+                this.adminKey = 'gepard_admin_2026';
+                this.sessionKey = 'user_session_' + Date.now();
+                this.isAdmin = false;
+                this.userFingerprint = null;
+                this.init();
+            }
+            
+            init() {
+                this.checkIfAdmin();
+                if (!this.isAdmin) {
+                    setTimeout(() => this.addUniqueVisitor(), 1500);
+                }
+                this.updateDisplay();
+            }
+            
+            createUserFingerprint() {
+                try {
+                    const fingerprint = {
+                        ua: navigator.userAgent.substring(0, 100),
+                        lang: navigator.language,
+                        screen: `${screen.width}x${screen.height}`,
+                        tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                        cookies: navigator.cookieEnabled,
+                        touch: 'ontouchstart' in window,
+                        ts: Date.now()
+                    };
+                    
+                    let hash = 0;
+                    const str = JSON.stringify(fingerprint);
+                    for (let i = 0; i < str.length; i++) {
+                        hash = ((hash << 5) - hash) + str.charCodeAt(i);
+                        hash = hash & hash;
+                    }
+                    return 'user_' + Math.abs(hash).toString(36);
+                } catch (e) {
+                    return 'guest_' + Date.now();
+                }
+            }
+            
+            checkIfAdmin() {
+                const urlAdmin = new URLSearchParams(location.search).get('admin');
+                if (urlAdmin === 'gepard2026') {
+                    this.isAdmin = true;
+                    localStorage.setItem(this.adminKey, 'true');
+                    return true;
+                }
+                
+                if (localStorage.getItem(this.adminKey) === 'true' || 
+                    localStorage.getItem('isAdmin') === 'true') {
+                    this.isAdmin = true;
+                    localStorage.setItem(this.adminKey, 'true');
+                    return true;
+                }
+                
+                return false;
+            }
+            
+            addUniqueVisitor() {
+                if (this.isAdmin) {
+                    console.log('👑 Админ - не считаем');
+                    return;
+                }
+                
+                this.userFingerprint = this.createUserFingerprint();
+                const today = new Date().toDateString();
+                const dailyKey = `visitors_${today}`;
+                const dailyVisitors = JSON.parse(localStorage.getItem(dailyKey)) || [];
+                
+                if (!dailyVisitors.includes(this.userFingerprint)) {
+                    dailyVisitors.push(this.userFingerprint);
+                    localStorage.setItem(dailyKey, JSON.stringify(dailyVisitors));
+                    this.increaseVisitorCount();
+                    console.log('👤 Новый посетитель:', this.userFingerprint);
+                }
+            }
+            
+            increaseVisitorCount() {
+                let visitors = parseInt(localStorage.getItem('uniqueVisitors')) || 0;
+                visitors++;
+                localStorage.setItem('uniqueVisitors', visitors.toString());
+                this.updateDisplay();
+            }
+            
+            updateDisplay() {
+                const visitors = parseInt(localStorage.getItem('uniqueVisitors')) || 0;
+                const downloads = parseInt(localStorage.getItem('trackDownloads')) || 0;
+                
+                if (this.isAdmin) {
+                    document.getElementById('visitorCount').textContent = visitors;
+                    document.getElementById('downloadCount').textContent = downloads;
+                    
+                    if (document.getElementById('statsVisitors')) {
+                        document.getElementById('statsVisitors').textContent = visitors;
+                        document.getElementById('statsDownloads').textContent = downloads;
+                    }
+                }
+            }
+            
+            getStats() {
+                return {
+                    uniqueVisitors: parseInt(localStorage.getItem('uniqueVisitors')) || 0,
+                    todayVisitors: this.getTodayVisitors(),
+                    totalDownloads: parseInt(localStorage.getItem('trackDownloads')) || 0,
+                    isAdmin: this.isAdmin
+                };
+            }
+            
+            getTodayVisitors() {
+                const today = new Date().toDateString();
+                const dailyKey = `visitors_${today}`;
+                const dailyVisitors = JSON.parse(localStorage.getItem(dailyKey)) || [];
+                return dailyVisitors.length;
+            }
+        }
+        
         // ==================== ПЕРЕВОДЫ ====================
         const translations = {
             ru: {
-                // Основные
                 title: "2026: ЭПИЦЕНТР БУДУЩЕГО",
                 artist: "ГЕПАРД ПРО",
                 tagline: "Футуристичный новогодний гипнотик",
                 badge: "ПРЕМЬЕРА 2026",
-                
-                // Кнопка скачивания
-                downloadBtn: "СКАЧАТЬ ТРЕК БЕСПЛАТНО",
-                howToDownload: "КАК СКАЧАТЬ:",
-                downloadDesc: "Нажмите кнопку выше → Файл начнет скачиваться МГНОВЕННО",
-                filename: "Имя файла:",
-                filesize: "Размер:",
-                format: "Формат:",
-                quality: "Качество:",
-                duration: "Длительность:",
-                
-                // Контент
+                downloadBtn: "СКАЧАТЬ ТРЕК",
+                howToDownload: "Нажмите кнопку → Скачивание начнётся мгновенно",
+                filenameLabel: "Файл:",
+                filesizeLabel: "Размер:",
+                formatLabel: "Формат:",
+                durationLabel: "Длительность:",
                 aboutTrack: "О ТРЕКЕ",
                 aboutText: "Футуристичный новогодний гипнотик, создающий атмосферу эпицентра будущего. Идеально для видеоконтента, стримов, заставок и встречи 2026 года.",
                 specs: "ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ",
@@ -896,58 +1468,44 @@
                 support: "ПОДДЕРЖАТЬ АВТОРА",
                 supportText: "Если трек вам понравился:",
                 supportItem1: "Подпишитесь на YouTube-канал",
-                supportItem2: "Поставьте лайк и напишите комментарий",
-                supportItem3: "Поделитесь треком с друзьями",
-                supportItem4: "Используйте в своих видео с указанием автора",
                 importantLabel: "ВАЖНО:",
                 importantText: "При использовании укажите автора: ",
                 authorName: "Гепард Про",
                 inspirationText: "Ваша поддержка вдохновляет на создание новой музыки!",
-                
-                // Футер
                 copyright: "© 2026 ГЕПАРД ПРО. Все права на композицию защищены.",
                 licenseText: "Трек предоставляется бесплатно для некоммерческого использования.",
                 contactText: "При использовании в коммерческих проектах — свяжитесь с автором.",
                 newYearText: "С новым 2026 годом!",
-                
-                // Социальные
                 youtubeBtn: "YouTube Канал",
-                
-                // Настройки
+                formatLabel2: "Формат:",
+                licenseLabel: "Лицензия:",
                 settingsTitle: "⚙ НАСТРОЙКИ САЙТА",
                 langTitle: "🌍 Язык интерфейса",
                 modeTitle: "⚡ Режим отображения",
-                statsTitle: "👁 Статистика",
-                adminTitle: "🔗 Админ-доступ",
+                statsTitle: "📊 Статистика",
+                adminTitle: "🔐 Админ-доступ",
                 btnRu: "🇷🇺 Русский",
                 btnEn: "🇺🇸 English",
                 btnFull: "💻 Полная версия",
                 btnLight: "📱 Лёгкая версия",
-                btnCopyLink: "📋 Копировать ссылку",
-                btnAdminPanel: "👑 Панель администратора",
+                btnCopyLink: "🔗 Копировать ссылку",
+                btnAdminPanel: "👑 Админ-панель",
                 statVisitorsLabel: "Посетители:",
                 statDownloadsLabel: "Скачивания:",
                 settingsFooterText: "Настройки сохраняются автоматически"
             },
             
             en: {
-                // Основные
                 title: "2026: EPICENTER OF THE FUTURE",
                 artist: "GEPARD PRO",
                 tagline: "Futuristic New Year Hypnotic",
                 badge: "PREMIERE 2026",
-                
-                // Кнопка скачивания
-                downloadBtn: "DOWNLOAD TRACK FOR FREE",
-                howToDownload: "HOW TO DOWNLOAD:",
-                downloadDesc: "Click the button above → File will start downloading INSTANTLY",
-                filename: "File name:",
-                filesize: "Size:",
-                format: "Format:",
-                quality: "Quality:",
-                duration: "Duration:",
-                
-                // Контент
+                downloadBtn: "DOWNLOAD TRACK",
+                howToDownload: "Click the button → Download will start instantly",
+                filenameLabel: "File:",
+                filesizeLabel: "Size:",
+                formatLabel: "Format:",
+                durationLabel: "Duration:",
                 aboutTrack: "ABOUT THE TRACK",
                 aboutText: "Futuristic New Year hypnotic, creating the atmosphere of the epicenter of the future. Perfect for video content, streams, screensavers and meeting 2026.",
                 specs: "TECHNICAL SPECIFICATIONS",
@@ -956,34 +1514,27 @@
                 support: "SUPPORT THE AUTHOR",
                 supportText: "If you liked the track:",
                 supportItem1: "Subscribe to YouTube channel",
-                supportItem2: "Like and comment",
-                supportItem3: "Share the track with friends",
-                supportItem4: "Use in your videos with author mention",
                 importantLabel: "IMPORTANT:",
                 importantText: "When using, please credit the author: ",
                 authorName: "Gepard Pro",
                 inspirationText: "Your support inspires the creation of new music!",
-                
-                // Футер
                 copyright: "© 2026 GEPARD PRO. All composition rights reserved.",
                 licenseText: "The track is provided free of charge for non-commercial use.",
                 contactText: "For commercial projects — contact the author.",
                 newYearText: "Happy New Year 2026!",
-                
-                // Социальные
                 youtubeBtn: "YouTube Channel",
-                
-                // Настройки
+                formatLabel2: "Format:",
+                licenseLabel: "License:",
                 settingsTitle: "⚙ SITE SETTINGS",
                 langTitle: "🌍 Interface Language",
                 modeTitle: "⚡ Display Mode",
-                statsTitle: "👁 Statistics",
-                adminTitle: "🔗 Admin Access",
+                statsTitle: "📊 Statistics",
+                adminTitle: "🔐 Admin Access",
                 btnRu: "🇷🇺 Russian",
                 btnEn: "🇺🇸 English",
                 btnFull: "💻 Full Version",
                 btnLight: "📱 Light Version",
-                btnCopyLink: "📋 Copy Link",
+                btnCopyLink: "🔗 Copy Link",
                 btnAdminPanel: "👑 Admin Panel",
                 statVisitorsLabel: "Visitors:",
                 statDownloadsLabel: "Downloads:",
@@ -992,91 +1543,25 @@
         };
         
         // ==================== ОСНОВНЫЕ ФУНКЦИИ ====================
+        let smartCounter;
         
-        // Функция переключения языка
         function switchLanguage(lang) {
             const t = translations[lang];
-            
-            // Обновляем все тексты
-            document.getElementById('title').textContent = t.title;
-            document.getElementById('artist').textContent = t.artist;
-            document.getElementById('tagline').textContent = t.tagline;
-            document.getElementById('badge').textContent = t.badge;
-            
-            document.getElementById('downloadBtnText').textContent = t.downloadBtn;
-            document.getElementById('howToDownload').innerHTML = `<i class="fas fa-bolt"></i> ${t.howToDownload}`;
-            document.getElementById('downloadDesc').textContent = t.downloadDesc;
-            
-            document.getElementById('filenameLabel').textContent = t.filename;
-            document.getElementById('filesizeLabel').textContent = t.filesize;
-            document.getElementById('formatLabel').textContent = t.format;
-            document.getElementById('qualityLabel').textContent = t.quality;
-            document.getElementById('durationLabel').textContent = t.duration;
-            
-            document.getElementById('aboutTrack').innerHTML = `<i class="fas fa-music"></i> ${t.aboutTrack}`;
-            document.getElementById('aboutText').textContent = t.aboutText;
-            document.getElementById('specs').innerHTML = `<i class="fas fa-microchip"></i> ${t.specs}`;
-            document.getElementById('formatLabel2').textContent = t.format;
-            document.getElementById('licenseLabel').textContent = t.licenseText.split('.')[0];
-            
-            document.getElementById('forCreators').innerHTML = `<i class="fas fa-rocket"></i> ${t.forCreators}`;
-            document.getElementById('forCreatorsText').textContent = t.forCreatorsText;
-            
-            document.getElementById('support').innerHTML = `<i class="fas fa-heart"></i> ${t.support}`;
-            document.getElementById('supportText').textContent = t.supportText;
-            document.getElementById('supportItem1').innerHTML = `${t.supportItem1} <a href="https://youtube.com/channel/UCdUPvyLSlBt1EkFMQsGSAJQ?si=5gddUteDxzHmuXBi" 
-               style="color:#ff00ff; text-decoration: none; font-weight: bold;">YouTube</a>`;
-            document.getElementById('supportItem2').textContent = t.supportItem2;
-            document.getElementById('supportItem3').textContent = t.supportItem3;
-            document.getElementById('supportItem4').textContent = t.supportItem4;
-            
-            document.getElementById('importantLabel').textContent = t.importantLabel;
-            document.getElementById('importantText').textContent = t.importantText;
-            document.getElementById('authorName').textContent = t.authorName;
-            document.getElementById('inspirationText').textContent = t.inspirationText;
-            
-            document.getElementById('copyright').innerHTML = `© 2026 <span style="color:#00ffff; font-weight:bold;">${t.artist}</span>. ${t.copyright}`;
-            document.getElementById('licenseText').textContent = t.licenseText;
-            document.getElementById('contactText').textContent = t.contactText;
-            document.getElementById('newYearText').textContent = t.newYearText;
-            
-            document.getElementById('youtubeBtn').textContent = t.youtubeBtn;
-            
-            // Настройки
-            document.getElementById('settingsTitle').textContent = t.settingsTitle;
-            document.getElementById('langTitle').textContent = t.langTitle;
-            document.getElementById('modeTitle').textContent = t.modeTitle;
-            document.getElementById('statsTitle').textContent = t.statsTitle;
-            document.getElementById('adminTitle').textContent = t.adminTitle;
-            
-            document.getElementById('btnRu').textContent = t.btnRu;
-            document.getElementById('btnEn').textContent = t.btnEn;
-            document.getElementById('btnFull').textContent = t.btnFull;
-            document.getElementById('btnLight').textContent = t.btnLight;
-            document.getElementById('btnCopyLink').textContent = t.btnCopyLink;
-            document.getElementById('btnAdminPanel').textContent = t.btnAdminPanel;
-            
-            document.getElementById('statVisitorsLabel').textContent = t.statVisitorsLabel;
-            document.getElementById('statDownloadsLabel').textContent = t.statDownloadsLabel;
-            document.getElementById('settingsFooterText').textContent = t.settingsFooterText;
-            
-            // Обновляем активные кнопки
-            document.querySelectorAll('.settings-btn').forEach(btn => {
-                btn.classList.remove('active');
+            Object.keys(t).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) element.textContent = t[key];
             });
             
-            if (lang === 'ru') {
-                document.getElementById('btnRu').classList.add('active');
-            } else {
-                document.getElementById('btnEn').classList.add('active');
-            }
-            
-            // Сохраняем язык
+            updateButtons(lang);
             localStorage.setItem('siteLanguage', lang);
             showNotification(lang === 'ru' ? '🌍 Язык изменён' : '🌍 Language changed');
         }
         
-        // Переключение версий сайта
+        function updateButtons(lang) {
+            document.querySelectorAll('.settings-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn' + (lang === 'ru' ? 'Ru' : 'En')).classList.add('active');
+        }
+        
         function switchToFullVersion() {
             document.body.classList.remove('light-version');
             updateVersionButtons('full');
@@ -1092,17 +1577,8 @@
         }
         
         function updateVersionButtons(version) {
-            document.querySelectorAll('.settings-btn').forEach(btn => {
-                if (btn.id === 'btnFull' || btn.id === 'btnLight') {
-                    btn.classList.remove('active');
-                }
-            });
-            
-            if (version === 'full') {
-                document.getElementById('btnFull').classList.add('active');
-            } else {
-                document.getElementById('btnLight').classList.add('active');
-            }
+            document.getElementById('btnFull').classList.toggle('active', version === 'full');
+            document.getElementById('btnLight').classList.toggle('active', version === 'light');
         }
         
         // ==================== ШЕСТЕРЁНКА НАСТРОЕК ====================
@@ -1112,91 +1588,44 @@
             
             if (panel.style.display === 'block') {
                 panel.style.display = 'none';
-                gear.style.animation = 'rotateGear 10s linear infinite';
+                gear.style.animation = 'rotateGear 10s linear infinite, pulseGear 2s ease-in-out infinite alternate';
             } else {
                 panel.style.display = 'block';
-                gear.style.animation = 'rotateGear 3s linear infinite';
+                gear.style.animation = 'rotateGear 3s linear infinite, pulseGear 0.5s ease-in-out infinite alternate';
                 updateSettingsPanel();
             }
         }
         
         function updateSettingsPanel() {
-            const isAdmin = localStorage.getItem('isAdmin') === 'true';
+            const isAdmin = smartCounter && smartCounter.isAdmin;
             const statsSection = document.getElementById('statsSection');
             const adminSection = document.getElementById('adminSection');
             
             if (isAdmin) {
-                // Показываем админские разделы
                 statsSection.style.display = 'block';
                 adminSection.style.display = 'block';
-                updateStatsDisplay();
+                if (smartCounter) smartCounter.updateDisplay();
             } else {
-                // Скрываем админские разделы
                 statsSection.style.display = 'none';
                 adminSection.style.display = 'none';
             }
         }
         
-        // Клик по шестерёнке
-        document.getElementById('settingsGear').addEventListener('click', toggleSettings);
-        
-        // Закрытие при клике вне панели
-        document.addEventListener('click', function(event) {
-            const panel = document.getElementById('settingsPanel');
-            const gear = document.getElementById('settingsGear');
-            
-            if (panel.style.display === 'block' && 
-                !panel.contains(event.target) && 
-                !gear.contains(event.target)) {
-                panel.style.display = 'none';
-                gear.style.animation = 'rotateGear 10s linear infinite';
-            }
-        });
-        
-        // ==================== СТАТИСТИКА ====================
-        function updateStatsDisplay() {
-            const visitors = parseInt(localStorage.getItem('siteVisitors')) || 0;
-            const downloads = parseInt(localStorage.getItem('trackDownloads')) || 0;
-            
-            document.getElementById('statsVisitors').textContent = visitors;
-            document.getElementById('statsDownloads').textContent = downloads;
-        }
-        
-        function updateAdminCounter() {
-            const visitors = parseInt(localStorage.getItem('siteVisitors')) || 0;
-            const downloads = parseInt(localStorage.getItem('trackDownloads')) || 0;
-            
-            document.getElementById('visitorCount').textContent = visitors;
-            document.getElementById('downloadCount').textContent = downloads;
-            
-            // Обновляем в панели настроек
-            if (document.getElementById('statsVisitors')) {
-                updateStatsDisplay();
-            }
-        }
-        
         // ==================== АДМИН-ПАНЕЛЬ ====================
         function copyAdminLink() {
-            const secretKey = 'gepard2026';
-            const adminLink = `${window.location.origin}${window.location.pathname}?admin=${secretKey}`;
-            
+            const adminLink = `${location.origin}${location.pathname}?admin=gepard2026`;
             navigator.clipboard.writeText(adminLink)
-                .then(() => {
-                    showNotification('✅ Ссылка скопирована!');
-                    console.log('🔗 Админ ссылка:', adminLink);
-                })
-                .catch(err => {
-                    console.error('Ошибка копирования:', err);
-                    showNotification('❌ Ошибка копирования');
-                });
+                .then(() => showNotification('✅ Ссылка скопирована!'))
+                .catch(() => showNotification('❌ Ошибка копирования'));
         }
         
         function toggleAdminPanel() {
             const isAdmin = localStorage.getItem('isAdmin') === 'true' || 
-                            new URLSearchParams(window.location.search).get('admin') === 'gepard2026';
+                            new URLSearchParams(location.search).get('admin') === 'gepard2026';
             
             if (isAdmin) {
                 localStorage.setItem('isAdmin', 'true');
+                localStorage.setItem('gepard_admin_2026', 'true');
                 
                 const adminCounter = document.getElementById('adminCounter');
                 if (adminCounter.style.display === 'block') {
@@ -1208,20 +1637,24 @@
                     makeDraggable(adminCounter);
                 }
                 
-                // Обновляем панель настроек
+                if (smartCounter) {
+                    smartCounter.isAdmin = true;
+                    smartCounter.updateDisplay();
+                }
+                
                 updateSettingsPanel();
             } else {
                 const password = prompt('🔐 Введите админ-пароль:');
                 if (password === '2026gepard' || password === 'gepard2026') {
                     localStorage.setItem('isAdmin', 'true');
-                    toggleAdminPanel();
+                    localStorage.setItem('gepard_admin_2026', 'true');
+                    location.reload();
                 } else {
                     showNotification('❌ Неверный пароль');
                 }
             }
         }
         
-        // Делаем панель перемещаемой
         function makeDraggable(element) {
             let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
             
@@ -1229,7 +1662,6 @@
             element.ontouchstart = dragTouchStart;
             
             function dragMouseDown(e) {
-                e = e || window.event;
                 e.preventDefault();
                 pos3 = e.clientX;
                 pos4 = e.clientY;
@@ -1246,15 +1678,12 @@
             }
             
             function elementDrag(e) {
-                e = e || window.event;
                 e.preventDefault();
                 pos1 = pos3 - e.clientX;
                 pos2 = pos4 - e.clientY;
                 pos3 = e.clientX;
                 pos4 = e.clientY;
-                
                 element.style.top = (element.offsetTop - pos2) + "px";
-                element.style.right = "auto";
                 element.style.left = (element.offsetLeft - pos1) + "px";
             }
             
@@ -1264,9 +1693,7 @@
                 pos2 = pos4 - touch.clientY;
                 pos3 = touch.clientX;
                 pos4 = touch.clientY;
-                
                 element.style.top = (element.offsetTop - pos2) + "px";
-                element.style.right = "auto";
                 element.style.left = (element.offsetLeft - pos1) + "px";
             }
             
@@ -1278,110 +1705,163 @@
             }
         }
         
-        // ==================== СКАЧИВАНИЕ ТРЕКА ====================
+        // ==================== СКАЧИВАНИЕ ====================
         function trackDownload() {
-            let downloads = parseInt(localStorage.getItem('trackDownloads')) || 0;
-            downloads++;
-            localStorage.setItem('trackDownloads', downloads);
-            updateAdminCounter();
+            if (smartCounter && !smartCounter.isAdmin) {
+                let downloads = parseInt(localStorage.getItem('trackDownloads')) || 0;
+                downloads++;
+                localStorage.setItem('trackDownloads', downloads.toString());
+                console.log('💾 Скачивание:', downloads);
+            }
             
-            console.log(`💾 Скачивание №${downloads}`);
+            if (smartCounter) smartCounter.updateDisplay();
             
-            // Задержка для отслеживания
-            setTimeout(() => {
-                const lang = localStorage.getItem('siteLanguage') || 'ru';
-                showNotification(lang === 'ru' 
-                    ? '🎵 Скачивание началось!'
-                    : '🎵 Download started!');
-            }, 500);
+            showNotification(smartCounter && smartCounter.isAdmin ? 
+                '🎵 Админ скачал' : 
+                '🎵 Скачивание началось!');
             
-            // Открываем в новой вкладке
+            createParticles(event);
+            
             setTimeout(() => {
                 window.open('https://www.mediafire.com/file/bw88qtxuhc83v8c/cfe750a3-1961-4c82-a02b-89f2bd6d5787.mp3/file', '_blank');
-            }, 1000);
+            }, 500);
+        }
+        
+        // ==================== ЧАСТИЦЫ ЭФФЕКТ ====================
+        function createParticles(event) {
+            const particlesContainer = document.createElement('div');
+            particlesContainer.className = 'particles';
+            document.body.appendChild(particlesContainer);
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = (event.clientX - 2) + 'px';
+                particle.style.top = (event.clientY - 2) + 'px';
+                particle.style.setProperty('--tx', (Math.random() - 0.5) * 200 + 'px');
+                particle.style.setProperty('--ty', (Math.random() - 0.5) * 200 + 'px');
+                particle.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                particlesContainer.appendChild(particle);
+            }
+            
+            setTimeout(() => particlesContainer.remove(), 1000);
+        }
+        
+        // ==================== ДЕТАЛЬНАЯ СТАТИСТИКА ====================
+        function showDetailedStats() {
+            if (!smartCounter) return;
+            
+            const stats = smartCounter.getStats();
+            const today = new Date().toDateString();
+            const lang = localStorage.getItem('siteLanguage') || 'ru';
+            
+            const statsHTML = `
+                <div style="text-align: left; font-family: 'Exo 2', sans-serif;">
+                    <h3 style="color: var(--neon-cyan); margin-bottom: 20px; text-align: center;">
+                        📊 ${lang === 'ru' ? 'ДЕТАЛЬНАЯ СТАТИСТИКА' : 'DETAILED STATISTICS'}
+                    </h3>
+                    
+                    <div style="display: grid; gap: 15px; margin-bottom: 25px;">
+                        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; border-left: 4px solid var(--neon-cyan);">
+                            <div style="color: #aaa; font-size: 0.9rem;">${lang === 'ru' ? '👥 Уникальные посетители' : '👥 Unique Visitors'}</div>
+                            <div style="color: var(--neon-green); font-size: 2.5rem; font-weight: bold; font-family: 'Orbitron';">${stats.uniqueVisitors}</div>
+                        </div>
+                        
+                        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; border-left: 4px solid var(--neon-pink);">
+                            <div style="color: #aaa; font-size: 0.9rem;">📅 ${lang === 'ru' ? 'Сегодня' : 'Today'} (${today})</div>
+                            <div style="color: var(--neon-pink); font-size: 2rem; font-weight: bold; font-family: 'Orbitron';">${stats.todayVisitors}</div>
+                        </div>
+                        
+                        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; border-left: 4px solid var(--neon-yellow);">
+                            <div style="color: #aaa; font-size: 0.9rem;">💾 ${lang === 'ru' ? 'Скачиваний трека' : 'Track Downloads'}</div>
+                            <div style="color: var(--neon-yellow); font-size: 2rem; font-weight: bold; font-family: 'Orbitron';">${stats.totalDownloads}</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; margin-top: 20px;">
+                        <div style="color: var(--neon-cyan); margin-bottom: 10px;">
+                            <i class="fas fa-user-shield"></i> 
+                            ${lang === 'ru' ? 'Ваш статус:' : 'Your status:'}
+                        </div>
+                        <div style="color: ${stats.isAdmin ? 'var(--neon-pink)' : 'var(--neon-green)'}; font-weight: bold;">
+                            ${stats.isAdmin ? 
+                                (lang === 'ru' ? '👑 АДМИНИСТРАТОР' : '👑 ADMINISTRATOR') : 
+                                (lang === 'ru' ? '👤 ПОЛЬЗОВАТЕЛЬ' : '👤 USER')}
+                        </div>
+                        <small style="color: #888; display: block; margin-top: 5px;">
+                            ${stats.isAdmin ? 
+                                (lang === 'ru' ? 'Вы не входите в статистику посетителей' : 'You are not counted in visitor statistics') : 
+                                (lang === 'ru' ? 'Вы учитываетесь в статистике' : 'You are counted in statistics')}
+                        </small>
+                    </div>
+                </div>
+            `;
+            
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.85);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 100000;
+                backdrop-filter: blur(20px);
+                animation: fadeIn 0.3s;
+            `;
+            
+            modal.innerHTML = `
+                <div style="background: linear-gradient(145deg, rgba(10,5,20,0.95), rgba(5,2,10,0.98)); 
+                           padding: 40px; 
+                           border-radius: 25px; 
+                           max-width: 500px; 
+                           width: 90%; 
+                           border: 2px solid var(--neon-cyan); 
+                           box-shadow: 0 0 80px rgba(0,255,255,0.4);">
+                    ${statsHTML}
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button onclick="this.parentElement.parentElement.remove()" 
+                                style="background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan)); 
+                                       color: white; 
+                                       border: none; 
+                                       padding: 12px 40px; 
+                                       border-radius: 10px; 
+                                       cursor: pointer; 
+                                       font-family: 'Orbitron', sans-serif;
+                                       font-size: 1rem;
+                                       transition: all 0.3s;">
+                            ${lang === 'ru' ? 'Закрыть' : 'Close'}
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
         }
         
         // ==================== УВЕДОМЛЕНИЯ ====================
         function showNotification(message) {
-            // Удаляем старое уведомление
-            const oldNotification = document.querySelector('.quick-notification');
-            if (oldNotification) {
-                oldNotification.remove();
-            }
+            const old = document.querySelector('.quick-notification');
+            if (old) old.remove();
             
-            // Создаем новое
             const notification = document.createElement('div');
             notification.className = 'quick-notification';
             notification.textContent = message;
             document.body.appendChild(notification);
             
-            // Автоудаление через 2 секунды
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.remove();
-                }
-            }, 2000);
-        }
-        
-        // ==================== ФИКС МОБИЛЬНОЙ КЛАВИАТУРЫ ====================
-        function fixMobileKeyboard() {
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            
-            if (isMobile) {
-                console.log('📱 Мобильное устройство обнаружено, применяем фиксы...');
-                
-                // Все кнопки
-                const allButtons = document.querySelectorAll('button, .download-btn, .settings-btn, .admin-btn');
-                allButtons.forEach(btn => {
-                    btn.setAttribute('inputmode', 'none');
-                    btn.setAttribute('autocapitalize', 'off');
-                    btn.setAttribute('autocomplete', 'off');
-                });
-                
-                // Дополнительный фикс для iOS
-                if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-                    document.addEventListener('touchstart', function() {
-                        // Принудительно скрываем клавиатуру при тапе вне полей
-                        if (document.activeElement && document.activeElement.blur) {
-                            document.activeElement.blur();
-                        }
-                    }, { passive: true });
-                }
-                
-                // Предотвращаем масштабирование при фокусе
-                document.addEventListener('focusin', function(e) {
-                    if (e.target.tagName === 'BUTTON' || e.target.classList.contains('download-btn')) {
-                        setTimeout(() => {
-                            e.target.blur();
-                        }, 100);
-                    }
-                });
-            }
+            setTimeout(() => notification.remove(), 2000);
         }
         
         // ==================== ИНИЦИАЛИЗАЦИЯ ====================
         document.addEventListener('DOMContentLoaded', function() {
-            // Счётчик посетителей
-            let visitors = parseInt(localStorage.getItem('siteVisitors')) || 0;
-            visitors++;
-            localStorage.setItem('siteVisitors', visitors);
+            // Создаём умный счётчик
+            smartCounter = new SmartCounter();
+            window.smartCounter = smartCounter;
             
-            // Проверяем админский доступ по URL
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('admin') === 'gepard2026') {
-                localStorage.setItem('isAdmin', 'true');
-                console.log('👑 Админ доступ активирован по ссылке');
-                
-                // Автоматически показываем админ-панель
-                setTimeout(() => {
-                    const adminCounter = document.getElementById('adminCounter');
-                    adminCounter.style.display = 'block';
-                    makeDraggable(adminCounter);
-                    showNotification('👑 Админ-панель активирована');
-                }, 1000);
-            }
-            
-            // Загружаем сохранённые настройки
+            // Загружаем настройки
             const savedLang = localStorage.getItem('siteLanguage') || 'ru';
             const savedVersion = localStorage.getItem('siteVersion') || 'full';
             
@@ -1390,16 +1870,40 @@
                 switchToLightVersion();
             }
             
-            // Обновляем счётчики
-            updateAdminCounter();
+            // Шестерёнка
+            document.getElementById('settingsGear').addEventListener('click', toggleSettings);
+            document.addEventListener('click', function(e) {
+                const panel = document.getElementById('settingsPanel');
+                const gear = document.getElementById('settingsGear');
+                if (panel.style.display === 'block' && 
+                    !panel.contains(e.target) && 
+                    !gear.contains(e.target)) {
+                    panel.style.display = 'none';
+                    gear.style.animation = 'rotateGear 10s linear infinite, pulseGear 2s ease-in-out infinite alternate';
+                }
+            });
             
-            // Применяем фиксы для мобильных
+            // Анимация частиц для всех кнопок
+            document.querySelectorAll('button, .download-btn, .admin-btn').forEach(btn => {
+                btn.addEventListener('click', createParticles);
+            });
+            
+            // Мобильный фикс
             fixMobileKeyboard();
             
-            console.log('🚀 Сайт загружен! Посетители:', visitors);
+            console.log('🚀 Ультра-дизайн активирован!', smartCounter.getStats());
         });
         
-        // Предотвращаем контекстное меню на админ-панели
+        function fixMobileKeyboard() {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                document.querySelectorAll('button, .download-btn').forEach(btn => {
+                    btn.setAttribute('inputmode', 'none');
+                    btn.setAttribute('autocapitalize', 'off');
+                });
+            }
+        }
+        
+        // Предотвращаем контекстное меню
         document.addEventListener('contextmenu', function(e) {
             if (e.target.closest('.admin-counter') || e.target.closest('.settings-panel')) {
                 e.preventDefault();
