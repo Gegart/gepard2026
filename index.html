@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой сайт с умным счётчиком</title>
+    <title>СКАЧАТЬ ТРЕК: 2026: Эпицентр Будущего | Гепард Про</title>
     <style>
         * {
             margin: 0;
@@ -11,710 +11,1400 @@
             box-sizing: border-box;
         }
         
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Teko:wght@300;400;600&family=Chakra+Petch:wght@300;400;700&display=swap');
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #000000;
+            color: #ffffff;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             padding: 20px;
+            text-align: center;
+            font-family: 'Chakra Petch', sans-serif;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 255, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.15) 0%, transparent 25%);
+            background-attachment: fixed;
         }
         
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 900px;
+            width: 100%;
+            background: rgba(10, 5, 20, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 3px solid transparent;
+            border-image: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00) 1;
+            box-shadow: 
+                0 0 60px rgba(255, 0, 255, 0.4),
+                0 0 120px rgba(0, 255, 255, 0.2),
+                inset 0 0 40px rgba(255, 255, 255, 0.05);
+            animation: fadeIn 1s ease-out;
+            margin: 20px;
+            position: relative;
+            overflow: hidden;
         }
         
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 40px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        h1 {
-            color: #2c3e50;
-            font-size: 2.8em;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, #3498db, #2ecc71);
+        .header {
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, 
+                #ff00ff 0%, 
+                #ff0080 15%, 
+                #ff0000 30%, 
+                #ffff00 45%, 
+                #00ff00 60%, 
+                #00ffff 75%, 
+                #0080ff 90%);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            background-size: 300% 100%;
+            animation: rainbowText 4s linear infinite;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            line-height: 1.1;
         }
         
-        .subtitle {
-            color: #7f8c8d;
-            font-size: 1.2em;
-            max-width: 600px;
-            margin: 0 auto;
+        @keyframes rainbowText {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
         }
         
-        .main-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
+        .artist {
+            font-size: 2.2rem;
+            color: #88ddff;
+            margin-bottom: 5px;
+            letter-spacing: 4px;
+            font-family: 'Teko', sans-serif;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shine 3s infinite;
         }
         
-        .card {
-            background: white;
-            padding: 30px;
+        @keyframes shine {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+        
+        /* ==================== ШЕСТЕРЁНКА НАСТРОЕК ==================== */
+        .settings-gear {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 10000;
+            box-shadow: 
+                0 0 20px rgba(255, 0, 255, 0.5),
+                0 0 40px rgba(0, 255, 255, 0.3);
+            animation: rotateGear 10s linear infinite;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .settings-gear:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 
+                0 0 30px rgba(255, 0, 255, 0.7),
+                0 0 60px rgba(0, 255, 255, 0.5);
+            animation: rotateGear 3s linear infinite;
+        }
+        
+        @keyframes rotateGear {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .settings-panel {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            width: 320px;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 2px solid #00ffff;
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.8),
+                0 0 30px rgba(0, 255, 255, 0.3);
+            z-index: 9999;
+            display: none;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(-20px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+        
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .settings-header h4 {
+            color: #00ffff;
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+        }
+        
+        .close-settings {
+            background: none;
+            border: none;
+            color: #ff00ff;
+            font-size: 1.8rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .close-settings:hover {
+            background: rgba(255, 0, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .settings-section {
+            margin-bottom: 25px;
+        }
+        
+        .settings-section h5 {
+            color: #ffff00;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            font-family: 'Chakra Petch', sans-serif;
+        }
+        
+        .settings-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .settings-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ddd;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 15px;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
+            cursor: pointer;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .card:hover {
-            transform: translateY(-5px);
+        .settings-btn:hover {
+            background: rgba(0, 255, 255, 0.2);
+            color: white;
+            border-color: #00ffff;
+            transform: translateX(5px);
         }
         
-        .card h3 {
-            color: #2c3e50;
+        .settings-btn.active {
+            background: linear-gradient(90deg, rgba(255, 0, 255, 0.3), rgba(0, 255, 255, 0.3));
+            color: white;
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        .stats-display {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .stat-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .stat-label {
+            color: #aaa;
+        }
+        
+        .stat-value {
+            color: #00ff00;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .admin-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .admin-btn {
+            background: linear-gradient(90deg, rgba(255, 0, 0, 0.3), rgba(255, 165, 0, 0.3));
+            color: white;
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            padding: 12px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .admin-btn:hover {
+            background: linear-gradient(90deg, rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5));
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        .settings-footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #888;
+            font-size: 0.8rem;
+        }
+        
+        .cover-container {
+            width: 320px;
+            height: 320px;
+            margin: 30px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 4px solid #00ffff;
+            box-shadow: 
+                0 0 40px rgba(0, 255, 255, 0.5),
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .badge {
+            position: absolute;
+            margin-top: -340px;
+            margin-left: 220px;
+            background: linear-gradient(45deg, #ff0080, #ff00ff);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            animation: pulse 2s infinite;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+            background-size: 300% 100%;
+            color: white;
+            font-size: 1.7rem;
+            font-weight: bold;
+            padding: 22px 65px;
+            border-radius: 65px;
+            text-decoration: none;
+            margin: 25px 0;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 2px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            animation: gradientMove 3s infinite linear;
+            box-shadow: 
+                0 15px 40px rgba(255, 0, 255, 0.5),
+                0 0 30px rgba(0, 255, 255, 0.3);
+            /* ФИКС для мобильной клавиатуры */
+            inputmode: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 20px 50px rgba(255, 0, 255, 0.7),
+                0 0 40px rgba(0, 255, 255, 0.5);
+            letter-spacing: 3px;
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 0, 0.1);
+            border: 2px solid #ffff00;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 600px;
+            text-align: center;
+            animation: borderPulse 2s infinite;
+        }
+        
+        @keyframes borderPulse {
+            0%, 100% { border-color: #ffff00; }
+            50% { border-color: #00ffff; }
+        }
+        
+        .instructions h4 {
+            color: #ffff00;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            font-family: 'Teko', sans-serif;
+        }
+        
+        .info-box {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: left;
+            border-left: 5px solid #00ffff;
+        }
+        
+        .info-box h3 {
+            color: #00ffff;
             margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #3498db;
-            font-size: 1.4em;
+            font-size: 1.6rem;
+            font-family: 'Orbitron', sans-serif;
         }
         
-        .card-content {
-            color: #555;
-        }
-        
-        .card-content ul {
+        .info-box ul {
             padding-left: 20px;
             margin: 15px 0;
         }
         
-        .card-content li {
-            margin-bottom: 8px;
+        .info-box li {
+            margin-bottom: 10px;
+            line-height: 1.5;
         }
         
-        .tech-stack {
+        .social-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+            justify-content: center;
+            margin: 30px 0;
         }
         
-        .tech-tag {
-            background: #e3f2fd;
-            color: #1976d2;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9em;
+        .social-link {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 15px;
+            background: linear-gradient(45deg, rgba(255, 0, 0, 0.2), rgba(200, 0, 0, 0.3));
+            border: 2px solid #ff0000;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+            font-family: 'Chakra Petch', sans-serif;
+            font-weight: bold;
+            min-width: 250px;
+            justify-content: center;
         }
         
-        .project-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        
-        .project-card h3 {
-            color: white;
-            border-color: white;
-        }
-        
-        .counter-info {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 12px;
-            margin-top: 30px;
-            border-left: 5px solid #4CAF50;
-        }
-        
-        .counter-info h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
+        .social-link:hover {
+            background: linear-gradient(45deg, rgba(255, 0, 0, 0.3), rgba(255, 50, 50, 0.4));
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
         }
         
         footer {
-            text-align: center;
-            padding: 30px;
-            color: #7f8c8d;
-            font-size: 0.9em;
-            border-top: 1px solid #eee;
             margin-top: 40px;
+            color: #888;
+            font-size: 1rem;
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Стили для счётчика */
-        #visitor-counter {
+        .copyright {
+            color: #aaa;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .file-info {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        body.light-version .header h1 {
+            animation: none;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        
+        body.light-version .container {
+            animation: none;
+            border-image: none;
+            border: 2px solid #00ffff;
+        }
+        
+        body.light-version .download-btn {
+            animation: none;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+        }
+        
+        body.light-version .badge,
+        body.light-version .instructions,
+        body.light-version .social-link:hover {
+            animation: none;
+        }
+        
+        /* ==================== АДМИН ПАНЕЛЬ ==================== */
+        .admin-counter {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 1000;
-            min-width: 280px;
-            max-width: 320px;
-            font-family: 'Segoe UI', sans-serif;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #00ffff;
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: 2px solid #ff00ff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            z-index: 9999;
+            display: none;
+            cursor: move;
+            user-select: none;
         }
         
-        /* Адаптивность */
+        .admin-counter:hover {
+            background: rgba(0, 0, 0, 0.9);
+            border-color: #00ffff;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+        
+        .quick-notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            z-index: 10001;
+            backdrop-filter: blur(10px);
+            animation: fadeInOut 2s forwards;
+            border: 2px solid #00ffff;
+        }
+        
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            15% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            85% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+        }
+        
+        /* Для мобильных устройств */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
+            .container {
+                padding: 25px;
+                margin: 10px;
             }
             
-            .main-content {
-                grid-template-columns: 1fr;
+            .header h1 {
+                font-size: 2.5rem;
             }
             
-            #visitor-counter {
-                position: static;
-                margin: 30px auto;
-                max-width: 100%;
+            .artist {
+                font-size: 1.8rem;
+            }
+            
+            .cover-container {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .badge {
+                margin-top: -300px;
+                margin-left: 180px;
+            }
+            
+            .download-btn {
+                font-size: 1.4rem;
+                padding: 20px 50px;
+            }
+            
+            .social-link {
+                min-width: 200px;
+                padding: 12px 30px;
+            }
+            
+            .settings-gear {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                top: 10px;
+                right: 10px;
+            }
+            
+            .settings-panel {
+                top: 70px;
+                right: 10px;
+                left: 10px;
+                width: auto;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            
+            .admin-counter {
+                bottom: 10px;
+                right: 10px;
+                font-size: 0.8rem;
+                padding: 8px 12px;
             }
         }
         
         @media (max-width: 480px) {
-            body {
-                padding: 10px;
+            .header h1 {
+                font-size: 2rem;
             }
             
-            .card {
-                padding: 20px;
+            .artist {
+                font-size: 1.5rem;
             }
             
-            h1 {
-                font-size: 1.8em;
+            .cover-container {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .badge {
+                margin-top: -270px;
+                margin-left: 160px;
+                padding: 6px 15px;
+                font-size: 0.8rem;
+            }
+            
+            .download-btn {
+                font-size: 1.2rem;
+                padding: 18px 40px;
+            }
+            
+            .social-link {
+                min-width: 180px;
+                padding: 10px 20px;
+                font-size: 1.1rem;
+            }
+            
+            .settings-gear {
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
             }
         }
         
-        /* Анимации */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .card {
-            animation: fadeIn 0.5s ease-out;
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        /* Фикс для iOS */
+        @supports (-webkit-touch-callout: none) {
+            .settings-btn,
+            .admin-btn,
+            .download-btn {
+                padding: 15px;
+                min-height: 44px; /* Минимальный размер для iOS */
+            }
+            
+            .settings-gear {
+                width: 50px;
+                height: 50px;
+                min-height: 44px;
+            }
+            
+            .download-btn {
+                -webkit-tap-highlight-color: transparent;
+            }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://i.postimg.cc/pXxpyDTj/IMG-20260105-032954-283.jpg">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🚀 Мой Учебный Проект</h1>
-            <p class="subtitle">Практикую веб-разработку и создаю интересные проекты. Этот сайт — моя лаборатория для экспериментов!</p>
-        </header>
-        
-        <div class="main-content">
-            <div class="card">
-                <h3>👨‍💻 Обо мне</h3>
-                <div class="card-content">
-                    <p>Привет! Я учусь веб-разработке и каждый день открываю для себя что-то новое в мире IT.</p>
-                    <p>Мне нравится превращать идеи в рабочие проекты и видеть, как код оживает в браузере.</p>
-                    <p>Сейчас активно изучаю фронтенд-разработку и практикуюсь на реальных проектах.</p>
-                    
-                    <div class="tech-stack">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Git</span>
-                        <span class="tech-tag">VS Code</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card project-card">
-                <h3>💼 Мои проекты</h3>
-                <div class="card-content">
-                    <ul>
-                        <li><strong>Умный счётчик посетителей</strong> — именно этот проект!</li>
-                        <li><strong>Интерактивный to-do список</strong> — с drag & drop</li>
-                        <li><strong>Веб-игра на JavaScript</strong> — «Угадай число»</li>
-                        <li><strong>Адаптивный лендинг</strong> — для мобильных устройств</li>
-                        <li><strong>Погодное приложение</strong> — с API запросами</li>
-                    </ul>
-                    <p style="margin-top: 15px; opacity: 0.9;">Каждый проект учит меня чему-то новому и делает лучше как разработчика.</p>
-                </div>
-            </div>
-            
-            <div class="card">
-                <h3>🎯 Что я изучаю сейчас</h3>
-                <div class="card-content">
-                    <p><strong>JavaScript продвинутый:</strong></p>
-                    <ul>
-                        <li>Работа с API и асинхронные запросы</li>
-                        <li>LocalStorage и сессии</li>
-                        <li>Модульная структура кода</li>
-                        <li>Оптимизация производительности</li>
-                    </ul>
-                    <p style="margin-top: 15px;"><strong>В планах:</strong> React, Node.js, базы данных</p>
-                </div>
-            </div>
-            
-            <div class="card">
-                <h3>📈 Мой прогресс</h3>
-                <div class="card-content">
-                    <p>За последние месяцы я:</p>
-                    <ul>
-                        <li>Научился создавать адаптивные сайты</li>
-                        <li>Освоил основы JavaScript</li>
-                        <li>Начал использовать Git для контроля версий</li>
-                        <li>Понял важность чистого и читаемого кода</li>
-                        <li>Научился дебажить и искать решения проблем</li>
-                    </ul>
-                    <p style="margin-top: 15px; color: #3498db; font-weight: bold;">Самое главное — не бояться экспериментировать!</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="counter-info">
-            <h3>🔍 О счётчике на этом сайте</h3>
-            <p>В правом нижнем углу находится <strong>умный счётчик посетителей</strong>, который я разработал.</p>
-            <p>Он умеет:</p>
-            <ul>
-                <li>Отличать разработчика (тебя) от реальных посетителей</li>
-                <li>Считать уникальных посетителей за день</li>
-                <li>Хранить статистику в браузере</li>
-                <li>Показывать разный интерфейс в разных режимах</li>
-                <li>Переключаться между режимами разработки и тестирования</li>
-            </ul>
-            <p style="margin-top: 15px;"><strong>Попробуй:</strong> обновить страницу (F5), нажать кнопку в счётчике, открыть в режиме инкогнито!</p>
-        </div>
-        
-        <footer>
-            <p>© 2024 Учебный проект по веб-разработке</p>
-            <p>Сайт создан для практики и обучения. Весь код написан с нуля.</p>
-            <p style="margin-top: 10px; font-size: 0.8em; color: #95a5a6;">Последнее обновление: сегодня</p>
-        </footer>
+    <!-- ШЕСТЕРЁНКА НАСТРОЕК -->
+    <div class="settings-gear" id="settingsGear">
+        ⚙
     </div>
     
-    <!-- КОНТЕЙНЕР ДЛЯ СЧЁТЧИКА -->
-    <div id="visitor-counter"></div>
-    
-    <!-- КОД СЧЁТЧИКА -->
-    <script>
-    // ====================================================
-    // УМНЫЙ СЧЁТЧИК ПОСЕТИТЕЛЕЙ - ПОЛНАЯ ВЕРСИЯ
-    // Автор: Ученик-разработчик
-    // ====================================================
-    
-    console.log('🎮 Счётчик посетителей запускается...');
-    
-    // Ждём полной загрузки страницы
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('✅ Страница загружена, инициализируем счётчик');
+    <!-- ПАНЕЛЬ НАСТРОЕК -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-header">
+            <h4 id="settingsTitle">⚙ НАСТРОЙКИ САЙТА</h4>
+            <button class="close-settings" onclick="toggleSettings()">×</button>
+        </div>
         
-        const counterElement = document.getElementById('visitor-counter');
-        if (!counterElement) {
-            console.error('❌ Не найден элемент для счётчика!');
-            return;
-        }
-        
-        // Показываем сообщение о загрузке
-        counterElement.innerHTML = `
-            <div style="
-                background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-                color: white;
-                padding: 20px;
-                border-radius: 12px;
-                border: 2px solid rgba(255,255,255,0.2);
-                box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-                text-align: center;
-                animation: pulse 2s infinite;
-            ">
-                <div style="font-size: 24px; margin-bottom: 10px;">⏳</div>
-                <div style="font-weight: bold; margin-bottom: 5px;">Загружаем статистику</div>
-                <div style="font-size: 12px; opacity: 0.8;">Подождите секунду...</div>
+        <div class="settings-section">
+            <h5 id="langTitle">🌍 Язык интерфейса</h5>
+            <div class="settings-buttons">
+                <button class="settings-btn active" onclick="switchLanguage('ru')" id="btnRu">
+                    🇷🇺 Русский
+                </button>
+                <button class="settings-btn" onclick="switchLanguage('en')" id="btnEn">
+                    🇺🇸 English
+                </button>
             </div>
-        `;
+        </div>
         
-        // Ждём 600ms для эффекта загрузки
-        setTimeout(function() {
-            
-            // ====================
-            // ОПРЕДЕЛЯЕМ РЕЖИМ
-            // ====================
-            const isDeveloper = 
-                window.location.hostname.includes('localhost') ||
-                window.location.hostname.includes('127.0.0.1') ||
-                window.location.protocol === 'file:' ||
-                ['3000', '8080', '5500'].includes(window.location.port) ||
-                window.location.hostname === '';
-            
-            console.log('🔍 Проверка режима:');
-            console.log('📍 Адрес:', window.location.hostname);
-            console.log('🚪 Порт:', window.location.port || 'не указан');
-            console.log('👨‍💻 Режим разработчика?', isDeveloper);
-            
-            // Проверяем, не нажал ли пользователь кнопку "тестировать"
-            const isTestingMode = sessionStorage.getItem('counterTestingMode') === 'true';
-            
-            // ====================
-            // РЕЖИМ РАЗРАБОТЧИКА
-            // ====================
-            if (isDeveloper && !isTestingMode) {
-                console.log('🔧 Показываем режим разработчика');
-                
-                counterElement.innerHTML = `
-                    <div style="
-                        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-                        color: #8B4513;
-                        padding: 22px;
-                        border-radius: 12px;
-                        border: 3px solid #FF8C00;
-                        box-shadow: 0 8px 25px rgba(255,140,0,0.2);
-                    ">
-                        <div style="display: flex; align-items: center; margin-bottom: 12px;">
-                            <div style="
-                                background: #FF8C00;
-                                width: 40px;
-                                height: 40px;
-                                border-radius: 50%;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                margin-right: 12px;
-                                font-size: 20px;
-                            ">
-                                🔧
-                            </div>
-                            <div>
-                                <div style="font-weight: bold; font-size: 18px;">Режим разработчика</div>
-                                <div style="font-size: 13px; opacity: 0.9;">Ты работаешь над сайтом</div>
-                            </div>
-                        </div>
-                        
-                        <div style="
-                            background: rgba(255,255,255,0.2);
-                            padding: 12px;
-                            border-radius: 8px;
-                            margin-bottom: 15px;
-                            font-size: 14px;
-                        ">
-                            <div style="margin-bottom: 5px;"><strong>Информация:</strong></div>
-                            <div style="font-family: monospace; font-size: 12px;">
-                                📍 ${window.location.hostname || 'локальный файл'}<br>
-                                📁 ${window.location.protocol}<br>
-                                🕐 ${new Date().toLocaleTimeString()}
-                            </div>
-                        </div>
-                        
-                        <button onclick="enableVisitorMode()" 
-                                style="
-                                    width: 100%;
-                                    padding: 12px;
-                                    background: linear-gradient(135deg, #4CAF50, #2E7D32);
-                                    color: white;
-                                    border: none;
-                                    border-radius: 8px;
-                                    cursor: pointer;
-                                    font-weight: bold;
-                                    font-size: 15px;
-                                    transition: all 0.3s;
-                                "
-                                onmouseover="this.style.transform='scale(1.02)'"
-                                onmouseout="this.style.transform='scale(1)'">
-                            👁️ Посмотреть как посетитель
-                        </button>
-                        
-                        <div style="
-                            margin-top: 10px;
-                            font-size: 11px;
-                            text-align: center;
-                            opacity: 0.7;
-                        ">
-                            Нажми, чтобы протестировать счётчик
-                        </div>
-                    </div>
-                `;
-                
-                // Сохраняем, что мы в режиме разработчика
-                sessionStorage.setItem('isDeveloper', 'true');
-                
-            } else {
-                // ====================
-                // РЕЖИМ ПОСЕТИТЕЛЯ
-                // ====================
-                console.log('👥 Режим посетителя, обновляем статистику');
-                
-                // Если был режим тестирования
-                if (isTestingMode) {
-                    counterElement.innerHTML = `
-                        <div style="
-                            background: linear-gradient(135deg, #2196F3 0%, #0D47A1 100%);
-                            color: white;
-                            padding: 22px;
-                            border-radius: 12px;
-                            border: 3px solid #1976D2;
-                            box-shadow: 0 8px 25px rgba(33,150,243,0.2);
-                        ">
-                            <div style="display: flex; align-items: center; margin-bottom: 12px;">
-                                <div style="
-                                    background: #1976D2;
-                                    width: 40px;
-                                    height: 40px;
-                                    border-radius: 50%;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    margin-right: 12px;
-                                    font-size: 20px;
-                                ">
-                                    👁️
-                                </div>
-                                <div>
-                                    <div style="font-weight: bold; font-size: 18px;">Тестовый режим</div>
-                                    <div style="font-size: 13px; opacity: 0.9;">Ты видишь сайт глазами посетителя</div>
-                                </div>
-                            </div>
-                            
-                            <button onclick="disableTestingMode()" 
-                                    style="
-                                        width: 100%;
-                                        padding: 12px;
-                                        background: linear-gradient(135deg, #FF9800, #F57C00);
-                                        color: white;
-                                        border: none;
-                                        border-radius: 8px;
-                                        cursor: pointer;
-                                        font-weight: bold;
-                                        font-size: 15px;
-                                        margin-top: 10px;
-                                    ">
-                                ↩️ Вернуться к разработке
-                            </button>
-                        </div>
-                    `;
-                }
-                
-                // ВСЕГДА обновляем статистику в режиме посетителя
-                updateVisitorStatistics();
-            }
-            
-        }, 600); // Конец setTimeout
-    });
+        <div class="settings-section">
+            <h5 id="modeTitle">⚡ Режим отображения</h5>
+            <div class="settings-buttons">
+                <button class="settings-btn active" onclick="switchToFullVersion()" id="btnFull">
+                    💻 Полная версия
+                </button>
+                <button class="settings-btn" onclick="switchToLightVersion()" id="btnLight">
+                    📱 Лёгкая версия
+                </button>
+            </div>
+        </div>
+        
+        <div class="settings-section stats-section" id="statsSection" style="display: none;">
+            <h5 id="statsTitle">👁 Статистика</h5>
+            <div class="stats-display">
+                <div class="stat-item">
+                    <span class="stat-label" id="statVisitorsLabel">Посетители:</span>
+                    <span class="stat-value" id="statsVisitors">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" id="statDownloadsLabel">Скачивания:</span>
+                    <span class="stat-value" id="statsDownloads">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="settings-section admin-section" id="adminSection" style="display: none;">
+            <h5 id="adminTitle">🔗 Админ-доступ</h5>
+            <div class="admin-links">
+                <button class="admin-btn" onclick="copyAdminLink()" id="btnCopyLink">
+                    📋 Копировать ссылку
+                </button>
+                <button class="admin-btn" onclick="toggleAdminPanel()" id="btnAdminPanel">
+                    👑 Панель администратора
+                </button>
+            </div>
+        </div>
+        
+        <div class="settings-footer">
+            <small id="settingsFooterText">Настройки сохраняются автоматически</small>
+        </div>
+    </div>
     
-    // ============================================
-    // ФУНКЦИЯ ОБНОВЛЕНИЯ СТАТИСТИКИ
-    // ============================================
-    function updateVisitorStatistics() {
-        console.log('📊 Начинаем подсчёт статистики...');
+    <!-- АДМИН СЧЁТЧИК -->
+    <div class="admin-counter" id="adminCounter">
+        👥: <span id="visitorCount">0</span> | 💾: <span id="downloadCount">0</span>
+    </div>
+    
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <div class="container">
+        <div class="header">
+            <h1 id="title">2026: ЭПИЦЕНТР БУДУЩЕГО</h1>
+            <div class="artist" id="artist">ГЕПАРД ПРО</div>
+            <div class="tagline" id="tagline">Футуристичный новогодний гипнотик</div>
+        </div>
         
-        // Получаем сегодняшнюю дату в формате ГГГГ-ММ-ДД
-        const today = new Date().toISOString().split('T')[0];
-        console.log('📅 Сегодняшняя дата:', today);
+        <div class="cover-container">
+            <img src="https://i.postimg.cc/pXxpyDTj/IMG-20260105-032954-283.jpg" alt="Обложка трека" class="cover-image">
+            <div class="badge" id="badge">ПРЕМЬЕРА 2026</div>
+        </div>
         
-        // Получаем данные из LocalStorage
-        let stats = {
-            visits: 0,
-            total: 0,
-            lastDate: "",
-            firstVisit: ""
+        <div class="download-section">
+            <a href="https://www.mediafire.com/file/bw88qtxuhc83v8c/cfe750a3-1961-4c82-a02b-89f2bd6d5787.mp3/file" 
+               class="download-btn" 
+               download="2026_Epicenter_of_Future_GepardPro.mp3"
+               onclick="trackDownload()"
+               id="downloadLink">
+               <i class="fas fa-download"></i> <span id="downloadBtnText">СКАЧАТЬ ТРЕК БЕСПЛАТНО</span>
+            </a>
+            
+            <div class="instructions">
+                <h4 id="howToDownload"><i class="fas fa-bolt"></i> КАК СКАЧАТЬ:</h4>
+                <p id="downloadDesc">Нажмите кнопку выше → Файл начнет скачиваться МГНОВЕННО</p>
+                <div class="file-info">
+                    <strong id="filenameLabel">Имя файла:</strong> 2026_Epicenter_of_Future_GepardPro.mp3<br>
+                    <strong id="filesizeLabel">Размер:</strong> ~8 МБ | <strong id="formatLabel">Формат:</strong> MP3 320 кбит/с<br>
+                    <strong id="qualityLabel">Качество:</strong> Высокое | <strong id="durationLabel">Длительность:</strong> 3:13
+                </div>
+                <p><i class="fas fa-check-circle" style="color:#00ff00;"></i> MediaFire — прямое скачивание без ожидания</p>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <h3 id="aboutTrack"><i class="fas fa-music"></i> О ТРЕКЕ</h3>
+            <p id="aboutText">Футуристичный новогодний гипнотик, создающий атмосферу эпицентра будущего. Идеально для видеоконтента, стримов, заставок и встречи 2026 года.</p>
+            
+            <h3 id="specs" style="margin-top: 25px;"><i class="fas fa-microchip"></i> ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</h3>
+            <ul>
+                <li><strong id="formatLabel2">Формат:</strong> MP3 (High Quality 320 kbps)</li>
+                <li><strong>Жанр:</strong> Electronic / Futuristic / Cyberpunk</li>
+                <li><strong>Темп:</strong> 128 BPM</li>
+                <li><strong>Ключ:</strong> C# Minor</li>
+                <li><strong id="licenseLabel">Лицензия:</strong> Бесплатно для некоммерческого использования</li>
+            </ul>
+        </div>
+        
+        <div class="info-box">
+            <h3 id="forCreators"><i class="fas fa-rocket"></i> ДЛЯ КОНТЕНТ-МЕЙКЕРОВ</h3>
+            <p id="forCreatorsText">Этот трек идеально подходит для:</p>
+            <ul>
+                <li>YouTube-видео и обзоров</li>
+                <li>TikTok и Instagram Reels</li>
+                <li>Стримов на Twitch и YouTube Gaming</li>
+                <li>Подкастов и презентаций</li>
+                <li>Футуристичных проектов и заставок</li>
+            </ul>
+            <p style="margin-top: 20px; color: #ffff00; padding: 15px; background: rgba(255, 255, 0, 0.1); border-radius: 10px;">
+                <strong><i class="fas fa-exclamation-circle"></i> <span id="importantLabel">ВАЖНО:</span></strong> 
+                <span id="importantText">При использовании укажите автора: </span>
+                <span style="color:#ff00ff; font-weight:bold;" id="authorName">Гепард Про</span>
+            </p>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://youtube.com/channel/UCdUPvyLSlBt1EkFMQsGSAJQ?si=5gddUteDxzHmuXBi" class="social-link" target="_blank" id="youtubeLink">
+               <i class="fab fa-youtube"></i> <span id="youtubeBtn">YouTube Канал</span>
+            </a>
+        </div>
+        
+        <div class="info-box">
+            <h3 id="support"><i class="fas fa-heart"></i> ПОДДЕРЖАТЬ АВТОРА</h3>
+            <p id="supportText">Если трек вам понравился:</p>
+            <ul>
+                <li id="supportItem1">Подпишитесь на <a href="https://youtube.com/channel/UCdUPvyLSlBt1EkFMQsGSAJQ?si=5gddUteDxzHmuXBi" 
+                   style="color:#ff00ff; text-decoration: none; font-weight: bold;">YouTube-канал</a></li>
+                <li id="supportItem2">Поставьте лайк и напишите комментарий</li>
+                <li id="supportItem3">Поделитесь треком с друзьями</li>
+                <li id="supportItem4">Используйте в своих видео с указанием автора</li>
+            </ul>
+            <p style="margin-top: 25px; font-size: 1.3rem; color: #00ffff; text-align: center;">
+                <i class="fas fa-star"></i> <span id="inspirationText">Ваша поддержка вдохновляет на создание новой музыки!</span> <i class="fas fa-star"></i>
+            </p>
+        </div>
+    </div>
+    
+    <footer>
+        <p id="copyright">© 2026 <span style="color:#00ffff; font-weight:bold;">ГЕПАРД ПРО</span>. Все права на композицию защищены.</p>
+        <div class="copyright">
+            <span id="licenseText">Трек предоставляется бесплатно для некоммерческого использования.</span><br>
+            <span id="contactText">При использовании в коммерческих проектах — свяжитесь с автором.</span><br>
+            <span style="color: #ff00ff; display: block; margin-top: 15px; font-size: 1.2rem;">
+                <i class="fas fa-fire"></i> <span id="newYearText">С новым 2026 годом!</span> <i class="fas fa-fire"></i>
+            </span>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== ПЕРЕВОДЫ ====================
+        const translations = {
+            ru: {
+                // Основные
+                title: "2026: ЭПИЦЕНТР БУДУЩЕГО",
+                artist: "ГЕПАРД ПРО",
+                tagline: "Футуристичный новогодний гипнотик",
+                badge: "ПРЕМЬЕРА 2026",
+                
+                // Кнопка скачивания
+                downloadBtn: "СКАЧАТЬ ТРЕК БЕСПЛАТНО",
+                howToDownload: "КАК СКАЧАТЬ:",
+                downloadDesc: "Нажмите кнопку выше → Файл начнет скачиваться МГНОВЕННО",
+                filename: "Имя файла:",
+                filesize: "Размер:",
+                format: "Формат:",
+                quality: "Качество:",
+                duration: "Длительность:",
+                
+                // Контент
+                aboutTrack: "О ТРЕКЕ",
+                aboutText: "Футуристичный новогодний гипнотик, создающий атмосферу эпицентра будущего. Идеально для видеоконтента, стримов, заставок и встречи 2026 года.",
+                specs: "ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ",
+                forCreators: "ДЛЯ КОНТЕНТ-МЕЙКЕРОВ",
+                forCreatorsText: "Этот трек идеально подходит для:",
+                support: "ПОДДЕРЖАТЬ АВТОРА",
+                supportText: "Если трек вам понравился:",
+                supportItem1: "Подпишитесь на YouTube-канал",
+                supportItem2: "Поставьте лайк и напишите комментарий",
+                supportItem3: "Поделитесь треком с друзьями",
+                supportItem4: "Используйте в своих видео с указанием автора",
+                importantLabel: "ВАЖНО:",
+                importantText: "При использовании укажите автора: ",
+                authorName: "Гепард Про",
+                inspirationText: "Ваша поддержка вдохновляет на создание новой музыки!",
+                
+                // Футер
+                copyright: "© 2026 ГЕПАРД ПРО. Все права на композицию защищены.",
+                licenseText: "Трек предоставляется бесплатно для некоммерческого использования.",
+                contactText: "При использовании в коммерческих проектах — свяжитесь с автором.",
+                newYearText: "С новым 2026 годом!",
+                
+                // Социальные
+                youtubeBtn: "YouTube Канал",
+                
+                // Настройки
+                settingsTitle: "⚙ НАСТРОЙКИ САЙТА",
+                langTitle: "🌍 Язык интерфейса",
+                modeTitle: "⚡ Режим отображения",
+                statsTitle: "👁 Статистика",
+                adminTitle: "🔗 Админ-доступ",
+                btnRu: "🇷🇺 Русский",
+                btnEn: "🇺🇸 English",
+                btnFull: "💻 Полная версия",
+                btnLight: "📱 Лёгкая версия",
+                btnCopyLink: "📋 Копировать ссылку",
+                btnAdminPanel: "👑 Панель администратора",
+                statVisitorsLabel: "Посетители:",
+                statDownloadsLabel: "Скачивания:",
+                settingsFooterText: "Настройки сохраняются автоматически"
+            },
+            
+            en: {
+                // Основные
+                title: "2026: EPICENTER OF THE FUTURE",
+                artist: "GEPARD PRO",
+                tagline: "Futuristic New Year Hypnotic",
+                badge: "PREMIERE 2026",
+                
+                // Кнопка скачивания
+                downloadBtn: "DOWNLOAD TRACK FOR FREE",
+                howToDownload: "HOW TO DOWNLOAD:",
+                downloadDesc: "Click the button above → File will start downloading INSTANTLY",
+                filename: "File name:",
+                filesize: "Size:",
+                format: "Format:",
+                quality: "Quality:",
+                duration: "Duration:",
+                
+                // Контент
+                aboutTrack: "ABOUT THE TRACK",
+                aboutText: "Futuristic New Year hypnotic, creating the atmosphere of the epicenter of the future. Perfect for video content, streams, screensavers and meeting 2026.",
+                specs: "TECHNICAL SPECIFICATIONS",
+                forCreators: "FOR CONTENT CREATORS",
+                forCreatorsText: "This track is perfect for:",
+                support: "SUPPORT THE AUTHOR",
+                supportText: "If you liked the track:",
+                supportItem1: "Subscribe to YouTube channel",
+                supportItem2: "Like and comment",
+                supportItem3: "Share the track with friends",
+                supportItem4: "Use in your videos with author mention",
+                importantLabel: "IMPORTANT:",
+                importantText: "When using, please credit the author: ",
+                authorName: "Gepard Pro",
+                inspirationText: "Your support inspires the creation of new music!",
+                
+                // Футер
+                copyright: "© 2026 GEPARD PRO. All composition rights reserved.",
+                licenseText: "The track is provided free of charge for non-commercial use.",
+                contactText: "For commercial projects — contact the author.",
+                newYearText: "Happy New Year 2026!",
+                
+                // Социальные
+                youtubeBtn: "YouTube Channel",
+                
+                // Настройки
+                settingsTitle: "⚙ SITE SETTINGS",
+                langTitle: "🌍 Interface Language",
+                modeTitle: "⚡ Display Mode",
+                statsTitle: "👁 Statistics",
+                adminTitle: "🔗 Admin Access",
+                btnRu: "🇷🇺 Russian",
+                btnEn: "🇺🇸 English",
+                btnFull: "💻 Full Version",
+                btnLight: "📱 Light Version",
+                btnCopyLink: "📋 Copy Link",
+                btnAdminPanel: "👑 Admin Panel",
+                statVisitorsLabel: "Visitors:",
+                statDownloadsLabel: "Downloads:",
+                settingsFooterText: "Settings are saved automatically"
+            }
         };
         
-        try {
-            const savedData = localStorage.getItem('visitorStats');
-            if (savedData) {
-                stats = JSON.parse(savedData);
-                console.log('📂 Загружены сохранённые данные:', stats);
-            } else {
-                console.log('📂 Сохранённых данных нет, начинаем с нуля');
-            }
-        } catch (error) {
-            console.error('❌ Ошибка при чтении данных:', error);
-        }
+        // ==================== ОСНОВНЫЕ ФУНКЦИИ ====================
         
-        // Проверяем, новый ли это день
-        const isNewDay = stats.lastDate !== today;
-        
-        if (isNewDay) {
-            console.log('🆕 Новый день! Сбрасываем счётчик');
-            stats.visits = 1; // Начинаем с 1 (текущий посетитель)
-            stats.lastDate = today;
+        // Функция переключения языка
+        function switchLanguage(lang) {
+            const t = translations[lang];
             
-            // Если это первый визит вообще
-            if (!stats.firstVisit) {
-                stats.firstVisit = today;
-                console.log('🎉 Первый визит на сайт!');
+            // Обновляем все тексты
+            document.getElementById('title').textContent = t.title;
+            document.getElementById('artist').textContent = t.artist;
+            document.getElementById('tagline').textContent = t.tagline;
+            document.getElementById('badge').textContent = t.badge;
+            
+            document.getElementById('downloadBtnText').textContent = t.downloadBtn;
+            document.getElementById('howToDownload').innerHTML = `<i class="fas fa-bolt"></i> ${t.howToDownload}`;
+            document.getElementById('downloadDesc').textContent = t.downloadDesc;
+            
+            document.getElementById('filenameLabel').textContent = t.filename;
+            document.getElementById('filesizeLabel').textContent = t.filesize;
+            document.getElementById('formatLabel').textContent = t.format;
+            document.getElementById('qualityLabel').textContent = t.quality;
+            document.getElementById('durationLabel').textContent = t.duration;
+            
+            document.getElementById('aboutTrack').innerHTML = `<i class="fas fa-music"></i> ${t.aboutTrack}`;
+            document.getElementById('aboutText').textContent = t.aboutText;
+            document.getElementById('specs').innerHTML = `<i class="fas fa-microchip"></i> ${t.specs}`;
+            document.getElementById('formatLabel2').textContent = t.format;
+            document.getElementById('licenseLabel').textContent = t.licenseText.split('.')[0];
+            
+            document.getElementById('forCreators').innerHTML = `<i class="fas fa-rocket"></i> ${t.forCreators}`;
+            document.getElementById('forCreatorsText').textContent = t.forCreatorsText;
+            
+            document.getElementById('support').innerHTML = `<i class="fas fa-heart"></i> ${t.support}`;
+            document.getElementById('supportText').textContent = t.supportText;
+            document.getElementById('supportItem1').innerHTML = `${t.supportItem1} <a href="https://youtube.com/channel/UCdUPvyLSlBt1EkFMQsGSAJQ?si=5gddUteDxzHmuXBi" 
+               style="color:#ff00ff; text-decoration: none; font-weight: bold;">YouTube</a>`;
+            document.getElementById('supportItem2').textContent = t.supportItem2;
+            document.getElementById('supportItem3').textContent = t.supportItem3;
+            document.getElementById('supportItem4').textContent = t.supportItem4;
+            
+            document.getElementById('importantLabel').textContent = t.importantLabel;
+            document.getElementById('importantText').textContent = t.importantText;
+            document.getElementById('authorName').textContent = t.authorName;
+            document.getElementById('inspirationText').textContent = t.inspirationText;
+            
+            document.getElementById('copyright').innerHTML = `© 2026 <span style="color:#00ffff; font-weight:bold;">${t.artist}</span>. ${t.copyright}`;
+            document.getElementById('licenseText').textContent = t.licenseText;
+            document.getElementById('contactText').textContent = t.contactText;
+            document.getElementById('newYearText').textContent = t.newYearText;
+            
+            document.getElementById('youtubeBtn').textContent = t.youtubeBtn;
+            
+            // Настройки
+            document.getElementById('settingsTitle').textContent = t.settingsTitle;
+            document.getElementById('langTitle').textContent = t.langTitle;
+            document.getElementById('modeTitle').textContent = t.modeTitle;
+            document.getElementById('statsTitle').textContent = t.statsTitle;
+            document.getElementById('adminTitle').textContent = t.adminTitle;
+            
+            document.getElementById('btnRu').textContent = t.btnRu;
+            document.getElementById('btnEn').textContent = t.btnEn;
+            document.getElementById('btnFull').textContent = t.btnFull;
+            document.getElementById('btnLight').textContent = t.btnLight;
+            document.getElementById('btnCopyLink').textContent = t.btnCopyLink;
+            document.getElementById('btnAdminPanel').textContent = t.btnAdminPanel;
+            
+            document.getElementById('statVisitorsLabel').textContent = t.statVisitorsLabel;
+            document.getElementById('statDownloadsLabel').textContent = t.statDownloadsLabel;
+            document.getElementById('settingsFooterText').textContent = t.settingsFooterText;
+            
+            // Обновляем активные кнопки
+            document.querySelectorAll('.settings-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (lang === 'ru') {
+                document.getElementById('btnRu').classList.add('active');
+            } else {
+                document.getElementById('btnEn').classList.add('active');
             }
-        } else {
-            console.log('➕ Уже были сегодня, увеличиваем счётчик');
-            stats.visits++;
+            
+            // Сохраняем язык
+            localStorage.setItem('siteLanguage', lang);
+            showNotification(lang === 'ru' ? '🌍 Язык изменён' : '🌍 Language changed');
         }
         
-        // Увеличиваем общий счётчик
-        stats.total++;
-        
-        // Сохраняем обновлённые данные
-        localStorage.setItem('visitorStats', JSON.stringify(stats));
-        console.log('💾 Данные сохранены:', stats);
-        
-        // Показываем статистику на странице
-        displayStatistics(stats, today);
-    }
-    
-    // ============================================
-    // ФУНКЦИЯ ОТОБРАЖЕНИЯ СТАТИСТИКИ
-    // ============================================
-    function displayStatistics(stats, today) {
-        const counterElement = document.getElementById('visitor-counter');
-        if (!counterElement) return;
-        
-        // Проверяем, не в тестовом ли режиме
-        const isTestingMode = sessionStorage.getItem('counterTestingMode') === 'true';
-        
-        // Если в тестовом режиме — не показываем статистику
-        if (isTestingMode) {
-            return;
+        // Переключение версий сайта
+        function switchToFullVersion() {
+            document.body.classList.remove('light-version');
+            updateVersionButtons('full');
+            localStorage.setItem('siteVersion', 'full');
+            showNotification('💻 Полная версия');
         }
         
-        // Форматируем дату
-        const formattedDate = new Date().toLocaleDateString('ru-RU', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric'
+        function switchToLightVersion() {
+            document.body.classList.add('light-version');
+            updateVersionButtons('light');
+            localStorage.setItem('siteVersion', 'light');
+            showNotification('📱 Лёгкая версия');
+        }
+        
+        function updateVersionButtons(version) {
+            document.querySelectorAll('.settings-btn').forEach(btn => {
+                if (btn.id === 'btnFull' || btn.id === 'btnLight') {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            if (version === 'full') {
+                document.getElementById('btnFull').classList.add('active');
+            } else {
+                document.getElementById('btnLight').classList.add('active');
+            }
+        }
+        
+        // ==================== ШЕСТЕРЁНКА НАСТРОЕК ====================
+        function toggleSettings() {
+            const panel = document.getElementById('settingsPanel');
+            const gear = document.getElementById('settingsGear');
+            
+            if (panel.style.display === 'block') {
+                panel.style.display = 'none';
+                gear.style.animation = 'rotateGear 10s linear infinite';
+            } else {
+                panel.style.display = 'block';
+                gear.style.animation = 'rotateGear 3s linear infinite';
+                updateSettingsPanel();
+            }
+        }
+        
+        function updateSettingsPanel() {
+            const isAdmin = localStorage.getItem('isAdmin') === 'true';
+            const statsSection = document.getElementById('statsSection');
+            const adminSection = document.getElementById('adminSection');
+            
+            if (isAdmin) {
+                // Показываем админские разделы
+                statsSection.style.display = 'block';
+                adminSection.style.display = 'block';
+                updateStatsDisplay();
+            } else {
+                // Скрываем админские разделы
+                statsSection.style.display = 'none';
+                adminSection.style.display = 'none';
+            }
+        }
+        
+        // Клик по шестерёнке
+        document.getElementById('settingsGear').addEventListener('click', toggleSettings);
+        
+        // Закрытие при клике вне панели
+        document.addEventListener('click', function(event) {
+            const panel = document.getElementById('settingsPanel');
+            const gear = document.getElementById('settingsGear');
+            
+            if (panel.style.display === 'block' && 
+                !panel.contains(event.target) && 
+                !gear.contains(event.target)) {
+                panel.style.display = 'none';
+                gear.style.animation = 'rotateGear 10s linear infinite';
+            }
         });
         
-        // Определяем сообщение в зависимости от количества посетителей
-        let message = '';
-        if (stats.visits === 1) {
-            message = 'Ты первый посетитель сегодня!';
-        } else if (stats.visits < 5) {
-            message = 'Несколько посетителей уже были здесь';
-        } else if (stats.visits < 10) {
-            message = 'Сайт набирает популярность!';
-        } else {
-            message = 'Отличная активность на сайте!';
+        // ==================== СТАТИСТИКА ====================
+        function updateStatsDisplay() {
+            const visitors = parseInt(localStorage.getItem('siteVisitors')) || 0;
+            const downloads = parseInt(localStorage.getItem('trackDownloads')) || 0;
+            
+            document.getElementById('statsVisitors').textContent = visitors;
+            document.getElementById('statsDownloads').textContent = downloads;
         }
         
-        counterElement.innerHTML = `
-            <div style="
-                background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-                color: white;
-                padding: 25px;
-                border-radius: 12px;
-                border: 3px solid #388E3C;
-                box-shadow: 0 10px 30px rgba(76,175,80,0.2);
-            ">
-                <div style="text-align: center; margin-bottom: 15px;">
-                    <div style="
-                        background: white;
-                        width: 60px;
-                        height: 60px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin: 0 auto 15px;
-                        font-size: 28px;
-                        color: #4CAF50;
-                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-                    ">
-                        👥
-                    </div>
-                    
-                    <div style="font-size: 36px; font-weight: bold; margin-bottom: 5px;">
-                        ${stats.visits}
-                    </div>
-                    
-                    <div style="font-size: 16px; opacity: 0.9; margin-bottom: 15px;">
-                        посетителей сегодня
-                    </div>
-                </div>
-                
-                <div style="
-                    background: rgba(255,255,255,0.15);
-                    padding: 15px;
-                    border-radius: 8px;
-                    margin-bottom: 15px;
-                ">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                        <span>📊 Всего посещений:</span>
-                        <span style="font-weight: bold;">${stats.total}</span>
-                    </div>
-                    
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                        <span>📅 Дата:</span>
-                        <span>${formattedDate}</span>
-                    </div>
-                    
-                    <div style="display: flex; justify-content: space-between;">
-                        <span>🕐 Время:</span>
-                        <span>${new Date().toLocaleTimeString('ru-RU', {hour: '2-digit', minute: '2-digit'})}</span>
-                    </div>
-                </div>
-                
-                <div style="
-                    font-size: 13px;
-                    text-align: center;
-                    padding: 10px;
-                    background: rgba(255,255,255,0.1);
-                    border-radius: 6px;
-                    border-left: 3px solid white;
-                    margin-bottom: 10px;
-                ">
-                    ${message}
-                </div>
-                
-                <div style="font-size: 11px; text-align: center; opacity: 0.7;">
-                    Обновлено: ${new Date().toLocaleTimeString()}
-                </div>
-            </div>
-        `;
-        
-        console.log('✅ Статистика отображена');
-    }
-    
-    // ============================================
-    // ФУНКЦИИ ПЕРЕКЛЮЧЕНИЯ РЕЖИМОВ
-    // ============================================
-    function enableVisitorMode() {
-        console.log('🔄 Включаем режим тестирования посетителя');
-        // Устанавливаем режим тестирования
-        sessionStorage.setItem('counterTestingMode', 'true');
-        // Убираем пометку разработчика
-        sessionStorage.removeItem('isDeveloper');
-        // Перезагружаем страницу
-        location.reload();
-    }
-    
-    function disableTestingMode() {
-        console.log('🔄 Отключаем режим тестирования');
-        // Убираем режим тестирования
-        sessionStorage.removeItem('counterTestingMode');
-        // Возвращаем пометку разработчика
-        sessionStorage.setItem('isDeveloper', 'true');
-        // Перезагружаем страницу
-        location.reload();
-    }
-    
-    // ============================================
-    // ДОПОЛНИТЕЛЬНЫЕ ФУНКЦИИ
-    // ============================================
-    function showStatsInfo() {
-        const stats = JSON.parse(localStorage.getItem('visitorStats') || '{"visits":0,"total":0}');
-        alert(`📊 Статистика сайта:\n\n👥 Посетителей сегодня: ${stats.visits}\n📊 Всего посещений: ${stats.total}\n📅 Дата: ${new Date().toLocaleDateString()}`);
-    }
-    
-    function resetStats() {
-        if (confirm('Точно сбросить всю статистику?')) {
-            localStorage.removeItem('visitorStats');
-            alert('Статистика сброшена!');
-            location.reload();
+        function updateAdminCounter() {
+            const visitors = parseInt(localStorage.getItem('siteVisitors')) || 0;
+            const downloads = parseInt(localStorage.getItem('trackDownloads')) || 0;
+            
+            document.getElementById('visitorCount').textContent = visitors;
+            document.getElementById('downloadCount').textContent = downloads;
+            
+            // Обновляем в панели настроек
+            if (document.getElementById('statsVisitors')) {
+                updateStatsDisplay();
+            }
         }
-    }
-    
-    // ============================================
-    // ДЕЛАЕМ ФУНКЦИИ ДОСТУПНЫМИ ИЗВНЕ
-    // ============================================
-    window.enableVisitorMode = enableVisitorMode;
-    window.disableTestingMode = disableTestingMode;
-    window.showStatsInfo = showStatsInfo;
-    window.resetStats = resetStats;
-    
-    console.log('🎉 Счётчик полностью загружен и готов к работе!');
+        
+        // ==================== АДМИН-ПАНЕЛЬ ====================
+        function copyAdminLink() {
+            const secretKey = 'gepard2026';
+            const adminLink = `${window.location.origin}${window.location.pathname}?admin=${secretKey}`;
+            
+            navigator.clipboard.writeText(adminLink)
+                .then(() => {
+                    showNotification('✅ Ссылка скопирована!');
+                    console.log('🔗 Админ ссылка:', adminLink);
+                })
+                .catch(err => {
+                    console.error('Ошибка копирования:', err);
+                    showNotification('❌ Ошибка копирования');
+                });
+        }
+        
+        function toggleAdminPanel() {
+            const isAdmin = localStorage.getItem('isAdmin') === 'true' || 
+                            new URLSearchParams(window.location.search).get('admin') === 'gepard2026';
+            
+            if (isAdmin) {
+                localStorage.setItem('isAdmin', 'true');
+                
+                const adminCounter = document.getElementById('adminCounter');
+                if (adminCounter.style.display === 'block') {
+                    adminCounter.style.display = 'none';
+                    showNotification('👑 Админ-панель скрыта');
+                } else {
+                    adminCounter.style.display = 'block';
+                    showNotification('👑 Админ-панель активирована');
+                    makeDraggable(adminCounter);
+                }
+                
+                // Обновляем панель настроек
+                updateSettingsPanel();
+            } else {
+                const password = prompt('🔐 Введите админ-пароль:');
+                if (password === '2026gepard' || password === 'gepard2026') {
+                    localStorage.setItem('isAdmin', 'true');
+                    toggleAdminPanel();
+                } else {
+                    showNotification('❌ Неверный пароль');
+                }
+            }
+        }
+        
+        // Делаем панель перемещаемой
+        function makeDraggable(element) {
+            let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            
+            element.onmousedown = dragMouseDown;
+            element.ontouchstart = dragTouchStart;
+            
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
+            }
+            
+            function dragTouchStart(e) {
+                const touch = e.touches[0];
+                pos3 = touch.clientX;
+                pos4 = touch.clientY;
+                document.ontouchend = closeDragElement;
+                document.ontouchmove = elementDragTouch;
+            }
+            
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                
+                element.style.top = (element.offsetTop - pos2) + "px";
+                element.style.right = "auto";
+                element.style.left = (element.offsetLeft - pos1) + "px";
+            }
+            
+            function elementDragTouch(e) {
+                const touch = e.touches[0];
+                pos1 = pos3 - touch.clientX;
+                pos2 = pos4 - touch.clientY;
+                pos3 = touch.clientX;
+                pos4 = touch.clientY;
+                
+                element.style.top = (element.offsetTop - pos2) + "px";
+                element.style.right = "auto";
+                element.style.left = (element.offsetLeft - pos1) + "px";
+            }
+            
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+                document.ontouchend = null;
+                document.ontouchmove = null;
+            }
+        }
+        
+        // ==================== СКАЧИВАНИЕ ТРЕКА ====================
+        function trackDownload() {
+            let downloads = parseInt(localStorage.getItem('trackDownloads')) || 0;
+            downloads++;
+            localStorage.setItem('trackDownloads', downloads);
+            updateAdminCounter();
+            
+            console.log(`💾 Скачивание №${downloads}`);
+            
+            // Задержка для отслеживания
+            setTimeout(() => {
+                const lang = localStorage.getItem('siteLanguage') || 'ru';
+                showNotification(lang === 'ru' 
+                    ? '🎵 Скачивание началось!'
+                    : '🎵 Download started!');
+            }, 500);
+            
+            // Открываем в новой вкладке
+            setTimeout(() => {
+                window.open('https://www.mediafire.com/file/bw88qtxuhc83v8c/cfe750a3-1961-4c82-a02b-89f2bd6d5787.mp3/file', '_blank');
+            }, 1000);
+        }
+        
+        // ==================== УВЕДОМЛЕНИЯ ====================
+        function showNotification(message) {
+            // Удаляем старое уведомление
+            const oldNotification = document.querySelector('.quick-notification');
+            if (oldNotification) {
+                oldNotification.remove();
+            }
+            
+            // Создаем новое
+            const notification = document.createElement('div');
+            notification.className = 'quick-notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Автоудаление через 2 секунды
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 2000);
+        }
+        
+        // ==================== ФИКС МОБИЛЬНОЙ КЛАВИАТУРЫ ====================
+        function fixMobileKeyboard() {
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                console.log('📱 Мобильное устройство обнаружено, применяем фиксы...');
+                
+                // Все кнопки
+                const allButtons = document.querySelectorAll('button, .download-btn, .settings-btn, .admin-btn');
+                allButtons.forEach(btn => {
+                    btn.setAttribute('inputmode', 'none');
+                    btn.setAttribute('autocapitalize', 'off');
+                    btn.setAttribute('autocomplete', 'off');
+                });
+                
+                // Дополнительный фикс для iOS
+                if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                    document.addEventListener('touchstart', function() {
+                        // Принудительно скрываем клавиатуру при тапе вне полей
+                        if (document.activeElement && document.activeElement.blur) {
+                            document.activeElement.blur();
+                        }
+                    }, { passive: true });
+                }
+                
+                // Предотвращаем масштабирование при фокусе
+                document.addEventListener('focusin', function(e) {
+                    if (e.target.tagName === 'BUTTON' || e.target.classList.contains('download-btn')) {
+                        setTimeout(() => {
+                            e.target.blur();
+                        }, 100);
+                    }
+                });
+            }
+        }
+        
+        // ==================== ИНИЦИАЛИЗАЦИЯ ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Счётчик посетителей
+            let visitors = parseInt(localStorage.getItem('siteVisitors')) || 0;
+            visitors++;
+            localStorage.setItem('siteVisitors', visitors);
+            
+            // Проверяем админский доступ по URL
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('admin') === 'gepard2026') {
+                localStorage.setItem('isAdmin', 'true');
+                console.log('👑 Админ доступ активирован по ссылке');
+                
+                // Автоматически показываем админ-панель
+                setTimeout(() => {
+                    const adminCounter = document.getElementById('adminCounter');
+                    adminCounter.style.display = 'block';
+                    makeDraggable(adminCounter);
+                    showNotification('👑 Админ-панель активирована');
+                }, 1000);
+            }
+            
+            // Загружаем сохранённые настройки
+            const savedLang = localStorage.getItem('siteLanguage') || 'ru';
+            const savedVersion = localStorage.getItem('siteVersion') || 'full';
+            
+            switchLanguage(savedLang);
+            if (savedVersion === 'light') {
+                switchToLightVersion();
+            }
+            
+            // Обновляем счётчики
+            updateAdminCounter();
+            
+            // Применяем фиксы для мобильных
+            fixMobileKeyboard();
+            
+            console.log('🚀 Сайт загружен! Посетители:', visitors);
+        });
+        
+        // Предотвращаем контекстное меню на админ-панели
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.closest('.admin-counter') || e.target.closest('.settings-panel')) {
+                e.preventDefault();
+            }
+        });
     </script>
 </body>
 </html>
