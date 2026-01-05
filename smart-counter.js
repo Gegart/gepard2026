@@ -228,3 +228,21 @@ window.resetTestMode = resetTestMode;
 window.showCounterInfo = showCounterInfo;
 
 console.log('✅ Счётчик загружен и готов к работе!');
+<head>
+    <!-- Твои существующие теги -->
+    <title>Мой сайт</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- ДОБАВЬ ЭТОТ СТИЛЬ (можно в конец head) -->
+    <style>
+        /* Стили только для счётчика */
+        .visitor-counter-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            min-width: 250px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
