@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СКАЧАТЬ ТРЕК: 2026: Эпицентр Будущего | Гепард Про</title>
     <style>
+        /* ОСНОВНЫЕ СТИЛИ */
         * {
             margin: 0;
             padding: 0;
@@ -26,73 +27,47 @@
             font-family: 'Chakra Petch', sans-serif;
             background-image: 
                 radial-gradient(circle at 20% 30%, rgba(255, 0, 255, 0.15) 0%, transparent 25%),
-                radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.15) 0%, transparent 25%),
-                radial-gradient(circle at 40% 80%, rgba(255, 255, 0, 0.1) 0%, transparent 20%);
+                radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.15) 0%, transparent 25%);
             background-attachment: fixed;
         }
         
+        /* КОНТЕЙНЕР */
         .container {
             max-width: 900px;
             width: 100%;
-            background: rgba(5, 0, 15, 0.95);
-            backdrop-filter: blur(25px);
-            border-radius: 35px;
-            padding: 45px;
-            border: 4px solid transparent;
-            background-clip: padding-box;
-            position: relative;
+            background: rgba(10, 5, 20, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 3px solid transparent;
+            border-image: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00) 1;
             box-shadow: 
-                0 0 80px rgba(255, 0, 255, 0.3),
-                0 0 150px rgba(0, 255, 255, 0.15),
-                inset 0 0 50px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1s ease-out, glow 6s infinite alternate;
+                0 0 60px rgba(255, 0, 255, 0.4),
+                0 0 120px rgba(0, 255, 255, 0.2),
+                inset 0 0 40px rgba(255, 255, 255, 0.05);
+            animation: fadeIn 1s ease-out;
             margin: 20px;
+            position: relative;
             overflow: hidden;
         }
         
-        .container::before {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: -4px;
-            right: -4px;
-            bottom: -4px;
-            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
-            border-radius: 39px;
-            z-index: -1;
-            animation: rotate 20s linear infinite;
-            opacity: 0.7;
-            filter: blur(15px);
-        }
-        
+        /* АНИМАЦИИ */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(50px); }
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
-        @keyframes glow {
-            0% { box-shadow: 0 0 80px rgba(255, 0, 255, 0.4), 0 0 150px rgba(0, 255, 255, 0.2); }
-            50% { box-shadow: 0 0 100px rgba(0, 255, 255, 0.4), 0 0 180px rgba(255, 0, 255, 0.3); }
-            100% { box-shadow: 0 0 80px rgba(255, 255, 0, 0.4), 0 0 150px rgba(255, 0, 255, 0.2); }
-        }
-        
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
+        /* ЗАГОЛОВОК */
         .header {
-            margin-bottom: 35px;
-            position: relative;
-            z-index: 2;
+            margin-bottom: 30px;
         }
         
         .header h1 {
-            font-size: 3.8rem;
-            margin-bottom: 12px;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             background: linear-gradient(90deg, 
                 #ff00ff 0%, 
@@ -101,470 +76,306 @@
                 #ffff00 45%, 
                 #00ff00 60%, 
                 #00ffff 75%, 
-                #0080ff 90%,
-                #ff00ff 100%);
+                #0080ff 90%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            background-size: 400% 100%;
-            animation: rainbowText 5s linear infinite;
-            text-shadow: 
-                0 0 25px rgba(255, 255, 255, 0.4),
-                0 0 50px rgba(255, 0, 255, 0.3);
+            background-size: 300% 100%;
+            animation: rainbowText 4s linear infinite;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
             line-height: 1.1;
         }
         
         @keyframes rainbowText {
             0% { background-position: 0% 50%; }
-            100% { background-position: 400% 50%; }
+            100% { background-position: 300% 50%; }
         }
         
+        /* ИМЯ АРТИСТА */
         .artist {
-            font-size: 2.5rem;
-            color: transparent;
-            margin-bottom: 8px;
-            letter-spacing: 5px;
+            font-size: 2.2rem;
+            color: #88ddff;
+            margin-bottom: 5px;
+            letter-spacing: 4px;
             font-family: 'Teko', sans-serif;
             text-transform: uppercase;
-            background: linear-gradient(90deg, #00ffff, #ff00ff, #ffff00);
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
             -webkit-background-clip: text;
             background-clip: text;
-            animation: shine 4s infinite, float 6s ease-in-out infinite;
-            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            color: transparent;
+            animation: shine 3s infinite;
         }
         
         @keyframes shine {
-            0%, 100% { filter: brightness(1) hue-rotate(0deg); }
-            50% { filter: brightness(1.4) hue-rotate(20deg); }
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-        
-        .tagline {
-            font-size: 1.5rem;
-            color: #aaddff;
-            margin-bottom: 40px;
-            font-style: italic;
-            text-shadow: 0 0 15px rgba(170, 221, 255, 0.5);
-            animation: pulseText 3s infinite;
-        }
-        
-        @keyframes pulseText {
-            0%, 100% { opacity: 0.9; }
-            50% { opacity: 1; }
-        }
-        
+        /* ОБЛОЖКА */
         .cover-container {
-            width: 340px;
-            height: 340px;
-            margin: 40px auto;
-            border-radius: 25px;
+            width: 320px;
+            height: 320px;
+            margin: 30px auto;
+            border-radius: 20px;
             overflow: hidden;
-            border: 5px solid;
-            border-image: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00) 1;
+            border: 4px solid #00ffff;
             box-shadow: 
-                0 0 60px rgba(255, 0, 255, 0.6),
-                0 0 100px rgba(0, 255, 255, 0.4),
-                inset 0 0 50px rgba(0, 0, 0, 0.7);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .cover-container:hover {
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 
-                0 0 80px rgba(0, 255, 255, 0.8),
-                0 0 140px rgba(255, 0, 255, 0.6),
-                inset 0 0 60px rgba(0, 0, 0, 0.8);
+                0 0 40px rgba(0, 255, 255, 0.5),
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
         }
         
         .cover-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s;
-        }
-        
-        .cover-container:hover .cover-image {
-            transform: scale(1.1);
         }
         
         .badge {
             position: absolute;
-            top: 25px;
-            right: 25px;
-            background: linear-gradient(45deg, #ff0080, #ff00ff, #00ffff);
+            margin-top: -340px;
+            margin-left: 220px;
+            background: linear-gradient(45deg, #ff0080, #ff00ff);
             color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
+            padding: 8px 20px;
+            border-radius: 20px;
             font-weight: bold;
             font-family: 'Orbitron', sans-serif;
-            animation: pulse 1.5s infinite, badgeFloat 4s ease-in-out infinite;
+            animation: pulse 2s infinite;
             text-transform: uppercase;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            border: 2px solid white;
-            box-shadow: 0 0 25px rgba(255, 0, 255, 0.7);
-            z-index: 3;
+            font-size: 0.9rem;
         }
         
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.15); }
+            50% { transform: scale(1.1); }
         }
         
-        @keyframes badgeFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
-        }
-        
-        .download-section {
-            margin: 50px 0;
-            position: relative;
-            z-index: 2;
-        }
-        
+        /* КНОПКА СКАЧИВАНИЯ */
         .download-btn {
             display: inline-block;
-            background: linear-gradient(90deg, 
-                #ff00ff 0%, 
-                #ff0080 25%, 
-                #00ffff 50%, 
-                #0080ff 75%, 
-                #ff00ff 100%);
-            background-size: 400% 100%;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+            background-size: 300% 100%;
             color: white;
-            font-size: 1.9rem;
+            font-size: 1.7rem;
             font-weight: bold;
-            padding: 25px 75px;
-            border-radius: 75px;
+            padding: 22px 65px;
+            border-radius: 65px;
             text-decoration: none;
-            margin: 30px 0;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin: 25px 0;
+            transition: all 0.3s;
             border: none;
             cursor: pointer;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-            animation: gradientMove 4s infinite linear;
+            animation: gradientMove 3s infinite linear;
             box-shadow: 
-                0 20px 60px rgba(255, 0, 255, 0.6),
-                0 0 50px rgba(0, 255, 255, 0.4),
-                inset 0 0 30px rgba(255, 255, 255, 0.2);
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-            z-index: 2;
-        }
-        
-        .download-btn::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: linear-gradient(90deg, 
-                rgba(255, 0, 255, 0.3), 
-                rgba(0, 255, 255, 0.3), 
-                rgba(255, 255, 0, 0.3));
-            border-radius: 85px;
-            z-index: -1;
-            filter: blur(30px);
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-        
-        .download-btn:hover::before {
-            opacity: 1;
+                0 15px 40px rgba(255, 0, 255, 0.5),
+                0 0 30px rgba(0, 255, 255, 0.3);
         }
         
         @keyframes gradientMove {
             0% { background-position: 0% 50%; }
-            100% { background-position: 400% 50%; }
+            100% { background-position: 300% 50%; }
         }
         
         .download-btn:hover {
-            transform: translateY(-10px) scale(1.1);
-            box-shadow: 
-                0 30px 80px rgba(255, 0, 255, 0.8),
-                0 0 80px rgba(0, 255, 255, 0.6),
-                inset 0 0 40px rgba(255, 255, 255, 0.3);
-            letter-spacing: 5px;
-        }
-        
-        .download-btn:active {
             transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 20px 50px rgba(255, 0, 255, 0.7),
+                0 0 40px rgba(0, 255, 255, 0.5);
+            letter-spacing: 3px;
         }
         
+        /* ИНСТРУКЦИИ */
         .instructions {
-            background: rgba(255, 255, 0, 0.15);
-            border: 3px solid;
-            border-image: linear-gradient(45deg, #ffff00, #00ffff, #ffff00) 1;
-            border-radius: 25px;
-            padding: 25px;
-            margin: 40px auto;
-            max-width: 650px;
+            background: rgba(255, 255, 0, 0.1);
+            border: 2px solid #ffff00;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 600px;
             text-align: center;
-            animation: borderGlow 3s infinite alternate;
-            backdrop-filter: blur(10px);
+            animation: borderPulse 2s infinite;
         }
         
-        @keyframes borderGlow {
-            0% { border-image-source: linear-gradient(45deg, #ffff00, #00ffff, #ffff00); }
-            100% { border-image-source: linear-gradient(45deg, #00ffff, #ffff00, #00ffff); }
+        @keyframes borderPulse {
+            0%, 100% { border-color: #ffff00; }
+            50% { border-color: #00ffff; }
         }
         
         .instructions h4 {
             color: #ffff00;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
             font-family: 'Teko', sans-serif;
-            text-shadow: 0 0 20px #ffff00;
-            letter-spacing: 2px;
         }
         
-        .file-info {
-            background: rgba(0, 255, 255, 0.15);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 1rem;
-            border: 2px solid rgba(0, 255, 255, 0.3);
-            text-align: left;
-        }
-        
-        .file-info strong {
-            color: #00ffff;
-        }
-        
+        /* ИНФО БЛОКИ */
         .info-box {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 30px;
-            border-radius: 25px;
-            margin: 40px 0;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 30px 0;
             text-align: left;
-            border-left: 6px solid #00ffff;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-        
-        .info-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00);
+            border-left: 5px solid #00ffff;
         }
         
         .info-box h3 {
             color: #00ffff;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
             font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-            display: flex;
-            align-items: center;
-            gap: 15px;
         }
         
         .info-box ul {
-            padding-left: 25px;
-            margin: 20px 0;
+            padding-left: 20px;
+            margin: 15px 0;
         }
         
         .info-box li {
-            margin-bottom: 12px;
-            line-height: 1.6;
-            font-size: 1.15rem;
-            position: relative;
-            padding-left: 15px;
+            margin-bottom: 10px;
+            line-height: 1.5;
         }
         
-        .info-box li::before {
-            content: '▶';
-            color: #ff00ff;
-            position: absolute;
-            left: -20px;
-            animation: sparkle 2s infinite;
-        }
-        
-        @keyframes sparkle {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-        
+        /* YOUTUBE КНОПКА */
         .social-links {
             display: flex;
             justify-content: center;
-            margin: 40px 0;
-            position: relative;
-            z-index: 2;
+            margin: 30px 0;
         }
         
         .social-link {
             color: #ffffff;
             text-decoration: none;
-            padding: 18px 50px;
-            border-radius: 20px;
-            background: linear-gradient(45deg, 
-                rgba(255, 0, 0, 0.25), 
-                rgba(200, 0, 0, 0.35));
-            border: 3px solid #ff0000;
-            transition: all 0.4s;
+            padding: 15px 40px;
+            border-radius: 15px;
+            background: linear-gradient(45deg, rgba(255, 0, 0, 0.2), rgba(200, 0, 0, 0.3));
+            border: 2px solid #ff0000;
+            transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 15px;
-            font-size: 1.4rem;
+            gap: 12px;
+            font-size: 1.3rem;
             font-family: 'Chakra Petch', sans-serif;
             font-weight: bold;
-            min-width: 300px;
+            min-width: 250px;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 10px 30px rgba(255, 0, 0, 0.3),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
-        }
-        
-        .social-link::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.1), 
-                transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s;
-        }
-        
-        .social-link:hover::before {
-            left: 100%;
         }
         
         .social-link:hover {
-            background: linear-gradient(45deg, 
-                rgba(255, 0, 0, 0.4), 
-                rgba(255, 50, 50, 0.5));
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 
-                0 20px 50px rgba(255, 0, 0, 0.5),
-                inset 0 0 30px rgba(255, 255, 255, 0.2);
-            border-color: #ff4444;
+            background: linear-gradient(45deg, rgba(255, 0, 0, 0.3), rgba(255, 50, 50, 0.4));
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
         }
         
+        /* ФУТЕР */
         footer {
-            margin-top: 50px;
+            margin-top: 40px;
             color: #888;
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-align: center;
             width: 100%;
-            padding: 25px;
-            border-top: 2px solid rgba(255, 255, 255, 0.15);
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 20px;
-            max-width: 900px;
-            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .copyright {
             color: #aaa;
-            margin-top: 20px;
-            font-size: 1rem;
-            line-height: 1.6;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
         
-        .neon-text {
-            color: #ff00ff;
-            text-shadow: 0 0 15px #ff00ff;
-            animation: neonPulse 2s infinite;
+        /* ФАЙЛ ИНФО */
+        .file-info {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
         }
         
-        @keyframes neonPulse {
-            0%, 100% { text-shadow: 0 0 15px #ff00ff; }
-            50% { text-shadow: 0 0 25px #00ffff, 0 0 15px #ff00ff; }
+        /* ПЕРЕКЛЮЧАТЕЛЬ ВЕРСИЙ */
+        .version-switcher {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10000;
+            display: flex;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid #00ffff;
         }
         
-        .floating-elements {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
+        .version-btn {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         
-        .floating-element {
-            position: absolute;
-            background: radial-gradient(circle, rgba(255, 0, 255, 0.1), transparent);
-            border-radius: 50%;
-            animation: floatElement 20s infinite linear;
+        .version-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
         }
         
-        @keyframes floatElement {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(100px, 100px) rotate(360deg); }
+        .version-btn.active {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
         }
         
+        /* ЛЁГКАЯ ВЕРСИЯ СТИЛИ */
+        body.light-version .header h1 {
+            animation: none;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        
+        body.light-version .container {
+            animation: none;
+            border-image: none;
+            border: 2px solid #00ffff;
+        }
+        
+        body.light-version .download-btn {
+            animation: none;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+        }
+        
+        body.light-version .badge,
+        body.light-version .instructions,
+        body.light-version .social-link:hover {
+            animation: none;
+        }
+        
+        /* МОБИЛЬНАЯ ОПТИМИЗАЦИЯ */
         @media (max-width: 768px) {
             .container {
-                padding: 30px;
+                padding: 25px;
                 margin: 10px;
             }
             
             .header h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
             
             .artist {
-                font-size: 2rem;
-            }
-            
-            .cover-container {
-                width: 300px;
-                height: 300px;
-            }
-            
-            .badge {
-                top: 20px;
-                right: 20px;
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-            
-            .download-btn {
-                font-size: 1.5rem;
-                padding: 22px 55px;
-            }
-            
-            .social-link {
-                min-width: 250px;
-                padding: 15px 35px;
-                font-size: 1.2rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .artist {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
             
             .cover-container {
@@ -573,21 +384,79 @@
             }
             
             .badge {
-                top: 15px;
-                right: 15px;
-                padding: 8px 15px;
-                font-size: 0.9rem;
+                margin-top: -300px;
+                margin-left: 180px;
             }
             
             .download-btn {
-                font-size: 1.3rem;
-                padding: 20px 45px;
+                font-size: 1.4rem;
+                padding: 20px 50px;
             }
             
             .social-link {
-                min-width: 220px;
-                padding: 12px 25px;
+                min-width: 200px;
+                padding: 12px 30px;
+            }
+            
+            .version-switcher {
+                top: 10px;
+                left: 10px;
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .artist {
+                font-size: 1.5rem;
+            }
+            
+            .cover-container {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .badge {
+                margin-top: -270px;
+                margin-left: 160px;
+                padding: 6px 15px;
+                font-size: 0.8rem;
+            }
+            
+            .download-btn {
+                font-size: 1.2rem;
+                padding: 18px 40px;
+            }
+            
+            .social-link {
+                min-width: 180px;
+                padding: 10px 20px;
                 font-size: 1.1rem;
+            }
+        }
+        
+        /* ОЧЕНЬ СЛАБЫЕ УСТРОЙСТВА */
+        @media (max-width: 360px) {
+            body.light-version {
+                background: #000000;
+                background-image: none;
+            }
+            
+            body.light-version .container {
+                backdrop-filter: none;
+                background: rgba(10, 5, 20, 0.98);
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .cover-container {
+                width: 220px;
+                height: 220px;
             }
         }
     </style>
@@ -595,21 +464,24 @@
     <link rel="icon" href="https://i.postimg.cc/pXxpyDTj/IMG-20260105-032954-283.jpg">
 </head>
 <body>
-    <div class="floating-elements">
-        <div class="floating-element" style="width: 100px; height: 100px; top: 10%; left: 5%;"></div>
-        <div class="floating-element" style="width: 150px; height: 150px; top: 60%; right: 10%;"></div>
-        <div class="floating-element" style="width: 80px; height: 80px; bottom: 20%; left: 15%;"></div>
+    <!-- ПЕРЕКЛЮЧАТЕЛЬ ВЕРСИЙ -->
+    <div class="version-switcher">
+        <button class="version-btn active" onclick="switchToFullVersion()">
+            <i class="fas fa-desktop"></i> Полная
+        </button>
+        <button class="version-btn" onclick="switchToLightVersion()">
+            <i class="fas fa-mobile-alt"></i> Лёгкая
+        </button>
     </div>
     
     <div class="container">
         <div class="header">
             <h1>2026: ЭПИЦЕНТР БУДУЩЕГО</h1>
-            <div class="artist">ГЕГАРД ПРО</div>
+            <div class="artist">ГЕПАРД ПРО</div>
             <div class="tagline">Футуристичный новогодний гипнотик</div>
         </div>
         
         <div class="cover-container">
-            <!-- ОБЛОЖКА С POSTIMG -->
             <img src="https://i.postimg.cc/pXxpyDTj/IMG-20260105-032954-283.jpg" 
                  alt="Обложка трека 2026: Эпицентр Будущего" 
                  class="cover-image">
@@ -617,10 +489,9 @@
         </div>
         
         <div class="download-section">
-            <!-- КНОПКА СКАЧИВАНИЯ С MEDIAFIRE (СРАЗУ КАЧАЕТ!) -->
             <a href="https://www.mediafire.com/file/bw88qtxuhc83v8c/cfe750a3-1961-4c82-a02b-89f2bd6d5787.mp3/file" 
                class="download-btn" 
-               download="2026_Эпицентр_Будущего_ГегардПро.mp3"
+               download="2026_Эпицентр_Будущего_ГепардПро.mp3"
                onclick="trackDownload()">
                <i class="fas fa-download"></i> СКАЧАТЬ ТРЕК БЕСПЛАТНО
             </a>
@@ -664,11 +535,11 @@
             </ul>
             <p style="margin-top: 20px; color: #ffff00; padding: 15px; background: rgba(255, 255, 0, 0.1); border-radius: 10px;">
                 <strong><i class="fas fa-exclamation-circle"></i> ВАЖНО:</strong> При использовании укажите автора: 
-                <span class="neon-text">Гегард Про</span>
+                <span style="color:#ff00ff; font-weight:bold;">Гепард Про</span>
             </p>
         </div>
         
-        <!-- ТОЛЬКО YOUTUBE КНОПКА -->
+        <!-- YOUTUBE КНОПКА -->
         <div class="social-links">
             <a href="https://youtube.com/channel/UCdUPvyLSlBt1EkFMQsGSAJQ?si=5gddUteDxzHmuXBi" 
                class="social-link" target="_blank">
@@ -693,7 +564,7 @@
     </div>
     
     <footer>
-        <p>© 2026 <span class="neon-text">ГЕГАРД ПРО</span>. Все права на композицию защищены.</p>
+        <p>© 2026 <span style="color:#00ffff; font-weight:bold;">ГЕПАРД ПРО</span>. Все права на композицию защищены.</p>
         <div class="copyright">
             Трек предоставляется бесплатно для некоммерческого использования.<br>
             При использовании в коммерческих проектах — свяжитесь с автором.<br>
@@ -703,360 +574,135 @@
         </div>
     </footer>
 
+    <!-- СКРИПТЫ -->
     <script>
-        // Счетчик скачиваний
+        // АВТООПРЕДЕЛЕНИЕ УСТРОЙСТВА
+        function detectDevice() {
+            const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone/i.test(navigator.userAgent);
+            const isLowEnd = navigator.hardwareConcurrency <= 2 || navigator.deviceMemory <= 2;
+            
+            // Если мобильное или слабое устройство — включаем лёгкую версию
+            if (isMobile && isLowEnd) {
+                switchToLightVersion();
+                console.log('📱 Авто: включена лёгкая версия для слабого мобильного');
+            }
+        }
+        
+        // ПЕРЕКЛЮЧЕНИЕ ВЕРСИЙ
+        function switchToFullVersion() {
+            document.body.classList.remove('light-version');
+            document.querySelectorAll('.version-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.version-btn:nth-child(1)').classList.add('active');
+            localStorage.setItem('siteVersion', 'full');
+            console.log('💻 Включена полная версия');
+        }
+        
+        function switchToLightVersion() {
+            document.body.classList.add('light-version');
+            document.querySelectorAll('.version-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.version-btn:nth-child(2)').classList.add('active');
+            localStorage.setItem('siteVersion', 'light');
+            console.log('📱 Включена лёгкая версия');
+        }
+        
+        // СЧЁТЧИК СКАЧИВАНИЙ
         function trackDownload() {
-            console.log('Начато скачивание: 2026_Эпицентр_Будущего_ГегардПро.mp3');
-            
-            // Счетчик в localStorage
-            let downloads = localStorage.getItem('gegard_downloads') || 0;
-            downloads = parseInt(downloads) + 1;
-            localStorage.setItem('gegard_downloads', downloads);
-            
-            // Показать уведомление
-            setTimeout(() => {
-                const messages = [
-                    '🎵 Спасибо за скачивание! Трек загружается...',
-                    '🚀 Файл скачивается! Не забудьте подписаться на канал!',
-                    '🎆 С новым 2026 годом! Спасибо за поддержку!'
-                ];
-                const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-                alert(randomMsg);
-            }, 300);
-            
-            // Анимация кнопки
-            const btn = event.target.closest('.download-btn');
-            if (btn) {
-                btn.style.animation = 'none';
-                btn.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    btn.style.animation = 'gradientMove 4s infinite linear';
-                    btn.style.transform = '';
-                }, 300);
-            }
-        }
-        
-        // Анимация при загрузке
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Сайт трека "2026: Эпицентр Будущего" загружен');
-            
-            // Показ количества скачиваний
-            const downloads = localStorage.getItem('gegard_downloads') || 0;
-            if (downloads > 0) {
-                console.log(`Трек уже скачан ${downloads} раз`);
-            }
-            
-            // Добавить эффект частиц
-            createParticles();
-        });
-        
-        // Создание частиц
-        function createParticles() {
-            const container = document.querySelector('.floating-elements');
-            for (let i = 0; i < 8; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'floating-element';
-                particle.style.width = Math.random() * 100 + 50 + 'px';
-                particle.style.height = particle.style.width;
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.background = `radial-gradient(circle, 
-                    rgba(${Math.random() * 255}, ${Math.random() * 255}, 255, 0.1), 
-                    transparent)`;
-                particle.style.animationDuration = Math.random() * 30 + 20 + 's';
-                container.appendChild(particle);
-            }
-        }
-    </script>
-</body>
-</html>
-<!-- ============================================ -->
-<!-- 🌟 НЕОНОВЫЙ РАДУЖНЫЙ СЧЁТЧИК (ДЛЯ АДМИНА) -->
-<!-- ============================================ -->
-
-<script>
-// Неоновый счётчик статистики (только для админа)
-(function() {
-    const neonAdminKey = 'gepard2026neon';
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    if (urlParams.get('neonstats') === neonAdminKey) {
-        // Создаём неоновый счётчик
-        const neonStats = document.createElement('div');
-        neonStats.id = 'neon-stats-counter';
-        neonStats.style.cssText = `
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            background: linear-gradient(135deg, 
-                rgba(255, 0, 255, 0.15), 
-                rgba(0, 255, 255, 0.15),
-                rgba(255, 255, 0, 0.15));
-            backdrop-filter: blur(20px);
-            border: 3px solid;
-            border-image: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff) 1;
-            color: white;
-            padding: 25px;
-            border-radius: 25px;
-            font-family: 'Orbitron', sans-serif;
-            z-index: 9999;
-            min-width: 280px;
-            box-shadow: 
-                0 0 40px rgba(255, 0, 255, 0.5),
-                0 0 80px rgba(0, 255, 255, 0.3),
-                inset 0 0 30px rgba(255, 255, 255, 0.1);
-            animation: neonPulse 3s infinite alternate;
-        `;
-        
-        // Анимация пульсации
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes neonPulse {
-                0% { 
-                    box-shadow: 0 0 40px rgba(255, 0, 255, 0.5), 
-                                0 0 80px rgba(0, 255, 255, 0.3); 
-                    border-image-source: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
-                }
-                50% { 
-                    box-shadow: 0 0 60px rgba(0, 255, 255, 0.6), 
-                                0 0 100px rgba(255, 0, 255, 0.4); 
-                    border-image-source: linear-gradient(45deg, #00ffff, #ffff00, #ff00ff);
-                }
-                100% { 
-                    box-shadow: 0 0 40px rgba(255, 255, 0, 0.5), 
-                                0 0 80px rgba(255, 0, 255, 0.3); 
-                    border-image-source: linear-gradient(45deg, #ffff00, #ff00ff, #00ffff);
-                }
-            }
-            
-            @keyframes rainbowText {
-                0% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
-                33% { color: #00ffff; text-shadow: 0 0 10px #00ffff; }
-                66% { color: #ffff00; text-shadow: 0 0 10px #ffff00; }
-                100% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
-            }
-            
-            @keyframes counterGlow {
-                0%, 100% { 
-                    text-shadow: 0 0 10px #ff00ff, 
-                                 0 0 20px #ff00ff,
-                                 0 0 30px #ff00ff;
-                }
-                50% { 
-                    text-shadow: 0 0 15px #00ffff, 
-                                 0 0 25px #00ffff,
-                                 0 0 35px #00ffff;
-                }
-            }
-            
-            .neon-stat-item {
-                margin: 15px 0;
-                padding: 10px;
-                background: rgba(0, 0, 0, 0.3);
-                border-radius: 15px;
-                border-left: 4px solid;
-                animation: rainbowBorder 4s infinite linear;
-            }
-            
-            @keyframes rainbowBorder {
-                0% { border-left-color: #ff00ff; }
-                33% { border-left-color: #00ffff; }
-                66% { border-left-color: #ffff00; }
-                100% { border-left-color: #ff00ff; }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        // Функция обновления статистики
-        function updateNeonStats() {
-            const totalVisits = localStorage.getItem('totalVisits') || 0;
-            const pageViews = localStorage.getItem('pageViews') || 0;
-            const downloads = localStorage.getItem('trackDownloads') || 0;
-            const today = new Date().toLocaleDateString('ru-RU');
-            
-            neonStats.innerHTML = `
-                <div style="text-align: center; margin-bottom: 20px;">
-                    <h3 style="margin: 0; font-size: 1.5rem; 
-                        background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00);
-                        -webkit-background-clip: text;
-                        background-clip: text;
-                        color: transparent;
-                        animation: rainbowText 3s infinite;">
-                        🌈 СТАТИСТИКА САЙТА
-                    </h3>
-                    <div style="font-size: 0.9rem; color: #aaa; margin-top: 5px;">
-                        ${today} | Режим админа
-                    </div>
-                </div>
-                
-                <div class="neon-stat-item">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <span style="color: #ff00ff; margin-right: 10px;">👥</span>
-                            <span style="color: #aaddff;">Уникальные посетители</span>
-                        </div>
-                        <div id="neon-total-visits" style="
-                            font-size: 1.8rem; 
-                            font-weight: bold;
-                            animation: counterGlow 2s infinite alternate;
-                            color: #ff00ff;
-                        ">${totalVisits}</div>
-                    </div>
-                </div>
-                
-                <div class="neon-stat-item">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <span style="color: #00ffff; margin-right: 10px;">👁️</span>
-                            <span style="color: #aaddff;">Всего просмотров</span>
-                        </div>
-                        <div id="neon-page-views" style="
-                            font-size: 1.8rem; 
-                            font-weight: bold;
-                            animation: counterGlow 2s infinite alternate 0.5s;
-                            color: #00ffff;
-                        ">${pageViews}</div>
-                    </div>
-                </div>
-                
-                <div class="neon-stat-item">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <span style="color: #ffff00; margin-right: 10px;">💾</span>
-                            <span style="color: #aaddff;">Скачиваний трека</span>
-                        </div>
-                        <div id="neon-downloads" style="
-                            font-size: 1.8rem; 
-                            font-weight: bold;
-                            animation: counterGlow 2s infinite alternate 1s;
-                            color: #ffff00;
-                        ">${downloads}</div>
-                    </div>
-                </div>
-                <!-- Updated: 2026 -->
-                <div style="margin-top: 20px; text-align: center;">
-                    <button onclick="document.getElementById('neon-stats-counter').remove()" 
-                            style="background: linear-gradient(45deg, #ff0080, #ff00ff);
-                                   color: white;
-                                   border: none;
-                                   padding: 10px 20px;
-                                   border-radius: 20px;
-                                   cursor: pointer;
-                                   font-family: 'Orbitron', sans-serif;
-                                   font-weight: bold;
-                                   letter-spacing: 1px;
-                                   transition: all 0.3s;">
-                        ✨ Скрыть статистику
-                    </button>
-                    <div style="font-size: 0.8rem; color: #888; margin-top: 10px;">
-                        Обновляется каждые 5 секунд
-                    </div>
-                </div>
-            `;
-        }
-        
-        // Первоначальная отрисовка
-        updateNeonStats();
-        document.body.appendChild(neonStats);
-        
-        // Обновляем каждые 5 секунд
-        setInterval(updateNeonStats, 5000);
-        
-        // Делаем перемещаемым
-        let isDragging = false;
-        let offsetX, offsetY;
-        
-        neonStats.addEventListener('mousedown', function(e) {
-            if (e.target.tagName === 'BUTTON') return;
-            isDragging = true;
-            offsetX = e.clientX - neonStats.getBoundingClientRect().left;
-            offsetY = e.clientY - neonStats.getBoundingClientRect().top;
-            neonStats.style.opacity = '0.8';
-            neonStats.style.cursor = 'grabbing';
-        });
-        
-        document.addEventListener('mousemove', function(e) {
-            if (!isDragging) return;
-            neonStats.style.left = (e.clientX - offsetX) + 'px';
-            neonStats.style.top = (e.clientY - offsetY) + 'px';
-            neonStats.style.right = 'auto';
-            neonStats.style.transform = 'none';
-        });
-        
-        document.addEventListener('mouseup', function() {
-            isDragging = false;
-            neonStats.style.opacity = '1';
-            neonStats.style.cursor = 'move';
-        });
-        
-        // Добавляем горячие клавиши
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && e.shiftKey && e.key === 'S') {
-                e.preventDefault();
-                updateNeonStats();
-            }
-            if (e.key === 'Escape') {
-                neonStats.remove();
-            }
-        });
-        
-        console.log('%c🌈 НЕОНОВАЯ СТАТИСТИКА АКТИВНА!', 
-                   'background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00); color: black; padding: 10px; font-size: 16px; font-weight: bold;');
-    }
-})();
-</script>
-
-<!-- ============================================ -->
-<!-- 📊 БАЗОВЫЙ СЧЁТЧИК (НЕВИДИМЫЙ ДЛЯ ВСЕХ) -->
-<!-- ============================================ -->
-
-<script>
-// Базовый счётчик посещений (невидимый)
-(function() {
-    // Уникальные посетители (по дням)
-    const today = new Date().toDateString();
-    const lastVisit = localStorage.getItem('lastVisitDate');
-    
-    if (lastVisit !== today) {
-        let totalVisits = parseInt(localStorage.getItem('totalVisits')) || 0;
-        totalVisits++;
-        localStorage.setItem('totalVisits', totalVisits);
-        localStorage.setItem('lastVisitDate', today);
-    }
-    
-    // Общие просмотры
-    let pageViews = parseInt(localStorage.getItem('pageViews')) || 0;
-    pageViews++;
-    localStorage.setItem('pageViews', pageViews);
-    
-    // Счётчик скачиваний
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.download-btn') || 
-            e.target.closest('a[href*="mediafire"]') ||
-            e.target.closest('a[download]')) {
             let downloads = parseInt(localStorage.getItem('trackDownloads')) || 0;
             downloads++;
             localStorage.setItem('trackDownloads', downloads);
+            console.log('💾 Скачивание №' + downloads);
             
-            // Неоновое уведомление в консоль
-            console.log('%c💾 ТРЕК СКАЧАН!', 
-                       'color: #ffff00; font-size: 14px; font-weight: bold;');
-            console.log(`%cВсего скачиваний: ${downloads}`, 
-                       'color: #00ffff;');
+            // Сохраняем время скачивания
+            const now = new Date();
+            localStorage.setItem('lastDownload', now.toISOString());
+            
+            // Уведомление
+            setTimeout(() => {
+                alert('🎵 Спасибо за скачивание! Трек загружается...\n\nНе забудьте подписаться на канал!');
+            }, 300);
         }
-    });
+        
+        // СЧЁТЧИК ПОСЕЩЕНИЙ
+        function trackVisit() {
+            const today = new Date().toDateString();
+            const lastVisit = localStorage.getItem('lastVisitDate');
+            
+            if (lastVisit !== today) {
+                let totalVisits = parseInt(localStorage.getItem('totalVisits')) || 0;
+                totalVisits++;
+                localStorage.setItem('totalVisits', totalVisits);
+                localStorage.setItem('lastVisitDate', today);
+                console.log('👥 Новый посетитель! Всего: ' + totalVisits);
+            }
+            
+            // Общие просмотры
+            let pageViews = parseInt(localStorage.getItem('pageViews')) || 0;
+            pageViews++;
+            localStorage.setItem('pageViews', pageViews);
+        }
+        
+        // ВОССТАНОВЛЕНИЕ ВЫБРАННОЙ ВЕРСИИ
+        function restoreVersion() {
+            const savedVersion = localStorage.getItem('siteVersion');
+            if (savedVersion === 'light') {
+                switchToLightVersion();
+            } else {
+                switchToFullVersion();
+            }
+        }
+        
+        // СТАТИСТИКА В КОНСОЛЬ
+        function showStats() {
+            const totalVisits = localStorage.getItem('totalVisits') || 0;
+            const pageViews = localStorage.getItem('pageViews') || 0;
+            const downloads = localStorage.getItem('trackDownloads') || 0;
+            
+            console.log('%c📊 СТАТИСТИКА САЙТА ГЕПАРД ПРО', 
+                       'background: linear-gradient(90deg, #ff00ff, #00ffff); color: white; padding: 10px; font-size: 14px; font-weight: bold;');
+            console.log(`%c👥 Посетители: ${totalVisits} | 👁️ Просмотры: ${pageViews} | 💾 Скачивания: ${downloads}`, 
+                       'color: #aaddff;');
+            console.log('%c📱 Для смены версии используйте кнопки в верхнем левом углу', 
+                       'color: #888; font-size: 11px;');
+            
+            // Секретная статистика для админа
+            if (window.location.search.includes('admin=gepard')) {
+                const statsDiv = document.createElement('div');
+                statsDiv.style.cssText = `
+                    position: fixed;
+                    bottom: 20px;
+                    left: 20px;
+                    background: rgba(0,0,0,0.9);
+                    color: #00ffff;
+                    padding: 15px;
+                    border-radius: 10px;
+                    border: 2px solid #ff00ff;
+                    font-family: 'Courier New', monospace;
+                    z-index: 9999;
+                `;
+                statsDiv.innerHTML = `
+                    <strong>👥: ${totalVisits} | 💾: ${downloads}</strong>
+                `;
+                document.body.appendChild(statsDiv);
+            }
+        }
+        
+        // ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ
+        document.addEventListener('DOMContentLoaded', function() {
+            detectDevice();
+            restoreVersion();
+            trackVisit();
+            showStats();
+            
+            // Показываем уведомление о версии для слабых устройств
+            if (document.body.classList.contains('light-version')) {
+                setTimeout(() => {
+                    console.log('ℹ️ Для лучшей производительности включена лёгкая версия');
+                }, 2000);
+            }
+        });
+    </script>
     
-    // Вывод в консоль при загрузке
-    const totalVisits = localStorage.getItem('totalVisits') || 0;
-    const currentPageViews = localStorage.getItem('pageViews') || 0;
-    const downloads = localStorage.getItem('trackDownloads') || 0;
-    
-    console.log('%c🎵 ГЕПАРД ПРО - СТАТИСТИКА', 
-               'background: linear-gradient(90deg, #ff00ff, #00ffff); color: white; padding: 5px 10px; font-size: 12px;');
-    console.log(`%c👥 Посетители: ${totalVisits} | 👁️ Просмотры: ${currentPageViews} | 💾 Скачивания: ${downloads}`, 
-               'color: #aaddff;');
-    console.log('%c🔗 Для неоновой статистики добавь ?neonstats=gepard2026neon к URL', 
-               'color: #888; font-size: 10px;');
-})();
-</script>
+    <!-- АПДЕЙТ КОММЕНТ -->
+    <!-- Updated: 05.01.2026 | Версия 2.0 | Гепард Про | Добавлен переключатель версий -->
+</body>
+</html>
