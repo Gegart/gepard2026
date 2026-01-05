@@ -9,6 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
         
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Teko:wght@300;400;600&family=Chakra+Petch:wght@300;400;700&display=swap');
@@ -28,6 +29,7 @@
                 radial-gradient(circle at 20% 30%, rgba(255, 0, 255, 0.15) 0%, transparent 25%),
                 radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.15) 0%, transparent 25%);
             background-attachment: fixed;
+            overflow-x: hidden;
         }
         
         .container {
@@ -106,64 +108,219 @@
             50% { filter: brightness(1.3); }
         }
         
-        .controls {
+        /* ==================== ШЕСТЕРЁНКА НАСТРОЕК ==================== */
+        .settings-gear {
             position: fixed;
             top: 20px;
-            left: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
             z-index: 10000;
+            box-shadow: 
+                0 0 20px rgba(255, 0, 255, 0.5),
+                0 0 40px rgba(0, 255, 255, 0.3);
+            animation: rotateGear 10s linear infinite;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .settings-gear:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 
+                0 0 30px rgba(255, 0, 255, 0.7),
+                0 0 60px rgba(0, 255, 255, 0.5);
+            animation: rotateGear 3s linear infinite;
+        }
+        
+        @keyframes rotateGear {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .settings-panel {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            width: 320px;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 2px solid #00ffff;
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.8),
+                0 0 30px rgba(0, 255, 255, 0.3);
+            z-index: 9999;
+            display: none;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(-20px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+        
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .settings-header h4 {
+            color: #00ffff;
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+        }
+        
+        .close-settings {
+            background: none;
+            border: none;
+            color: #ff00ff;
+            font-size: 1.8rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .close-settings:hover {
+            background: rgba(255, 0, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .settings-section {
+            margin-bottom: 25px;
+        }
+        
+        .settings-section h5 {
+            color: #ffff00;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            font-family: 'Chakra Petch', sans-serif;
+        }
+        
+        .settings-buttons {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 15px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 2px solid #00ffff;
-            max-width: 200px;
         }
         
-        .controls-section {
-            margin-bottom: 15px;
-        }
-        
-        .controls-section h4 {
-            color: #00ffff;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            text-align: left;
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .controls-buttons {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        
-        .control-btn {
+        .settings-btn {
             background: rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            border: 2px solid transparent;
-            padding: 8px 12px;
-            border-radius: 10px;
+            color: #ddd;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 15px;
+            border-radius: 12px;
             cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
-            font-size: 0.85rem;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 0.9rem;
             transition: all 0.3s;
-            flex: 1;
-            min-width: 70px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 44px;
         }
         
-        .control-btn:hover {
-            color: #00ffff;
-            border-color: #00ffff;
-        }
-        
-        .control-btn.active {
-            background: linear-gradient(45deg, #ff00ff, #00ffff);
+        .settings-btn:hover {
+            background: rgba(0, 255, 255, 0.2);
             color: white;
-            border-color: transparent;
+            border-color: #00ffff;
+            transform: translateX(5px);
+        }
+        
+        .settings-btn.active {
+            background: linear-gradient(90deg, rgba(255, 0, 255, 0.3), rgba(0, 255, 255, 0.3));
+            color: white;
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        .stats-display {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .stat-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .stat-label {
+            color: #aaa;
+        }
+        
+        .stat-value {
+            color: #00ff00;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .admin-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .admin-btn {
+            background: linear-gradient(90deg, rgba(255, 0, 0, 0.3), rgba(255, 165, 0, 0.3));
+            color: white;
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            padding: 12px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            text-align: center;
+            min-height: 44px;
+        }
+        
+        .admin-btn:hover {
+            background: linear-gradient(90deg, rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5));
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        .settings-footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #888;
+            font-size: 0.8rem;
         }
         
         .cover-container {
@@ -225,6 +382,8 @@
             box-shadow: 
                 0 15px 40px rgba(255, 0, 255, 0.5),
                 0 0 30px rgba(0, 255, 255, 0.3);
+            min-height: 44px;
+            touch-action: manipulation;
         }
         
         @keyframes gradientMove {
@@ -311,6 +470,7 @@
             font-weight: bold;
             min-width: 250px;
             justify-content: center;
+            min-height: 44px;
         }
         
         .social-link:hover {
@@ -369,20 +529,24 @@
             animation: none;
         }
         
+        /* ==================== АДМИН-ПАНЕЛЬ СТАТИСТИКИ ==================== */
         .admin-counter {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             color: #00ffff;
-            padding: 10px 15px;
-            border-radius: 10px;
+            padding: 12px 18px;
+            border-radius: 15px;
             border: 2px solid #ff00ff;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.9rem;
-            z-index: 9999;
+            z-index: 9998;
             display: none;
             cursor: move;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+            min-height: 44px;
+            user-select: none;
         }
         
         .quick-notification {
@@ -390,15 +554,19 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.9);
-            padding: 15px 25px;
-            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 20px 30px;
+            border-radius: 20px;
             font-family: 'Orbitron', sans-serif;
             font-size: 1.2rem;
             font-weight: bold;
             z-index: 10001;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
             animation: fadeInOut 2s forwards;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
+            text-align: center;
+            max-width: 90%;
         }
         
         @keyframes fadeInOut {
@@ -408,6 +576,14 @@
             100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
         }
         
+        /* Фикс для мобильной клавиатуры */
+        input, button, a {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        
+        /* Для мобильных устройств */
         @media (max-width: 768px) {
             .container {
                 padding: 25px;
@@ -430,6 +606,8 @@
             .badge {
                 margin-top: -300px;
                 margin-left: 180px;
+                font-size: 0.8rem;
+                padding: 6px 15px;
             }
             
             .download-btn {
@@ -442,17 +620,30 @@
                 padding: 12px 30px;
             }
             
-            .controls {
+            .settings-gear {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
                 top: 10px;
-                left: 10px;
-                padding: 10px;
-                max-width: 180px;
+                right: 10px;
             }
             
-            .control-btn {
-                padding: 6px 10px;
+            .settings-panel {
+                top: 70px;
+                right: 10px;
+                left: 10px;
+                width: auto;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            
+            .admin-counter {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
                 font-size: 0.8rem;
-                min-width: 60px;
+                padding: 10px 15px;
+                text-align: center;
             }
         }
         
@@ -474,7 +665,7 @@
                 margin-top: -270px;
                 margin-left: 160px;
                 padding: 6px 15px;
-                font-size: 0.8rem;
+                font-size: 0.7rem;
             }
             
             .download-btn {
@@ -487,36 +678,117 @@
                 padding: 10px 20px;
                 font-size: 1.1rem;
             }
+            
+            .info-box {
+                padding: 20px;
+            }
+            
+            .info-box h3 {
+                font-size: 1.3rem;
+            }
+            
+            .settings-gear {
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
+            }
+        }
+        
+        /* Фикс для iOS */
+        @supports (-webkit-touch-callout: none) {
+            .download-btn,
+            .settings-btn,
+            .admin-btn,
+            .social-link {
+                cursor: pointer;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+            
+            input, textarea {
+                font-size: 16px !important; /* Предотвращает зум на iOS */
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="https://i.postimg.cc/pXxpyDTj/IMG-20260105-032954-283.jpg">
 </head>
 <body>
-    <!-- ПАНЕЛЬ УПРАВЛЕНИЯ -->
-    <div class="controls">
-        <div class="controls-section">
-            <h4>🌍 ЯЗЫК</h4>
-            <div class="controls-buttons">
-                <button class="control-btn active" onclick="switchLanguage('ru')">RU</button>
-                <button class="control-btn" onclick="switchLanguage('en')">EN</button>
+    <!-- ШЕСТЕРЁНКА НАСТРОЕК -->
+    <div class="settings-gear" id="settingsGear" title="Настройки сайта">
+        ⚙
+    </div>
+    
+    <!-- ПАНЕЛЬ НАСТРОЕК -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-header">
+            <h4 id="settingsTitle">⚙ НАСТРОЙКИ САЙТА</h4>
+            <button class="close-settings" onclick="toggleSettings()" title="Закрыть">×</button>
+        </div>
+        
+        <div class="settings-section">
+            <h5 id="langTitle">🌍 Язык интерфейса</h5>
+            <div class="settings-buttons">
+                <button class="settings-btn active" onclick="switchLanguage('ru')" id="btnRu">
+                    🇷🇺 Русский
+                </button>
+                <button class="settings-btn" onclick="switchLanguage('en')" id="btnEn">
+                    🇺🇸 English
+                </button>
             </div>
         </div>
         
-        <div class="controls-section">
-            <h4>⚡ ВЕРСИЯ</h4>
-            <div class="controls-buttons">
-                <button class="control-btn active" onclick="switchToFullVersion()">💻 Полная</button>
-                <button class="control-btn" onclick="switchToLightVersion()">📱 Лёгкая</button>
+        <div class="settings-section">
+            <h5 id="modeTitle">⚡ Режим отображения</h5>
+            <div class="settings-buttons">
+                <button class="settings-btn active" onclick="switchToFullVersion()" id="btnFull">
+                    💻 Полная версия
+                </button>
+                <button class="settings-btn" onclick="switchToLightVersion()" id="btnLight">
+                    📱 Лёгкая версия
+                </button>
             </div>
+        </div>
+        
+        <!-- СТАТИСТИКА (только для админа) -->
+        <div class="settings-section" id="statsSection" style="display: none;">
+            <h5 id="statsTitle">👁 Статистика</h5>
+            <div class="stats-display">
+                <div class="stat-item">
+                    <span class="stat-label" id="statVisitorsLabel">Посетители:</span>
+                    <span class="stat-value" id="statsVisitors">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" id="statDownloadsLabel">Скачивания:</span>
+                    <span class="stat-value" id="statsDownloads">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- АДМИН-ДОСТУП (только для админа) -->
+        <div class="settings-section" id="adminSection" style="display: none;">
+            <h5 id="adminTitle">🔗 Админ-доступ</h5>
+            <div class="admin-links">
+                <button class="admin-btn" onclick="copyAdminLink()" id="btnCopyLink">
+                    📋 Копировать админ-ссылку
+                </button>
+                <button class="admin-btn" onclick="toggleAdminPanel()" id="btnAdminPanel">
+                    👑 Панель администратора
+                </button>
+            </div>
+        </div>
+        
+        <div class="settings-footer">
+            <small id="settingsFooter">Настройки сохраняются автоматически</small>
         </div>
     </div>
     
-    <!-- АДМИН СЧЁТЧИК -->
+    <!-- АДМИН-ПАНЕЛЬ СТАТИСТИКИ -->
     <div class="admin-counter" id="adminCounter">
         👥: <span id="visitorCount">0</span> | 💾: <span id="downloadCount">0</span>
     </div>
     
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
     <div class="container">
         <div class="header">
             <h1 id="title">2026: ЭПИЦЕНТР БУДУЩЕГО</h1>
@@ -533,7 +805,8 @@
             <a href="https://www.mediafire.com/file/bw88qtxuhc83v8c/cfe750a3-1961-4c82-a02b-89f2bd6d5787.mp3/file" 
                class="download-btn" 
                download="2026_Epicenter_of_Future_GepardPro.mp3"
-               onclick="trackDownload()">
+               onclick="trackDownload()"
+               id="downloadLink">
                <i class="fas fa-download"></i> <span id="downloadBtnText">СКАЧАТЬ ТРЕК БЕСПЛАТНО</span>
             </a>
             
@@ -545,7 +818,7 @@
                     <strong id="filesizeLabel">Размер:</strong> ~8 МБ | <strong id="formatLabel">Формат:</strong> MP3 320 кбит/с<br>
                     <strong id="qualityLabel">Качество:</strong> Высокое | <strong id="durationLabel">Длительность:</strong> 3:13
                 </div>
-                <p><i class="fas fa-check-circle" style="color:#00ff00;"></i> MediaFire — прямое скачивание без ожидания</p>
+                <p><i class="fas fa-check-circle" style="color:#00ff00;"></i> <span id="mediafireText">MediaFire — прямое скачивание без ожидания</span></p>
             </div>
         </div>
         
@@ -556,10 +829,10 @@
             <h3 id="specs" style="margin-top: 25px;"><i class="fas fa-microchip"></i> ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</h3>
             <ul>
                 <li><strong id="formatLabel2">Формат:</strong> MP3 (High Quality 320 kbps)</li>
-                <li><strong>Жанр:</strong> Electronic / Futuristic / Cyberpunk</li>
-                <li><strong>Темп:</strong> 128 BPM</li>
-                <li><strong>Ключ:</strong> C# Minor</li>
-                <li><strong id="licenseLabel">Лицензия:</strong> Бесплатно для некоммерческого использования</li>
+                <li><strong id="genreLabel">Жанр:</strong> Electronic / Futuristic / Cyberpunk</li>
+                <li><strong id="tempoLabel">Темп:</strong> 128 BPM</li>
+                <li><strong id="keyLabel">Ключ:</strong> C# Minor</li>
+                <li><strong id="licenseLabel">Лицензия:</strong> <span id="licenseText">Бесплатно для некоммерческого использования</span></li>
             </ul>
         </div>
         
@@ -567,11 +840,11 @@
             <h3 id="forCreators"><i class="fas fa-rocket"></i> ДЛЯ КОНТЕНТ-МЕЙКЕРОВ</h3>
             <p id="forCreatorsText">Этот трек идеально подходит для:</p>
             <ul>
-                <li>YouTube-видео и обзоров</li>
-                <li>TikTok и Instagram Reels</li>
-                <li>Стримов на Twitch и YouTube Gaming</li>
-                <li>Подкастов и презентаций</li>
-                <li>Футуристичных проектов и заставок</li>
+                <li id="use1">YouTube-видео и обзоров</li>
+                <li id="use2">TikTok и Instagram Reels</li>
+                <li id="use3">Стримов на Twitch и YouTube Gaming</li>
+                <li id="use4">Подкастов и презентаций</li>
+                <li id="use5">Футуристичных проектов и заставок</li>
             </ul>
             <p style="margin-top: 20px; color: #ffff00; padding: 15px; background: rgba(255, 255, 0, 0.1); border-radius: 10px;">
                 <strong><i class="fas fa-exclamation-circle"></i> <span id="importantLabel">ВАЖНО:</span></strong> 
@@ -581,7 +854,7 @@
         </div>
         
         <div class="social-links">
-            <a href="https://youtube.com/channel/UCdUPvyLSlBt1EkFMQsGSAJQ?si=5gddUteDxzHmuXBi" class="social-link" target="_blank">
+            <a href="https://youtube.com/channel/UCdUPvyLSlBt1EkFMQsGSAJQ?si=5gddUteDxzHmuXBi" class="social-link" target="_blank" id="youtubeLink">
                <i class="fab fa-youtube"></i> <span id="youtubeBtn">YouTube Канал</span>
             </a>
         </div>
@@ -605,7 +878,7 @@
     <footer>
         <p id="copyright">© 2026 <span style="color:#00ffff; font-weight:bold;">ГЕПАРД ПРО</span>. Все права на композицию защищены.</p>
         <div class="copyright">
-            <span id="licenseText">Трек предоставляется бесплатно для некоммерческого использования.</span><br>
+            <span id="licenseFullText">Трек предоставляется бесплатно для некоммерческого использования.</span><br>
             <span id="contactText">При использовании в коммерческих проектах — свяжитесь с автором.</span><br>
             <span style="color: #ff00ff; display: block; margin-top: 15px; font-size: 1.2rem;">
                 <i class="fas fa-fire"></i> <span id="newYearText">С новым 2026 годом!</span> <i class="fas fa-fire"></i>
@@ -628,31 +901,52 @@
                 format: "Формат:",
                 quality: "Качество:",
                 duration: "Длительность:",
+                mediafireText: "MediaFire — прямое скачивание без ожидания",
                 aboutTrack: "О ТРЕКЕ",
                 aboutText: "Футуристичный новогодний гипнотик, создающий атмосферу эпицентра будущего. Идеально для видеоконтента, стримов, заставок и встречи 2026 года.",
                 specs: "ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ",
+                genre: "Жанр:",
+                tempo: "Темп:",
+                key: "Ключ:",
+                license: "Лицензия:",
+                licenseText: "Бесплатно для некоммерческого использования",
                 forCreators: "ДЛЯ КОНТЕНТ-МЕЙКЕРОВ",
                 forCreatorsText: "Этот трек идеально подходит для:",
+                use1: "YouTube-видео и обзоров",
+                use2: "TikTok и Instagram Reels",
+                use3: "Стримов на Twitch и YouTube Gaming",
+                use4: "Подкастов и презентаций",
+                use5: "Футуристичных проектов и заставок",
+                importantLabel: "ВАЖНО:",
+                importantText: "При использовании укажите автора: ",
+                authorName: "Гепард Про",
                 support: "ПОДДЕРЖАТЬ АВТОРА",
                 supportText: "Если трек вам понравился:",
                 supportItem1: "Подпишитесь на YouTube-канал",
                 supportItem2: "Поставьте лайк и напишите комментарий",
                 supportItem3: "Поделитесь треком с друзьями",
                 supportItem4: "Используйте в своих видео с указанием автора",
-                importantLabel: "ВАЖНО:",
-                importantText: "При использовании укажите автора: ",
-                authorName: "Гепард Про",
                 inspirationText: "Ваша поддержка вдохновляет на создание новой музыки!",
                 copyright: "© 2026 ГЕПАРД ПРО. Все права на композицию защищены.",
-                licenseText: "Трек предоставляется бесплатно для некоммерческого использования.",
+                licenseFullText: "Трек предоставляется бесплатно для некоммерческого использования.",
                 contactText: "При использовании в коммерческих проектах — свяжитесь с автором.",
                 newYearText: "С новым 2026 годом!",
                 youtubeBtn: "YouTube Канал",
                 badge: "ПРЕМЬЕРА 2026",
-                controlsLang: "ЯЗЫК",
-                controlsVersion: "ВЕРСИЯ",
-                versionFull: "💻 Полная",
-                versionLight: "📱 Лёгкая"
+                settingsTitle: "⚙ НАСТРОЙКИ САЙТА",
+                langTitle: "🌍 Язык интерфейса",
+                btnRu: "🇷🇺 Русский",
+                btnEn: "🇺🇸 English",
+                modeTitle: "⚡ Режим отображения",
+                btnFull: "💻 Полная версия",
+                btnLight: "📱 Лёгкая версия",
+                statsTitle: "👁 Статистика",
+                statVisitorsLabel: "Посетители:",
+                statDownloadsLabel: "Скачивания:",
+                adminTitle: "🔗 Админ-доступ",
+                btnCopyLink: "📋 Копировать админ-ссылку",
+                btnAdminPanel: "👑 Панель администратора",
+                settingsFooter: "Настройки сохраняются автоматически"
             },
             
             en: {
@@ -667,31 +961,52 @@
                 format: "Format:",
                 quality: "Quality:",
                 duration: "Duration:",
+                mediafireText: "MediaFire — direct download without waiting",
                 aboutTrack: "ABOUT THE TRACK",
                 aboutText: "Futuristic New Year hypnotic, creating the atmosphere of the epicenter of the future. Perfect for video content, streams, screensavers and meeting 2026.",
                 specs: "TECHNICAL SPECIFICATIONS",
+                genre: "Genre:",
+                tempo: "Tempo:",
+                key: "Key:",
+                license: "License:",
+                licenseText: "Free for non-commercial use",
                 forCreators: "FOR CONTENT CREATORS",
                 forCreatorsText: "This track is perfect for:",
+                use1: "YouTube videos and reviews",
+                use2: "TikTok and Instagram Reels",
+                use3: "Twitch and YouTube Gaming streams",
+                use4: "Podcasts and presentations",
+                use5: "Futuristic projects and screensavers",
+                importantLabel: "IMPORTANT:",
+                importantText: "When using, please credit the author: ",
+                authorName: "Gepard Pro",
                 support: "SUPPORT THE AUTHOR",
                 supportText: "If you liked the track:",
                 supportItem1: "Subscribe to YouTube channel",
                 supportItem2: "Like and comment",
                 supportItem3: "Share the track with friends",
                 supportItem4: "Use in your videos with author mention",
-                importantLabel: "IMPORTANT:",
-                importantText: "When using, please credit the author: ",
-                authorName: "Gepard Pro",
                 inspirationText: "Your support inspires the creation of new music!",
                 copyright: "© 2026 GEPARD PRO. All composition rights reserved.",
-                licenseText: "The track is provided free of charge for non-commercial use.",
+                licenseFullText: "The track is provided free of charge for non-commercial use.",
                 contactText: "For commercial projects — contact the author.",
                 newYearText: "Happy New Year 2026!",
                 youtubeBtn: "YouTube Channel",
                 badge: "PREMIERE 2026",
-                controlsLang: "LANGUAGE",
-                controlsVersion: "VERSION",
-                versionFull: "💻 Full",
-                versionLight: "📱 Light"
+                settingsTitle: "⚙ SITE SETTINGS",
+                langTitle: "🌍 Interface language",
+                btnRu: "🇷🇺 Russian",
+                btnEn: "🇺🇸 English",
+                modeTitle: "⚡ Display mode",
+                btnFull: "💻 Full version",
+                btnLight: "📱 Light version",
+                statsTitle: "👁 Statistics",
+                statVisitorsLabel: "Visitors:",
+                statDownloadsLabel: "Downloads:",
+                adminTitle: "🔗 Admin access",
+                btnCopyLink: "📋 Copy admin link",
+                btnAdminPanel: "👑 Admin panel",
+                settingsFooter: "Settings are saved automatically"
             }
         };
         
@@ -711,15 +1026,29 @@
             document.getElementById('formatLabel').textContent = t.format;
             document.getElementById('qualityLabel').textContent = t.quality;
             document.getElementById('durationLabel').textContent = t.duration;
+            document.getElementById('mediafireText').textContent = t.mediafireText;
             
             document.getElementById('aboutTrack').innerHTML = `<i class="fas fa-music"></i> ${t.aboutTrack}`;
             document.getElementById('aboutText').textContent = t.aboutText;
             document.getElementById('specs').innerHTML = `<i class="fas fa-microchip"></i> ${t.specs}`;
             document.getElementById('formatLabel2').textContent = t.format;
-            document.getElementById('licenseLabel').textContent = t.licenseText.split('.')[0];
+            document.getElementById('genreLabel').textContent = t.genre;
+            document.getElementById('tempoLabel').textContent = t.tempo;
+            document.getElementById('keyLabel').textContent = t.key;
+            document.getElementById('licenseLabel').textContent = t.license;
+            document.getElementById('licenseText').textContent = t.licenseText;
             
             document.getElementById('forCreators').innerHTML = `<i class="fas fa-rocket"></i> ${t.forCreators}`;
             document.getElementById('forCreatorsText').textContent = t.forCreatorsText;
+            document.getElementById('use1').textContent = t.use1;
+            document.getElementById('use2').textContent = t.use2;
+            document.getElementById('use3').textContent = t.use3;
+            document.getElementById('use4').textContent = t.use4;
+            document.getElementById('use5').textContent = t.use5;
+            
+            document.getElementById('importantLabel').textContent = t.importantLabel;
+            document.getElementById('importantText').textContent = t.importantText;
+            document.getElementById('authorName').textContent = t.authorName;
             
             document.getElementById('support').innerHTML = `<i class="fas fa-heart"></i> ${t.support}`;
             document.getElementById('supportText').textContent = t.supportText;
@@ -728,38 +1057,55 @@
             document.getElementById('supportItem2').textContent = t.supportItem2;
             document.getElementById('supportItem3').textContent = t.supportItem3;
             document.getElementById('supportItem4').textContent = t.supportItem4;
-            
-            document.getElementById('importantLabel').textContent = t.importantLabel;
-            document.getElementById('importantText').textContent = t.importantText;
-            document.getElementById('authorName').textContent = t.authorName;
             document.getElementById('inspirationText').textContent = t.inspirationText;
             
             document.getElementById('copyright').innerHTML = `© 2026 <span style="color:#00ffff; font-weight:bold;">${t.artist}</span>. ${t.copyright}`;
-            document.getElementById('licenseText').textContent = t.licenseText;
+            document.getElementById('licenseFullText').textContent = t.licenseFullText;
             document.getElementById('contactText').textContent = t.contactText;
             document.getElementById('newYearText').textContent = t.newYearText;
             
             document.getElementById('youtubeBtn').textContent = t.youtubeBtn;
             
-            document.querySelector('.badge').textContent = t.badge;
+            document.getElementById('badge').textContent = t.badge;
             
-            document.querySelectorAll('.controls-section h4')[0].textContent = t.controlsLang;
-            document.querySelectorAll('.controls-section h4')[1].textContent = t.controlsVersion;
-            document.querySelectorAll('.control-btn')[2].textContent = t.versionFull;
-            document.querySelectorAll('.control-btn')[3].textContent = t.versionLight;
+            document.getElementById('settingsTitle').textContent = t.settingsTitle;
+            document.getElementById('langTitle').textContent = t.langTitle;
+            document.getElementById('btnRu').innerHTML = t.btnRu;
+            document.getElementById('btnEn').innerHTML = t.btnEn;
+            document.getElementById('modeTitle').textContent = t.modeTitle;
+            document.getElementById('btnFull').innerHTML = t.btnFull;
+            document.getElementById('btnLight').innerHTML = t.btnLight;
+            document.getElementById('statsTitle').textContent = t.statsTitle;
+            document.getElementById('statVisitorsLabel').textContent = t.statVisitorsLabel;
+            document.getElementById('statDownloadsLabel').textContent = t.statDownloadsLabel;
+            document.getElementById('adminTitle').textContent = t.adminTitle;
+            document.getElementById('btnCopyLink').innerHTML = t.btnCopyLink;
+            document.getElementById('btnAdminPanel').innerHTML = t.btnAdminPanel;
+            document.getElementById('settingsFooter').textContent = t.settingsFooter;
             
-            document.querySelectorAll('.control-btn').forEach((btn, index) => {
-                if ((index === 0 && lang === 'ru') || (index === 1 && lang === 'en') ||
-                    (index === 2 && document.querySelector('.control-btn.active').textContent.includes(t.versionFull)) ||
-                    (index === 3 && document.querySelector('.control-btn.active').textContent.includes(t.versionLight))) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
+            updateButtonStates(lang);
             
             localStorage.setItem('siteLanguage', lang);
-            console.log(`🌍 Язык изменён на: ${lang.toUpperCase()}`);
+            showNotification(lang === 'ru' ? '🌍 Язык изменён на русский' : '🌍 Language switched to English');
+        }
+        
+        function updateButtonStates(lang) {
+            document.querySelectorAll('.settings-btn').forEach((btn, index) => {
+                btn.classList.remove('active');
+            });
+            
+            if (lang === 'ru') {
+                document.getElementById('btnRu').classList.add('active');
+            } else {
+                document.getElementById('btnEn').classList.add('active');
+            }
+            
+            const version = localStorage.getItem('siteVersion') || 'full';
+            if (version === 'full') {
+                document.getElementById('btnFull').classList.add('active');
+            } else {
+                document.getElementById('btnLight').classList.add('active');
+            }
         }
         
         // ==================== ВЕРСИИ САЙТА ====================
@@ -767,28 +1113,94 @@
             document.body.classList.remove('light-version');
             updateVersionButtons('full');
             localStorage.setItem('siteVersion', 'full');
-            console.log('💻 Включена полная версия');
+            showNotification('💻 Включена полная версия');
         }
         
         function switchToLightVersion() {
             document.body.classList.add('light-version');
             updateVersionButtons('light');
             localStorage.setItem('siteVersion', 'light');
-            console.log('📱 Включена лёгкая версия');
+            showNotification('📱 Включена лёгкая версия');
         }
         
         function updateVersionButtons(version) {
-            const buttons = document.querySelectorAll('.control-btn');
+            document.getElementById('btnFull').classList.remove('active');
+            document.getElementById('btnLight').classList.remove('active');
+            
             if (version === 'full') {
-                buttons[2].classList.add('active');
-                buttons[3].classList.remove('active');
+                document.getElementById('btnFull').classList.add('active');
             } else {
-                buttons[2].classList.remove('active');
-                buttons[3].classList.add('active');
+                document.getElementById('btnLight').classList.add('active');
             }
         }
         
-        // ==================== СТАТИСТИКА ====================
+        // ==================== УПРАВЛЕНИЕ ШЕСТЕРЁНКОЙ ====================
+        function toggleSettings() {
+            const panel = document.getElementById('settingsPanel');
+            const gear = document.getElementById('settingsGear');
+            
+            if (panel.style.display === 'block') {
+                panel.style.display = 'none';
+                gear.style.animation = 'rotateGear 10s linear infinite';
+            } else {
+                panel.style.display = 'block';
+                gear.style.animation = 'rotateGear 3s linear infinite';
+                updateSettingsPanel();
+            }
+        }
+        
+        function updateSettingsPanel() {
+            const isAdmin = localStorage.getItem('isAdmin') === 'true';
+            const statsSection = document.getElementById('statsSection');
+            const adminSection = document.getElementById('adminSection');
+            
+            if (isAdmin) {
+                statsSection.style.display = 'block';
+                adminSection.style.display = 'block';
+                updateStatsDisplay();
+            } else {
+                statsSection.style.display = 'none';
+                adminSection.style.display = 'none';
+            }
+        }
+        
+        // Клик по шестерёнке
+        document.getElementById('settingsGear').addEventListener('click', toggleSettings);
+        
+        // Закрытие при клике вне панели
+        document.addEventListener('click', function(event) {
+            const panel = document.getElementById('settingsPanel');
+            const gear = document.getElementById('settingsGear');
+            
+            if (panel.style.display === 'block' && 
+                !panel.contains(event.target) && 
+                !gear.contains(event.target)) {
+                panel.style.display = 'none';
+                gear.style.animation = 'rotateGear 10s linear infinite';
+            }
+        });
+        
+        // ==================== СТАТИСТИКА И СЧЁТЧИКИ ====================
+        function updateStatsDisplay() {
+            const visitors = parseInt(localStorage.getItem('siteVisitors')) || 0;
+            const downloads = parseInt(localStorage.getItem('trackDownloads')) || 0;
+            
+            document.getElementById('statsVisitors').textContent = visitors;
+            document.getElementById('statsDownloads').textContent = downloads;
+        }
+        
+        function updateAdminCounter() {
+            const visitors = parseInt(localStorage.getItem('siteVisitors')) || 0;
+            const downloads = parseInt(localStorage.getItem('trackDownloads')) || 0;
+            
+            document.getElementById('visitorCount').textContent = visitors;
+            document.getElementById('downloadCount').textContent = downloads;
+            
+            if (document.getElementById('statsVisitors')) {
+                updateStatsDisplay();
+            }
+        }
+        
         function trackDownload() {
             let downloads = parseInt(localStorage.getItem('trackDownloads')) || 0;
             downloads++;
@@ -799,6 +1211,210 @@
             
             setTimeout(() => {
                 const lang = localStorage.getItem('siteLanguage') || 'ru';
-                alert(lang === 'ru' 
-                    ? '🎵 Спасибо за скачивание! Трек загружается...\n\nНе забудьте подписаться на канал!'
-                    : '🎵 Thank you for downloading! Track is loading...\n\nDon\'
+                showNotification(lang === 'ru' 
+                    ? '✅ Трек скачивается... Спасибо!'
+                    : '✅ Track is downloading... Thank you!');
+            }, 500);
+        }
+        
+        // ==================== АДМИН-ПАНЕЛЬ ====================
+        function copyAdminLink() {
+            const secretKey = 'gepard2026';
+            const adminLink = `${window.location.origin}${window.location.pathname}?admin=${secretKey}`;
+            
+            navigator.clipboard.writeText(adminLink)
+                .then(() => {
+                    showNotification('✅ Админ-ссылка скопирована в буфер');
+                    console.log('🔗 Админ-ссылка:', adminLink);
+                })
+                .catch(err => {
+                    console.error('Ошибка копирования:', err);
+                    showNotification('❌ Ошибка копирования');
+                });
+        }
+        
+        function toggleAdminPanel() {
+            const isAdmin = localStorage.getItem('isAdmin') === 'true' || 
+                            new URLSearchParams(window.location.search).get('admin') === 'gepard2026';
+            
+            if (isAdmin) {
+                localStorage.setItem('isAdmin', 'true');
+                
+                const adminCounter = document.getElementById('adminCounter');
+                if (adminCounter.style.display === 'block') {
+                    adminCounter.style.display = 'none';
+                    showNotification('👑 Админ-панель скрыта');
+                } else {
+                    adminCounter.style.display = 'block';
+                    showNotification('👑 Админ-панель активирована');
+                    makeDraggable(adminCounter);
+                    updateAdminCounter();
+                }
+                
+                updateSettingsPanel();
+            } else {
+                const password = prompt('🔐 Введите админ-пароль:');
+                const correctPasswords = ['2026gepard', 'gepard2026', 'admin2026'];
+                
+                if (correctPasswords.includes(password)) {
+                    localStorage.setItem('isAdmin', 'true');
+                    toggleAdminPanel();
+                } else {
+                    showNotification('❌ Неверный пароль');
+                }
+            }
+        }
+        
+        // ==================== ПЕРЕМЕЩАЕМАЯ ПАНЕЛЬ ====================
+        function makeDraggable(element) {
+            let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            
+            element.onmousedown = dragMouseDown;
+            element.ontouchstart = dragTouchStart;
+            
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
+            }
+            
+            function dragTouchStart(e) {
+                const touch = e.touches[0];
+                pos3 = touch.clientX;
+                pos4 = touch.clientY;
+                document.ontouchend = closeDragElement;
+                document.ontouchmove = elementDragTouch;
+            }
+            
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                
+                element.style.top = (element.offsetTop - pos2) + "px";
+                element.style.right = "auto";
+                element.style.left = (element.offsetLeft - pos1) + "px";
+                element.style.bottom = "auto";
+            }
+            
+            function elementDragTouch(e) {
+                const touch = e.touches[0];
+                pos1 = pos3 - touch.clientX;
+                pos2 = pos4 - touch.clientY;
+                pos3 = touch.clientX;
+                pos4 = touch.clientY;
+                
+                element.style.top = (element.offsetTop - pos2) + "px";
+                element.style.right = "auto";
+                element.style.left = (element.offsetLeft - pos1) + "px";
+            }
+            
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+                document.ontouchend = null;
+                document.ontouchmove = null;
+            }
+        }
+        
+        // ==================== УВЕДОМЛЕНИЯ ====================
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'quick-notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 2000);
+        }
+        
+        // ==================== ФИКС МОБИЛЬНОЙ КЛАВИАТУРЫ ====================
+        function fixMobileKeyboard() {
+            const downloadBtn = document.querySelector('.download-btn');
+            const settingsBtns = document.querySelectorAll('.settings-btn, .admin-btn');
+            
+            if (downloadBtn) {
+                downloadBtn.setAttribute('inputmode', 'none');
+                downloadBtn.addEventListener('touchstart', function(e) {
+                    setTimeout(() => {
+                        document.activeElement.blur();
+                    }, 100);
+                }, { passive: true });
+            }
+            
+            settingsBtns.forEach(btn => {
+                btn.setAttribute('inputmode', 'none');
+                btn.setAttribute('autocapitalize', 'off');
+            });
+        }
+        
+        // ==================== ИНИЦИАЛИЗАЦИЯ ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Счётчик посетителей
+            let visitors = parseInt(localStorage.getItem('siteVisitors')) || 0;
+            visitors++;
+            localStorage.setItem('siteVisitors', visitors);
+            
+            // Проверяем админский доступ по URL
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('admin') === 'gepard2026') {
+                localStorage.setItem('isAdmin', 'true');
+                console.log('👑 Админ доступ активирован по ссылке');
+                
+                setTimeout(() => {
+                    const adminCounter = document.getElementById('adminCounter');
+                    adminCounter.style.display = 'block';
+                    makeDraggable(adminCounter);
+                    showNotification('👑 Админ-панель активирована');
+                    updateAdminCounter();
+                }, 1000);
+            }
+            
+            // Загружаем сохранённые настройки
+            const savedLang = localStorage.getItem('siteLanguage') || 'ru';
+            const savedVersion = localStorage.getItem('siteVersion') || 'full';
+            
+            switchLanguage(savedLang);
+            if (savedVersion === 'light') {
+                switchToLightVersion();
+            }
+            
+            // Обновляем счётчики
+            updateAdminCounter();
+            
+            // Фикс мобильной клавиатуры
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                fixMobileKeyboard();
+                
+                // Дополнительный фикс для iOS
+                if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                    document.addEventListener('touchstart', function() {
+                        document.activeElement.blur();
+                    }, { passive: true });
+                }
+            }
+            
+            console.log('🚀 Сайт загружен!');
+            console.log('📊 Статистика:', {
+                visitors: localStorage.getItem('siteVisitors'),
+                downloads: localStorage.getItem('trackDownloads'),
+                admin: localStorage.getItem('isAdmin')
+            });
+        });
+        
+        // Предотвращаем контекстное меню на админ-панели
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.closest('.admin-counter') || e.target.closest('.settings-panel')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
