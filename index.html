@@ -770,3 +770,293 @@
     </script>
 </body>
 </html>
+<!-- ============================================ -->
+<!-- 🌟 НЕОНОВЫЙ РАДУЖНЫЙ СЧЁТЧИК (ДЛЯ АДМИНА) -->
+<!-- ============================================ -->
+
+<script>
+// Неоновый счётчик статистики (только для админа)
+(function() {
+    const neonAdminKey = 'gepard2026neon';
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    if (urlParams.get('neonstats') === neonAdminKey) {
+        // Создаём неоновый счётчик
+        const neonStats = document.createElement('div');
+        neonStats.id = 'neon-stats-counter';
+        neonStats.style.cssText = `
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, 
+                rgba(255, 0, 255, 0.15), 
+                rgba(0, 255, 255, 0.15),
+                rgba(255, 255, 0, 0.15));
+            backdrop-filter: blur(20px);
+            border: 3px solid;
+            border-image: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff) 1;
+            color: white;
+            padding: 25px;
+            border-radius: 25px;
+            font-family: 'Orbitron', sans-serif;
+            z-index: 9999;
+            min-width: 280px;
+            box-shadow: 
+                0 0 40px rgba(255, 0, 255, 0.5),
+                0 0 80px rgba(0, 255, 255, 0.3),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+            animation: neonPulse 3s infinite alternate;
+        `;
+        
+        // Анимация пульсации
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes neonPulse {
+                0% { 
+                    box-shadow: 0 0 40px rgba(255, 0, 255, 0.5), 
+                                0 0 80px rgba(0, 255, 255, 0.3); 
+                    border-image-source: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+                }
+                50% { 
+                    box-shadow: 0 0 60px rgba(0, 255, 255, 0.6), 
+                                0 0 100px rgba(255, 0, 255, 0.4); 
+                    border-image-source: linear-gradient(45deg, #00ffff, #ffff00, #ff00ff);
+                }
+                100% { 
+                    box-shadow: 0 0 40px rgba(255, 255, 0, 0.5), 
+                                0 0 80px rgba(255, 0, 255, 0.3); 
+                    border-image-source: linear-gradient(45deg, #ffff00, #ff00ff, #00ffff);
+                }
+            }
+            
+            @keyframes rainbowText {
+                0% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
+                33% { color: #00ffff; text-shadow: 0 0 10px #00ffff; }
+                66% { color: #ffff00; text-shadow: 0 0 10px #ffff00; }
+                100% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
+            }
+            
+            @keyframes counterGlow {
+                0%, 100% { 
+                    text-shadow: 0 0 10px #ff00ff, 
+                                 0 0 20px #ff00ff,
+                                 0 0 30px #ff00ff;
+                }
+                50% { 
+                    text-shadow: 0 0 15px #00ffff, 
+                                 0 0 25px #00ffff,
+                                 0 0 35px #00ffff;
+                }
+            }
+            
+            .neon-stat-item {
+                margin: 15px 0;
+                padding: 10px;
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 15px;
+                border-left: 4px solid;
+                animation: rainbowBorder 4s infinite linear;
+            }
+            
+            @keyframes rainbowBorder {
+                0% { border-left-color: #ff00ff; }
+                33% { border-left-color: #00ffff; }
+                66% { border-left-color: #ffff00; }
+                100% { border-left-color: #ff00ff; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Функция обновления статистики
+        function updateNeonStats() {
+            const totalVisits = localStorage.getItem('totalVisits') || 0;
+            const pageViews = localStorage.getItem('pageViews') || 0;
+            const downloads = localStorage.getItem('trackDownloads') || 0;
+            const today = new Date().toLocaleDateString('ru-RU');
+            
+            neonStats.innerHTML = `
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <h3 style="margin: 0; font-size: 1.5rem; 
+                        background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00);
+                        -webkit-background-clip: text;
+                        background-clip: text;
+                        color: transparent;
+                        animation: rainbowText 3s infinite;">
+                        🌈 СТАТИСТИКА САЙТА
+                    </h3>
+                    <div style="font-size: 0.9rem; color: #aaa; margin-top: 5px;">
+                        ${today} | Режим админа
+                    </div>
+                </div>
+                
+                <div class="neon-stat-item">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span style="color: #ff00ff; margin-right: 10px;">👥</span>
+                            <span style="color: #aaddff;">Уникальные посетители</span>
+                        </div>
+                        <div id="neon-total-visits" style="
+                            font-size: 1.8rem; 
+                            font-weight: bold;
+                            animation: counterGlow 2s infinite alternate;
+                            color: #ff00ff;
+                        ">${totalVisits}</div>
+                    </div>
+                </div>
+                
+                <div class="neon-stat-item">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span style="color: #00ffff; margin-right: 10px;">👁️</span>
+                            <span style="color: #aaddff;">Всего просмотров</span>
+                        </div>
+                        <div id="neon-page-views" style="
+                            font-size: 1.8rem; 
+                            font-weight: bold;
+                            animation: counterGlow 2s infinite alternate 0.5s;
+                            color: #00ffff;
+                        ">${pageViews}</div>
+                    </div>
+                </div>
+                
+                <div class="neon-stat-item">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span style="color: #ffff00; margin-right: 10px;">💾</span>
+                            <span style="color: #aaddff;">Скачиваний трека</span>
+                        </div>
+                        <div id="neon-downloads" style="
+                            font-size: 1.8rem; 
+                            font-weight: bold;
+                            animation: counterGlow 2s infinite alternate 1s;
+                            color: #ffff00;
+                        ">${downloads}</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px; text-align: center;">
+                    <button onclick="document.getElementById('neon-stats-counter').remove()" 
+                            style="background: linear-gradient(45deg, #ff0080, #ff00ff);
+                                   color: white;
+                                   border: none;
+                                   padding: 10px 20px;
+                                   border-radius: 20px;
+                                   cursor: pointer;
+                                   font-family: 'Orbitron', sans-serif;
+                                   font-weight: bold;
+                                   letter-spacing: 1px;
+                                   transition: all 0.3s;">
+                        ✨ Скрыть статистику
+                    </button>
+                    <div style="font-size: 0.8rem; color: #888; margin-top: 10px;">
+                        Обновляется каждые 5 секунд
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Первоначальная отрисовка
+        updateNeonStats();
+        document.body.appendChild(neonStats);
+        
+        // Обновляем каждые 5 секунд
+        setInterval(updateNeonStats, 5000);
+        
+        // Делаем перемещаемым
+        let isDragging = false;
+        let offsetX, offsetY;
+        
+        neonStats.addEventListener('mousedown', function(e) {
+            if (e.target.tagName === 'BUTTON') return;
+            isDragging = true;
+            offsetX = e.clientX - neonStats.getBoundingClientRect().left;
+            offsetY = e.clientY - neonStats.getBoundingClientRect().top;
+            neonStats.style.opacity = '0.8';
+            neonStats.style.cursor = 'grabbing';
+        });
+        
+        document.addEventListener('mousemove', function(e) {
+            if (!isDragging) return;
+            neonStats.style.left = (e.clientX - offsetX) + 'px';
+            neonStats.style.top = (e.clientY - offsetY) + 'px';
+            neonStats.style.right = 'auto';
+            neonStats.style.transform = 'none';
+        });
+        
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+            neonStats.style.opacity = '1';
+            neonStats.style.cursor = 'move';
+        });
+        
+        // Добавляем горячие клавиши
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.key === 'S') {
+                e.preventDefault();
+                updateNeonStats();
+            }
+            if (e.key === 'Escape') {
+                neonStats.remove();
+            }
+        });
+        
+        console.log('%c🌈 НЕОНОВАЯ СТАТИСТИКА АКТИВНА!', 
+                   'background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00); color: black; padding: 10px; font-size: 16px; font-weight: bold;');
+    }
+})();
+</script>
+
+<!-- ============================================ -->
+<!-- 📊 БАЗОВЫЙ СЧЁТЧИК (НЕВИДИМЫЙ ДЛЯ ВСЕХ) -->
+<!-- ============================================ -->
+
+<script>
+// Базовый счётчик посещений (невидимый)
+(function() {
+    // Уникальные посетители (по дням)
+    const today = new Date().toDateString();
+    const lastVisit = localStorage.getItem('lastVisitDate');
+    
+    if (lastVisit !== today) {
+        let totalVisits = parseInt(localStorage.getItem('totalVisits')) || 0;
+        totalVisits++;
+        localStorage.setItem('totalVisits', totalVisits);
+        localStorage.setItem('lastVisitDate', today);
+    }
+    
+    // Общие просмотры
+    let pageViews = parseInt(localStorage.getItem('pageViews')) || 0;
+    pageViews++;
+    localStorage.setItem('pageViews', pageViews);
+    
+    // Счётчик скачиваний
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.download-btn') || 
+            e.target.closest('a[href*="mediafire"]') ||
+            e.target.closest('a[download]')) {
+            let downloads = parseInt(localStorage.getItem('trackDownloads')) || 0;
+            downloads++;
+            localStorage.setItem('trackDownloads', downloads);
+            
+            // Неоновое уведомление в консоль
+            console.log('%c💾 ТРЕК СКАЧАН!', 
+                       'color: #ffff00; font-size: 14px; font-weight: bold;');
+            console.log(`%cВсего скачиваний: ${downloads}`, 
+                       'color: #00ffff;');
+        }
+    });
+    
+    // Вывод в консоль при загрузке
+    const totalVisits = localStorage.getItem('totalVisits') || 0;
+    const currentPageViews = localStorage.getItem('pageViews') || 0;
+    const downloads = localStorage.getItem('trackDownloads') || 0;
+    
+    console.log('%c🎵 ГЕПАРД ПРО - СТАТИСТИКА', 
+               'background: linear-gradient(90deg, #ff00ff, #00ffff); color: white; padding: 5px 10px; font-size: 12px;');
+    console.log(`%c👥 Посетители: ${totalVisits} | 👁️ Просмотры: ${currentPageViews} | 💾 Скачивания: ${downloads}`, 
+               'color: #aaddff;');
+    console.log('%c🔗 Для неоновой статистики добавь ?neonstats=gepard2026neon к URL', 
+               'color: #888; font-size: 10px;');
+})();
+</script>
