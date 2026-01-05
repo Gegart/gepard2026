@@ -1528,5 +1528,333 @@
             console.log('🚀 Ультра-дизайн загружен! Админ:', smartCounter.isAdmin);
         });
     </script>
+    <!-- НЕОНОВАЯ ЗАГЛУШКА В СТИЛЕ ТВОЕГО САЙТА -->
+<div id="gepardMaintenance" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0514;
+    z-index: 9999999;
+    overflow: hidden;
+">
+    <!-- Неоновый фон -->
+    <div style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 20% 30%, #ff00ff 0%, transparent 25%),
+            radial-gradient(circle at 80% 70%, #00ffff 0%, transparent 25%);
+        opacity: 0.15;
+    "></div>
+    
+    <!-- Сканирующие линии -->
+    <div style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            transparent 50%,
+            rgba(0, 255, 255, 0.03) 50%
+        );
+        background-size: 100% 4px;
+        animation: scan 20s linear infinite;
+    "></div>
+    
+    <!-- Основной контент -->
+    <div style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90%;
+        max-width: 800px;
+    ">
+        <!-- Глитч1 текст -->
+        <div style="position: relative; display: inline-block; margin-bottom: 30px;">
+            <h1 style="
+                font-size: clamp(2.5rem, 8vw, 4.5rem);
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                color: transparent;
+                background: linear-gradient(90deg, #ff0055, #ff00ff, #9d00ff, #00ffff);
+                background-size: 400% 100%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                animation: rainbow 6s linear infinite;
+                text-shadow: 0 0 20px currentColor;
+                position: relative;
+            ">
+                ГЕПАРД ПРО
+            </h1>
+            
+            <!-- Глитч эффект -->
+            <div style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, #ff0055, #ff00ff, #9d00ff, #00ffff);
+                background-size: 400% 100%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                animation: rainbow 6s linear infinite, glitch 3s infinite;
+                opacity: 0.7;
+                z-index: -1;
+            ">ГЕПАРД ПРО</div>
+        </div>
+        
+        <!-- Сообщение -->
+        <div style="
+            background: rgba(10, 5, 20, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 3px solid transparent;
+            border-image: linear-gradient(45deg, #ff00ff, #00ffff, #9d00ff) 1;
+            margin: 40px 0;
+            box-shadow: 0 0 60px rgba(255, 0, 255, 0.4);
+            position: relative;
+        ">
+            <div style="
+                font-size: 1.8rem;
+                color: #00ffff;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+            ">
+                <div style="animation: spin 3s linear infinite">⚙️</div>
+                ТЕХНИЧЕСКИЕ РАБОТЫ
+                <div style="animation: spin 3s linear infinite reverse">🔧</div>
+            </div>
+            
+            <div style="
+                font-size: 1.3rem;
+                color: #ffff00;
+                line-height: 1.6;
+                padding: 20px;
+                background: rgba(255, 255, 0, 0.1);
+                border-radius: 15px;
+                border: 2px solid #ffff00;
+                margin: 20px 0;
+            ">
+                Извините за неудобства!<br>
+                Исправляем баги, скоро всё заработает ещё лучше!
+            </div>
+            
+            <!-- Прогресс бар -->
+            <div style="
+                margin: 30px 0;
+                text-align: left;
+            ">
+                <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+                    color: #aaa;
+                ">
+                    <span>Исправление багов:</span>
+                    <span id="progressPercent">65%</span>
+                </div>
+                <div style="
+                    height: 12px;
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 6px;
+                    overflow: hidden;
+                ">
+                    <div id="progressBar" style="
+                        height: 100%;
+                        width: 65%;
+                        background: linear-gradient(90deg, #ff0055, #ff00ff, #00ffff);
+                        border-radius: 6px;
+                        animation: progressPulse 2s infinite;
+                    "></div>
+                </div>
+            </div>
+            
+            <!-- Анимация загрузки -->
+            <div style="
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin: 30px 0;
+            ">
+                <div style="
+                    width: 15px;
+                    height: 15px;
+                    background: #ff0055;
+                    border-radius: 50%;
+                    animation: bounce 1.4s infinite;
+                "></div>
+                <div style="
+                    width: 15px;
+                    height: 15px;
+                    background: #00ffff;
+                    border-radius: 50%;
+                    animation: bounce 1.4s infinite 0.2s;
+                "></div>
+                <div style="
+                    width: 15px;
+                    height: 15px;
+                    background: #ffff00;
+                    border-radius: 50%;
+                    animation: bounce 1.4s infinite 0.4s;
+                "></div>
+                <div style="
+                    width: 15px;
+                    height: 15px;
+                    background: #00ff00;
+                    border-radius: 50%;
+                    animation: bounce 1.4s infinite 0.6s;
+                "></div>
+            </div>
+            
+            <!-- Контакты -->
+            <div style="
+                margin-top: 40px;
+                padding-top: 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                color: #888;
+                font-size: 0.9rem;
+            ">
+                Вернёмся через: <span id="gepardTimer">14:35</span><br>
+                <small>Следите за обновлениями в нашем YouTube</small>
+            </div>
+        </div>
+        
+        <!-- Шестерёнка -->
+        <div style="
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            animation: rotate 10s linear infinite;
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.6);
+        ">⚙</div>
+    </div>
+</div>
+
+<style>
+    @keyframes rainbow {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 400% 50%; }
+    }
+    
+    @keyframes glitch {
+        0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+        10% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, 2px); }
+        20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -2px); }
+        30% { clip-path: inset(40% 0 20% 0); transform: translate(-2px, -2px); }
+    }
+    
+    @keyframes scan {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 1000px; }
+    }
+    
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    @keyframes bounce {
+        0%, 80%, 100% { transform: scale(0); }
+        40% { transform: scale(1); }
+    }
+    
+    @keyframes progressPulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+    }
+</style>
+
+<script>
+    // Блокировка всего на сайте
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }, true);
+    
+    document.addEventListener('keydown', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }, true);
+    
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }, true);
+    
+    // Анимация прогресс-бара
+    let progress = 65;
+    const progressBar = document.getElementById('progressBar');
+    const progressPercent = document.getElementById('progressPercent');
+    
+    setInterval(() => {
+        if (progress < 95) {
+            progress += Math.random() * 5;
+            if (progress > 95) progress = 95;
+            
+            progressBar.style.width = progress + '%';
+            progressPercent.textContent = Math.round(progress) + '%';
+        }
+    }, 3000);
+    
+    // Таймер
+    function updateTimer() {
+        const now = new Date();
+        const target = new Date();
+        target.setHours(target.getHours() + 1);
+        
+        const diff = target - now;
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        document.getElementById('gepardTimer').textContent = 
+            minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+    }
+    
+    setInterval(updateTimer, 1000);
+    updateTimer();
+    
+    // Секретный код для временного доступа (на случай если нужно посмотреть)
+    let secretCode = '';
+    document.addEventListener('keydown', function(e) {
+        secretCode += e.key;
+        if (secretCode.length > 10) secretCode = secretCode.slice(-10);
+        
+        // Код для временного отключения заглушки: gepard2026
+        if (secretCode.includes('gepard2026')) {
+            document.getElementById('gepardMaintenance').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+</script>
 </body>
 </html>
